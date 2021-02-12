@@ -55,19 +55,19 @@ define("TEMPLATE_PATH", "/fragment/themes/cyborgconsulting/");
 /*
  * Path that points to css resources of sartoria theme.
  */
-define("CSS_PATH", sprintf("%sdesign/css/",TEMPLATE_PATH));
+define("CSS_PATH", sprintf("%sdesign/styles/",TEMPLATE_PATH));
 
 
 /*
  * Path that points to img resources of sartoria theme.
  */
-define("IMGS_PATH", sprintf("%sdesign/imgs/",TEMPLATE_PATH));
+define("IMGS_PATH", sprintf("%sdesign/images/",TEMPLATE_PATH));
 
 
 /*
  * Path that points to js resources of sartoria theme.
  */
-define("JS_PATH", sprintf("%sdesign/js/",TEMPLATE_PATH));
+define("JS_PATH", sprintf("%sdesign/scripts/",TEMPLATE_PATH));
 
 
 /*

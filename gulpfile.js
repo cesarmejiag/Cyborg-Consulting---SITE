@@ -18,11 +18,11 @@ const srcPath = {
 }
 
 const destPath = {
-    styles : 'html/design/styles' ,
-    fonts  : 'html/design/fonts'  ,
-    images : 'html/design/images' ,
-    scripts: 'html/design/scripts',
-    root   : 'html'
+    styles : 'html/fragment/themes/cyborgconsulting/design/styles' ,
+    fonts  : 'html/fragment/themes/cyborgconsulting/design/fonts'  ,
+    images : 'html/fragment/themes/cyborgconsulting/design/images' ,
+    scripts: 'html/fragment/themes/cyborgconsulting/design/scripts',
+    root   : 'html/fragment/themes/cyborgconsulting'
 }
 
 

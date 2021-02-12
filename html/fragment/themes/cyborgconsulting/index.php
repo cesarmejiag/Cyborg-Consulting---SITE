@@ -1,3 +1,8 @@
+<?php
+include_once "globals.php";
+include_once "utils/fragment_helpers.php";
+
+?>
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/Thing" lang="es-MX">
     <head>
@@ -12,62 +17,135 @@
         <!-- Outer wrapper -->
         <div class="outer-wrapper">
 
-            <!-- Block  -->
-            <section class="block " id="">
+            <!-- Block Cover -->
+            <section class="block cover" id="home">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header">
-                            <!-- Block Header -->
-                        </div>
+                        <div class="header"></div>
                         <div class="content">
-                            <!-- Block Content -->
+                            
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- /. -->
-            
+            <!-- /.Cover -->
+
+            <!-- Block Us -->
+            <section class="block us" id="nosotros">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Us -->
+
+            <!-- Block Services -->
+            <section class="block services" id="servicios">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Services -->
+
+            <!-- Block Ribbon -->
+            <section class="block ribbon" id="cintillo">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Ribbon -->
+
+            <!-- Block RPA & Automatization -->
+            <section class="block rpa-automatization" id="rpa-automatization">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.RPA & Automatization -->
+
+            <!-- Block Industries -->
+            <section class="block industries" id="industrias">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Industries -->
+
+            <!-- Block Parners -->
+            <section class="block partners" id="socios-estrategicos">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Parners -->
+
+            <!-- Block Clients -->
+            <section class="block clients" id="clientes">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Clients -->
+
             <!-- Block Contact -->
             <section class="block contact" id="contacto">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header">
-                            <h2 class="title">Contacto</h2>
-                        </div>
+                        <div class="header"></div>
                         <div class="content">
-
-                            <!-- Contact Info -->
-                            <div class="contact-info">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="phones">
-                                            <div><a href="tel:0000000000">(000) 000 0000</a></div>
-                                            <div><a href="tel:0000000000">(000) 000 0000</a></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="address">
-                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Contact Form -->
-                            <form class="contact-form">
-                                <input name="Nombre" placeholder="Nombre" type="text">
-                                <input name="Email" placeholder="Email" type="text">
-                                <textarea name="Mensaje" placeholder="Mensaje"></textarea>
-
-                                <input type="submit" value="Enviar">
-                            </form>
-
+                            
                         </div>
                     </div>
                 </div>
             </section>
             <!-- /.Contact -->
+
+            <!-- Block Ebook -->
+            <section class="block ebook" id="ebook">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header"></div>
+                        <div class="content">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Ebook -->
 
             <!-- Footer -->
             <?php include_once "partials/footer.php" ?>
