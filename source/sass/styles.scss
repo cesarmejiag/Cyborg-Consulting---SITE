@@ -52,6 +52,7 @@ body {
 
 .button {
   background-color: $highlight-color;
+  border-color: $highlight-color;
   border-radius: 2px;
   color: #fff !important;
   display: inline-block;
@@ -60,9 +61,20 @@ body {
   letter-spacing: 1.4px;
   min-width: 115px;
   padding: 12px 12px;
+  outline: none;
   text-align: center;
   text-decoration: none !important;
-  text-transform: uppercase;
+  text-transform: uppercase;  
+}
+
+.button:hover, .button:active {
+  background-color: #fff;
+  border-color: $highlight-color;
+  color: $highlight-color !important;
+}
+
+.bg-highlight-color {
+  background-color: $highlight-color;
 }
 
 /* Outer wrapper */
@@ -89,6 +101,10 @@ body {
     margin-top: 0;
     text-align: center;
   }
+
+  .normal-size-title {
+    font-size: 12px
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -106,7 +122,12 @@ body {
 
     .title {
       font-size: 38px;
+    }     
+    
+    .normal-size-title {
+      font-size: 14px
     }
+
   }
 }
 
@@ -117,9 +138,10 @@ body {
 
   /* Block */
   .block {
-    padding: 65px 0;
-  }
+    padding: 65px 0;    
+  }  
 }
+
 
 @import "components/navigation";
 @import "components/contact-form";
@@ -127,4 +149,8 @@ body {
 
 @import "components/home/cover";
 @import "components/home/ebook";
+@import "components/home/us";
+
 @import "sections/contact";
+
+@import "mixins/spacing"

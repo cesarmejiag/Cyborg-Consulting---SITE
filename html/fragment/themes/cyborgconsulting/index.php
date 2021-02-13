@@ -31,9 +31,80 @@ include_once "utils/fragment_helpers.php";
             <section class="block us" id="nosotros">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
                         <div class="content">
-                            
+                            <div class="row flex-column-reverse flex-md-row">
+                                <div class="col-12 col-md-6">
+                                    <div class="images">
+                                        <?php
+                                        $imgNosotros = IMGS_PATH . 'nosotros1.jpg';
+                                        $img_src = sprintf('background-image:url(%s)', $imgNosotros)
+                                        ?>
+                                        <div class="main-image position-relative" style="<?= $img_src ?>">
+                                            <div class="side-image d-none d-lg-block position-absolute">
+                                                <img src="<?= IMGS_PATH ?>nosotros2.jpg" alt="nosotros2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div>
+                                        <div class="pb-3 pt-0 py-sm-4">
+                                            <h2 class="text-start title mt-sm-4">Nosotros</h2>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Somos una consultoría boutique de TI, con amplia experiencia en hiperautomatización
+                                                de procesos clave, los que impulsan a las organizaciones de las diversas industrias
+                                                a alcanzar sus objetivos, mejorando su eficiencia, reduciendo costos y aumentando su
+                                                productividad.
+                                            </p>
+                                            <p>
+                                                Contamos con las siguientes divisiones de negocio:
+                                            </p>
+                                        </div>
+                                        <div class="row align-items-start m-t-45">
+                                            <div class="col-6 col-lg-3 text-center">
+                                                <div class="img m-b-26">
+                                                    <img class="img-fluid" src="<?= IMGS_PATH ?>icon-chip.svg" alt="chip">
+                                                </div>
+                                                <div class="title normal-size-title text-wrap text-break">
+                                                    TECNOLOGIA
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 text-center">
+                                                <div class="img m-b-26">
+                                                    <img class="img-fluid" src="<?= IMGS_PATH ?>icon-gear.svg" alt="gear">
+                                                </div>
+                                                <div class="title normal-size-title text-wrap text-break">
+                                                    CONSULTORIA ESPECIALIZADA
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 text-center">
+                                                <div class="img m-b-26">
+                                                    <img class="img-fluid" src="<?= IMGS_PATH ?>icon-arm.svg" alt="arm">
+                                                </div>
+                                                <div class="title normal-size-title text-wrap text-break">
+                                                    IMPLEMENTACIONES
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-lg-3 text-center">
+                                                <div class="img m-b-26">
+                                                    <img class="img-fluid" src="<?= IMGS_PATH ?>icon-gears.svg" alt="gears">
+                                                </div>
+                                                <div class="title title normal-size-title text-wrap text-break">
+                                                    OPERACIONES Y
+                                                    MANTENIMIENTO
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-mas m-t-30 mb-4 mb-md-0">
+                                            <button class="btn btn-primary button d-block text-uppercase text-white">
+                                                Ver Más
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

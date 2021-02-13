@@ -1,0 +1,42 @@
+.block.us {
+    overflow: hidden;
+    .button {
+        min-width: 100px;
+        line-height: 30%;
+        margin: 0 auto;
+    }
+    .main-image {
+        padding-bottom: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        
+    }
+    .side-image {
+        right: -5%;
+        bottom: -15%;
+    }
+}
+
+@media (min-width: 768px) {
+    .block.us {
+        .main-image {
+            padding-bottom: 410px;
+            max-width: 485px;    
+        }
+        .button {
+            margin-left:0
+        }
+    }
+}
+
+@media (min-width: 1150px) {
+    .block.us {
+        .side-image {
+            max-width: 300px;
+            right: -25%;
+            bottom: -15%;
+        }
+    }
+}
