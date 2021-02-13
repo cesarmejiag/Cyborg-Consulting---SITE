@@ -8,10 +8,11 @@
 @import "_fonts.scss";
 
 $text-color: #000;
-$highlight-color: #E8511D;
+$highlight-color: #e8511d;
 $font-regular: "Roboto", sans-serif;
 $font2-regular: "Avenir Book", sans-serif;
 $font-heavy: "Avenir-Heavy", sans-serif;
+$font-black: "Avenir-Black", sans-serif;
 
 body {
   color: $text-color;
@@ -83,4 +84,5 @@ body {
 @import "components/contact-form";
 @import "components/footer";
 
+@import "components/home/cover";
 @import "sections/contact";
