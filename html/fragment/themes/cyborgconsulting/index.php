@@ -146,10 +146,10 @@ include_once "utils/fragment_helpers.php";
                 </div>
             </section>
             <!-- /.Ebook -->
-
-            <!-- Footer -->
-            <?php include_once "partials/footer.php" ?>
         </div>
+
+        <!-- Footer -->
+        <?php include_once "partials/footer.php" ?>
 
         <!-- Page Scripts -->
         <?php include_once "partials/scripts.php" ?>

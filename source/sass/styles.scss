@@ -5,12 +5,18 @@
     Description:
 */
 
-@import "fonts.scss";
+@import "_fonts.scss";
+
+$text-color: #000;
+$highlight-color: #E8511D;
+$font-regular: "Roboto", sans-serif;
+$font2-regular: "Avenir Book", sans-serif;
+$font-heavy: "Avenir-Heavy", sans-serif;
 
 body {
-  color: #333;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  color: $text-color;
+  font-family: $font-regular;
+  font-size: 18px;
 
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -31,14 +37,17 @@ body {
 
 .holder {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1300px;
   width: 100%;
 }
 
 /* Outer wrapper */
 .outer-wrapper {
+  background-color: #fff;
+  margin-bottom: 135px;
   margin-top: 75px;
   position: relative;
+  z-index: 1;
 }
 
 /* Block */
@@ -50,8 +59,23 @@ body {
   }
 
   .title {
+    color: $highlight-color;
+    font-family: $font-heavy;
+    font-size: 38px;
     margin-top: 0;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .outer-wrapper {
+    margin-bottom: 360px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .outer-wrapper {
+    margin-bottom: 325px;
   }
 }
 
