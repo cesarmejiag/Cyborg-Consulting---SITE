@@ -19,14 +19,11 @@ include_once "utils/fragment_helpers.php";
 
             <!-- Block Cover -->
             <section class="block cover" id="home">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content">
-                            
-                        </div>
-                    </div>
-                </div>
+                <h1 class="title">Leading The<br />HYPERAUTOMATIZATION REVOLUTION!</h1>
+                <video autoplay muted loop>
+                    <source src="<?= TEMPLATE_PATH ?>videos/cover-home.mp4" type="video/mp4">
+                    <!-- Add image as fallback -->
+                </video>
             </section>
             <!-- /.Cover -->
 
