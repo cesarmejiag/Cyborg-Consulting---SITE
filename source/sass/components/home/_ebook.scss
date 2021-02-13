@@ -1,0 +1,41 @@
+.ebook {
+  background-color: #d8d8d8;
+
+  // Override
+  .holder {
+    max-width: 870px;
+  }
+
+  .image {
+    margin: -40% 0 20px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    .title {
+      font-size: 25px;
+      line-height: 105%;
+      text-align: left;
+    }
+  }
+
+  .content {
+    line-height: 135%;
+    margin-bottom: 30px;
+
+    b,
+    strong {
+      font-family: $font-black;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .ebook {
+    .header {
+      .title {
+        font-size: 34px;
+      }
+    }
+  }
+}

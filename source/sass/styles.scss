@@ -17,7 +17,7 @@ $font-black: "Avenir-Black", sans-serif;
 body {
   color: $text-color;
   font-family: $font-regular;
-  font-size: 18px;
+  font-size: 16px;
 
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -42,6 +42,29 @@ body {
   width: 100%;
 }
 
+.img-fluid-wr {
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+.button {
+  background-color: $highlight-color;
+  border-radius: 2px;
+  color: #fff !important;
+  display: inline-block;
+  font-family: $font2-regular;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  min-width: 115px;
+  padding: 12px 12px;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
 /* Outer wrapper */
 .outer-wrapper {
   background-color: #fff;
@@ -53,7 +76,7 @@ body {
 
 /* Block */
 .block {
-  padding: 65px 0;
+  padding: 30px 0;
 
   .header {
     margin-bottom: 35px;
@@ -62,21 +85,39 @@ body {
   .title {
     color: $highlight-color;
     font-family: $font-heavy;
-    font-size: 38px;
+    font-size: 25px;
     margin-top: 0;
     text-align: center;
   }
 }
 
 @media screen and (min-width: 576px) {
+  .body {
+    font-size: 18px;
+  }
+
   .outer-wrapper {
     margin-bottom: 360px;
+  }
+
+  /* Block */
+  .block {
+    padding: 40px 0;
+
+    .title {
+      font-size: 38px;
+    }
   }
 }
 
 @media screen and (min-width: 768px) {
   .outer-wrapper {
     margin-bottom: 325px;
+  }
+
+  /* Block */
+  .block {
+    padding: 65px 0;
   }
 }
 
@@ -85,4 +126,5 @@ body {
 @import "components/footer";
 
 @import "components/home/cover";
+@import "components/home/ebook";
 @import "sections/contact";

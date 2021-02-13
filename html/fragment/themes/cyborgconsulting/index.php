@@ -135,9 +135,21 @@ include_once "utils/fragment_helpers.php";
             <section class="block ebook" id="ebook">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content">
-                            
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="image img-fluid-wr">
+                                    <img src="<?= IMGS_PATH ?>ebook-image.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="header">
+                                    <h2 class="title">¡Solicita tu ebook de la hiperautomatización!</h2>
+                                </div>
+                                <div class="content">
+                                    <div><b>Completa el siguiente formulario y recibe tu ebook acerca de la hiperautomatización.</b></div>
+                                </div>
+                                <a class="button" href="#">Ver más</a>
+                            </div>
                         </div>
                     </div>
                 </div>
