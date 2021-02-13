@@ -22,8 +22,7 @@ $breakpoints:(sm, md, lg);
     }
 
     .p-#{str-slice($side, 0, 1)}-#{$space} {
-      padding-#{$side}: #{$space}px !important;
-      @debug "padding-#{$side}"
+      padding-#{$side}: #{$space}px !important;      
     }
   }
 }
