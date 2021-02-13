@@ -1,0 +1,16 @@
+.block.services {
+    a {
+        text-decoration: none;
+    }
+    .item {
+        background: $highlight-color; 
+        height: 395px;
+        max-width: 290px;
+        margin: 0 auto;
+    }
+    .label {
+        font-size: 20pxs;
+        max-width: 120px;
+        margin: 0 auto;
+    }
+}

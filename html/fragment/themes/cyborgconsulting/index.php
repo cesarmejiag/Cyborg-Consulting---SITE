@@ -115,9 +115,22 @@ include_once "utils/fragment_helpers.php";
             <section class="block services" id="servicios">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
+                        <div class="header">
+                            <h2 class="title">
+                                Servicios
+                            </h2>
+                        </div>
                         <div class="content">
-                            
+                            <div class="col-6 col-sm-3">
+                                <a class="d-block" href="#">
+                                    <div class="item d-flex align-items-center text-white text-center">
+                                        <div class="label w-100 text-uppercase">Tecnología</div>
+                                    </div>
+                                </a>                                
+                            </div>
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3"></div>
+                            <div class="col-6 col-sm-3"></div>
                         </div>
                     </div>
                 </div>
