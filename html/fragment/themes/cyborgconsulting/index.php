@@ -112,6 +112,14 @@ include_once "utils/fragment_helpers.php";
             <!-- /.Us -->
 
             <!-- Block Services -->
+            <?php $services = find_page_by_guid($services_guid, $root_pages); ?>
+            <?php $services = Page::search(array(
+                'idparent' => $services->idpage,
+                'fragments' => array('img'),
+                'sortBy' => 'created ASC'
+                ));
+            $services_pr = $services['records'];
+            ?>
             <section class="block services" id="servicios">
                 <div class="holder">
                     <div class="container-fluid">
@@ -121,16 +129,30 @@ include_once "utils/fragment_helpers.php";
                             </h2>
                         </div>
                         <div class="content">
-                            <div class="col-6 col-sm-3">
-                                <a class="d-block" href="#">
-                                    <div class="item d-flex align-items-center text-white text-center">
-                                        <div class="label w-100 text-uppercase">Tecnología</div>
-                                    </div>
-                                </a>                                
+                            <div class="row">
+                                <?php foreach ($services_pr as $service): ?>
+                                <div class="col-6 col-md-3">
+                                    <?php
+                                    $imgNosotros = IMGS_PATH . 'nosotros1.jpg'; // placeholder antes de Fragment
+                                    $image_nosotros_attrs = Fragment::elementAttributes($service->fragments['img']->value);
+                                    $image_nosotros_bg = $image_nosotros_attrs['src'];
+
+                                    empty($image_nosotros_bg)
+                                    ? $img_src = sprintf('background-image:url(%s)', $imgNosotros)
+                                    : $img_src = sprintf('background-image:url(%s)', $image_nosotros_bg);
+
+                                    ?>
+                                    <a class="d-block mb-3" href="<?= $service->key ?>">
+                                        <div class="item d-flex align-items-center text-white text-center position-relative"
+                                            style="<?= $img_src ?>"
+                                        >
+                                            <div class="label w-100 text-uppercase"><?= $service->title ?></div>
+                                            <div class="mask position-absolute"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php endforeach; ?>
                             </div>
-                            <div class="col-6 col-sm-3"></div>
-                            <div class="col-6 col-sm-3"></div>
-                            <div class="col-6 col-sm-3"></div>
                         </div>
                     </div>
                 </div>
