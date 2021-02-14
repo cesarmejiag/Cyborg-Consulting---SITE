@@ -64,7 +64,8 @@ body {
   outline: none;
   text-align: center;
   text-decoration: none !important;
-  text-transform: uppercase;  
+  text-transform: uppercase;
+  transition: background-color 355ms linear;;
 }
 
 .button:hover, .button:active {
@@ -150,6 +151,7 @@ body {
 @import "components/home/cover";
 @import "components/home/ebook";
 @import "components/home/us";
+@import "components/home/services";
 
 @import "sections/contact";
 

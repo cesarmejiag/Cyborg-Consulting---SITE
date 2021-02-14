@@ -1,0 +1,51 @@
+.block.services {
+    a {
+        text-decoration: none;
+    }
+    a {
+        height: 220px;
+    }
+    .item {
+        height: 100%;
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .label {
+        font-size: 14px;
+        max-width: 190px;
+        margin: 0 auto;
+        z-index: 1;
+    }
+    .mask {
+        background-color: #000;
+        opacity: 0.4;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .block.services {
+        .label {
+            font-size: 20px;
+        }
+        a {
+            background: $highlight-color;
+            height: 395px;
+            max-width: 290px;
+            overflow: hidden;
+        }
+        a .item {
+            transition: transform 1055ms ease-out;
+            transform: scale(1);
+        }
+        a:hover .item {
+            transform: scale(1.1);
+        }
+    }
+}
