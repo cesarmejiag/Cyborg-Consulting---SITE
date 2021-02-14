@@ -165,7 +165,7 @@ include_once "utils/fragment_helpers.php";
                     <div class="container-fluid">
                         <div class="header"></div>
                         <div class="content">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -173,12 +173,51 @@ include_once "utils/fragment_helpers.php";
             <!-- /.Ribbon -->
 
             <!-- Block RPA & Automatization -->
-            <section class="block rpa-automatization" id="rpa-automatization">
+            <?php $rpa = find_page_by_guid($rpa_guid, $root_pages); ?>
+            <?php $rpaPage = Page::search(array(
+                'idparent' => $rpa->idpage,
+                'fragments' => array('img','content'),
+                'sortBy' => 'created ASC'
+                ));
+            $rpa_pr = $rpaPage['records'];
+            ?>
+            <section class="block rpa-automatization m-t-50" id="rpa-automatization">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content">
-                            
+                        <div class="header">
+                            <h2 class="title mt-0"><?= $rpa->title ?></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="content bg-highlight-color">
+                    <div class="holder">
+                        <div class="container-fluid text-white">
+                            <div class="row justify-content-center pt-4 py-sm-0">
+                                <?php foreach($rpa_pr as $item): ?>
+                                <div class="col-12 col-sm-4">
+                                    <div class="item">
+                                        <?php
+                                        $imgPlaceHolder = IMGS_PATH . 'rpa.jpg'; // placeholder antes de Fragment
+                                        $imgRPA = Fragment::elementAttributes($item->fragments['img']->value);
+                                        ?>
+                                        <div class="img">
+                                            <?php if(empty($imgRPA)): ?>
+                                                <img src="<?= $imgPlaceHolder ?>" class="img-fluid" alt="rpa">
+                                            <?php else: ?>
+                                                <img src="<?= $imgRPA['src'] ?>" class="img-fluid" alt="<?= $imgRPA['alt'] ?>">
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="info">
+                                            <h5 class="m-t-35 m-b-35 mx-0"><?= $item->title ?></h3>
+                                            <div class="text-justify">
+                                                <?= $item->fragments['content']->value ?>
+                                            </div>
+                                        </div>
+                                        <a class="text-end text-white text-uppercase d-block" href="<?= $item->key ?>">Ver más ></a>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,7 +230,7 @@ include_once "utils/fragment_helpers.php";
                     <div class="container-fluid">
                         <div class="header"></div>
                         <div class="content">
-                            
+
                         </div>
                     </div>
                 </div>

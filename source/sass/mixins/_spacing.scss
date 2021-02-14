@@ -1,3 +1,4 @@
+
 /* Custom Paddings and Margins */
 /* Using Example
 class="p-l-10" = padding-left:10px !important;
@@ -22,7 +23,7 @@ $breakpoints:(sm, md, lg);
     }
 
     .p-#{str-slice($side, 0, 1)}-#{$space} {
-      padding-#{$side}: #{$space}px !important;      
+      padding-#{$side}: #{$space}px !important;
     }
   }
 }

@@ -78,6 +78,11 @@ body {
   background-color: $highlight-color;
 }
 
+// Deprecado en Bootstrap 5.
+.text-justify {
+  text-align: justify;
+}
+
 /* Outer wrapper */
 .outer-wrapper {
   background-color: #fff;
@@ -152,6 +157,7 @@ body {
 @import "components/home/ebook";
 @import "components/home/us";
 @import "components/home/services";
+@import "components/home/rpa";
 
 @import "sections/contact";
 
