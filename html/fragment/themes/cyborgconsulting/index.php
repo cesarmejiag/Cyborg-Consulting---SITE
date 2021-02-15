@@ -163,9 +163,14 @@ include_once "utils/fragment_helpers.php";
             <section class="block ribbon" id="cintillo">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
                         <div class="content">
-
+                            <div class="info">
+                                 <p>Aceleramos tu camino</p>
+                                 <p>hacia la transformación digital.</p>
+                            </div>
+                            <div class="image">
+                                <img class="img-fluid" src="<?= IMGS_PATH ?>high.jpg" alt="ribbon">
+                            </div>
                         </div>
                     </div>
                 </div>
