@@ -225,12 +225,42 @@ include_once "utils/fragment_helpers.php";
             <!-- /.RPA & Automatization -->
 
             <!-- Block Industries -->
+            <?php $industries = find_page_by_guid($industries_guid, $root_pages); ?>
+            <?php $industries_page = Page::search(array(
+                'idparent' => $industries->idpage,
+                'fragments' => array('img','content'),
+                'sortBy' => 'created ASC'
+                ));
+            $industries_r = $industries_page['records'];
+            ?>
             <section class="block industries" id="industrias">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content">
-
+                        <?php
+                            $imgIndutries = IMGS_PATH . 'industrias-background.jpg'; // Si no se cuenta con fragment
+                            $imgIndustriesAtts = Fragment::elementAttributes($industries->fragments['image']->value);
+                            $imgIndutries_src = sprintf('background-image:url(%s)', $imgIndustriesAtts['src'])
+                        ?>
+                        <div class="header d-flex justify-content-center align-items-center" style="<?= $imgIndutries_src ?>">
+                            <h2 class="title mx-0 text-white text-center"><?= $industries->fragments['intro']->value ?></h2>
+                        </div>
+                        <div class="content position-relative d-flex justify-content-between flex-wrap">
+                            <?php foreach ($industries_r as $page):
+                                $imgPageAtts = Fragment::elementAttributes($page->fragments['img']->value);
+                                $imgPage_src = sprintf('background-image:url(%s)', $imgPageAtts['src'])
+                            ?>
+                            <a class="item position-relative" style="<?= $imgPage_src ?>" href="/<?= $industries->key . '#' . $page->key ?> ">
+                                <div class="item-content">
+                                    <div class="item-title text-center text-white text-uppercase">
+                                        <?= $page->title ?>
+                                    </div>
+                                    <div class="item-info text-center text-white">
+                                        <?= $page->fragments['content']->value ?>
+                                    </div>
+                                    <div class="item-more text-center text-white text-uppercase">Ver más</div>
+                                </div>
+                            </a>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
