@@ -160,7 +160,11 @@ body {
 @import "components/home/rpa";
 @import "components/home/industries";
 @import "components/home/ribbon";
+@import "components/home/clients";
+
 
 @import "sections/contact";
 
-@import "mixins/spacing"
+@import "mixins/spacing";
+
+@import "util_carrousel/utilCarrousel";

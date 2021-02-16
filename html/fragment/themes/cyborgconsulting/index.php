@@ -289,9 +289,59 @@ include_once "utils/fragment_helpers.php";
             <section class="block clients" id="clientes">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
+                        <div class="header">
+                            <h2 class="text-center title">Nuestros Clientes</h2> 
+                        </div>
                         <div class="content">
-                            
+                            <div class="carrousel">
+                                <div class="util-carrousel gallery-thumb">
+                                    <div class="thumb align-top">
+                                        <div class="image">
+                                            <div class="content">
+                                                <div class="img-content">
+                                                    <img src="<?= IMGS_PATH ?>carrusel-serverware.jpg" alt="carrusel" class="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumb align-top">
+                                        <div class="image">
+                                            <div class="content">
+                                                <div class="img-content">
+                                                    <img src="<?= IMGS_PATH ?>carrusel-serverware.jpg" alt="carrusel" class="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumb align-top">
+                                        <div class="image">
+                                            <div class="content">
+                                                <div class="img-content">
+                                                    <img src="<?= IMGS_PATH ?>carrusel-serverware.jpg" alt="carrusel" class="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumb align-top">
+                                        <div class="image">
+                                            <div class="content">
+                                                <div class="img-content">
+                                                    <img src="<?= IMGS_PATH ?>carrusel-serverware.jpg" alt="carrusel" class="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thumb align-top">
+                                        <div class="image">
+                                            <div class="content">
+                                                <div class="img-content">
+                                                    <img src="<?= IMGS_PATH ?>carrusel-serverware.jpg" alt="carrusel" class="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

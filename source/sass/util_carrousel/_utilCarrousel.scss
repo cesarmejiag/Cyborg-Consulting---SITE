@@ -1,0 +1,91 @@
+/* Util */
+.clearfix:before,
+.clearfix:after{
+  content: '';
+  display: table;
+}
+
+.clearfix:after{ clear: both; }
+
+.util-carrousel{
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.util-carrousel .carrousel-wrapper{
+  margin: 0 auto;
+  overflow: hidden;
+  width: 90%;
+}
+
+.util-carrousel .thumbs-container{ }
+
+.carrousel .prev-button,
+.carrousel .next-button{
+  background-color: #128aff;
+  cursor: pointer;
+  height: 20px;
+  margin: -10px 0 0;
+  position: absolute;
+  top: 50%;
+  width: 20px;
+}
+
+.util-carrousel .thumb{
+  float: left;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+.util-carrousel .thumb .image{
+  margin-bottom: 15px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.util-carrousel .thumb .image .inner-image{
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.util-carrousel .thumb .image img{
+  display: none;
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.util-carrousel .thumb .title{
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.util-carrousel .thumb .description{
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.util-carrousel .thumb .button {
+  background-color: #128aff;
+  border-radius: .2em;
+  color: white;
+  display: inline-block;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/*
+@media (max-width: 767px)
+  .block.carrousel .content .carrousel
+    width 100% !important
+  .block.carrousel .content .carrousel .util-carrousel
+    width 100% !important
+*/
