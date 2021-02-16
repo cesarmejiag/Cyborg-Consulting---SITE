@@ -59,7 +59,7 @@ foreach ($root_pages as $option) {
                 <?= $listOpts ?>
             </ul>
 
-            <div class="nav-contact visible-xs">
+            <div class="nav-contact d-block d-lg-none">
                 <div class="logo">
                     <img alt="<?= SITE_NAME ?>" class="img-responsive" src="<?= IMGS_PATH ?>logo.svg">
                 </div>
@@ -69,7 +69,7 @@ foreach ($root_pages as $option) {
         </div>
 
         <!-- Toggle Button -->
-        <button class="toggle-btn visible-xs">
+        <button class="toggle-btn d-block d-lg-none">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>

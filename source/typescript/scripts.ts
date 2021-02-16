@@ -20,17 +20,30 @@
         },
 
         homeCarousel() {
-            let utilC = $(".block.clients .util-carrousel");
-            if (!utilC) return;
+            let utilC = $('.block.clients .util-carrousel');
+            let utilP = $('.block.partners .util-carrousel');
+            if (!utilC || !utilP) return;
 
-            let carrousel = new util.Carrousel(
+            let carrouselClients = new util.Carrousel(
                 utilC,
                 {
                     autoPlay: true,
-                    easing: "linear",
+                    easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
                     thumbsToDisplay: 5,
+                    scaleImages: true,
+                    scrollSpeed: 5000,
+                }
+            );
+            let carrouselPartners = new util.Carrousel(
+                utilP,
+                {
+                    autoPlay: true,
+                    easing: 'linear',
+                    delay: 4990,
+                    infiniteScroll: true,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }
