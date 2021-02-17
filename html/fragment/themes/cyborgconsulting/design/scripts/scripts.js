@@ -1,1 +1,20 @@
-!function(){"use strict";function e(e,i){return(i||document).querySelector(e)}"serviceWorker"in navigator&&navigator.serviceWorker.register("sw.js").then(function(e){console.log("Service worker registered.")}).catch(function(e){console.log("Can not find service worker.")});var i={init:function(){i.homeCarousel(),i.Navigation.init()},homeCarousel:function(){var e=$(".block.clients .util-carrousel"),i=$(".block.partners .util-carrousel");e&&i&&(new util.Carrousel(e,{autoPlay:!0,easing:"linear",delay:4990,infiniteScroll:!0,thumbsToDisplay:5,scaleImages:!0,scrollSpeed:5e3}),new util.Carrousel(i,{autoPlay:!0,easing:"linear",delay:4990,infiniteScroll:!0,thumbsToDisplay:3,scaleImages:!0,scrollSpeed:5e3}))},Navigation:{toggleBtn:null,navigation:null,wrapper:null,init:function(){this.navigation=e(".navigation",null),this.toggleBtn=e(".toggle-btn",this.navigation),this.wrapper=e(".list-wrapper",this.navigation),this.toggleCollapsed=this.toggleCollapsed.bind(this),this.toggleBtn.addEventListener("click",this.toggleCollapsed)},toggleCollapsed:function(){this.wrapper.classList.contains("list-collapsed")?this.wrapper.classList.remove("list-collapsed"):this.wrapper.classList.add("list-collapsed")}}};i.init()}();
+(function () {
+    'use strict';
+    if ("serviceWorker" in navigator) {
+        var swPath = 'sw.js';
+        navigator.serviceWorker.register(swPath)
+            .then(function (res) { console.log('Service worker registered.'); })
+            .catch(function (res) { console.log('Can not find service worker.'); });
+    }
+    var Page = {
+        init: function () {
+            Page.homeCarousel();
+        },
+        homeCarousel: function () {
+            var utilC = $('.block.clients .util-carrousel');
+            var utilP = $('.block.partners .util-carrousel');
+            console.log(utilC);
+        }
+    };
+    Page.init();
+})();
