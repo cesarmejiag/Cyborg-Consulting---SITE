@@ -14,9 +14,13 @@
             .catch(res => { console.log('Can not find service worker.') })
     }
 
+    let q = (selector, target) => (target || document).querySelector(selector);
+    let qa = (selector, target) => (target || document).querySelectorAll(selector);
+
     const Page = {
         init() {
             Page.homeCarousel();
+            Page.Navigation.init();
         },
 
         homeCarousel() {
@@ -48,6 +52,27 @@
                     scrollSpeed: 5000,
                 }
             )
+        },
+        Navigation: {
+            toggleBtn: null,
+            navigation: null,
+            wrapper: null,
+            init() {
+                this.navigation = q('.navigation', null);
+                this.toggleBtn = q('.toggle-btn', this.navigation);
+                this.wrapper = q('.list-wrapper', this.navigation);
+
+                this.toggleCollapsed = this.toggleCollapsed.bind(this);
+                this.toggleBtn.addEventListener('click', this.toggleCollapsed);
+            },
+            toggleCollapsed() {
+                if (this.wrapper.classList.contains('list-collapsed')) {
+                    this.wrapper.classList.remove('list-collapsed');
+                }
+                else {
+                    this.wrapper.classList.add('list-collapsed');
+                }
+            }
         }
     }
 

@@ -8,19 +8,19 @@ if (!is_home()) {
 
 // region List
 foreach ($root_pages as $option) {
-    if ($create_guid === $option->guid) {
+
+    // Remove Home option from menu
+    if ($option->key === 'home') {
         continue;
     }
 
     $classes = "";
     $href = "";
+    $submenu = '';
 
     // region Personalize href.
     if ($team_guid === $option->guid) {
         $href .= $option->key;
-    } else if ($services_guid === $option->guid) {
-        $create_section = find_page_by_guid($create_guid, $root_pages);
-        $href .= $create_section->key;
     } else {
         if (is_home()) {
             $classes = 'scroll-to';
@@ -31,6 +31,18 @@ foreach ($root_pages as $option) {
     }
     // endregion
 
+    // region Personalize submenu
+    if ($option->guid === $us_guid || $option->guid === $services_guid || $option->guid === $rpa_guid || $option->guid === $industries_guid) {
+        $submenu = '<ul class="submenu-list list">';
+        foreach ($option->children as $option_sub) {
+            $submenu .= '<li class="d-block li-submenu w-100"><a href="/' . $option->key . '/#' . $option_sub->key . '" class="">' . $option_sub->title . '</a></li>';
+        }
+        $submenu .= '</ul>';        
+        $classes .= ' with-submenu ';
+    }
+
+    // endregion
+
     // region Personalize title.
     $title = $option->title;
 
@@ -39,7 +51,7 @@ foreach ($root_pages as $option) {
     }
     // endregion
 
-    $listOpts .= '<li><a class="' . $classes . '" href="' . $href . '">' . $title . '</a></li>';
+    $listOpts .= '<li class="li-menu"><a class="' . $classes . '" href="' . $href . '">' . $title . '</a>' . $submenu . '</li>';
 }
 
 // endregion
@@ -47,10 +59,10 @@ foreach ($root_pages as $option) {
 ?>
 
 <nav class="navigation <?= implode(" ", $navClasses) ?>">
-    <div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
         <!-- Logo -->
         <a class="logo <?= (is_home()) ? "no-visible" : "" ?>" href="/">
-            <img alt="<?= SITE_NAME ?>" class="img-responsive" src="<?= IMGS_PATH ?>logo.svg">
+            <img alt="<?= SITE_NAME ?>" class="img-fluid" src="<?= IMGS_PATH ?>logo.svg">
         </a>
 
         <!-- List Wrapper -->
@@ -59,13 +71,12 @@ foreach ($root_pages as $option) {
                 <?= $listOpts ?>
             </ul>
 
-            <div class="nav-contact d-block d-lg-none">
+            <!-- <div class="nav-contact d-block d-lg-none">
                 <div class="logo">
-                    <img alt="<?= SITE_NAME ?>" class="img-responsive" src="<?= IMGS_PATH ?>logo.svg">
+                    <img alt="<?= SITE_NAME ?>" class="img-fluid" src="<?= IMGS_PATH ?>logo.svg">
                 </div>
-
-                <?php include "social.php"; ?>
-            </div>
+                
+            </div> -->
         </div>
 
         <!-- Toggle Button -->
