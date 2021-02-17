@@ -1,28 +1,50 @@
-const { src, dest, watch, series } = require( 'gulp' )
-    , sass         = require( 'gulp-sass' )
-    , autoprefixer = require( 'gulp-autoprefixer' )
-    , uglify       = require( 'gulp-uglify' )
-    , ts           = require( 'gulp-typescript' )
-    , favicons     = require( 'gulp-favicons' )
-    , webp         = require( 'gulp-webp' )
-    , livereload   = require( 'gulp-livereload' )
+const { src, dest, watch, series } = require('gulp')
+    , sass = require('gulp-sass')
+    , autoprefixer = require('gulp-autoprefixer')
+    , uglify = require('gulp-uglify')
+    , ts = require('gulp-typescript')
+    , favicons = require('gulp-favicons')
+    , webp = require('gulp-webp')
+    , livereload = require('gulp-livereload')
+    , merge = require('merge-stream')
+    , rename = require('gulp-rename')
 
 
 const srcPath = {
-    fonts  : 'source/fonts'     ,
-    images : 'source/images'    ,
-    scripts: 'source/scripts'   ,
-    sass   : 'source/sass'      ,
-    ts     : 'source/typescript',
-    root   : 'source'
+    fonts: 'source/fonts',
+    images: 'source/images',
+    scripts: 'source/scripts',
+    sass: 'source/sass',
+    ts: 'source/typescript',
+    root: 'source'
 }
 
 const destPath = {
-    styles : 'html/fragment/themes/cyborgconsulting/design/styles' ,
-    fonts  : 'html/fragment/themes/cyborgconsulting/design/fonts'  ,
-    images : 'html/fragment/themes/cyborgconsulting/design/images' ,
+    styles: 'html/fragment/themes/cyborgconsulting/design/styles',
+    fonts: 'html/fragment/themes/cyborgconsulting/design/fonts',
+    images: 'html/fragment/themes/cyborgconsulting/design/images',
     scripts: 'html/fragment/themes/cyborgconsulting/design/scripts',
-    root   : 'html/fragment/themes/cyborgconsulting'
+    root: 'html/fragment/themes/cyborgconsulting'
+}
+
+
+/**
+ * Generate dependencies files.
+ * @param {function} callback 
+ */
+function dependencies(callback) {
+    const files = [
+        `node_modules/requirejs/require.js`
+    ]
+
+    const requirejs = src(files[0])
+        .pipe(uglify())
+        .pipe(rename(function (path) {
+            path.basename = `${path.basename}.min`
+        }))
+        .pipe(dest(`${destPath.scripts}`))
+
+    return merge(requirejs)
 }
 
 
@@ -30,7 +52,7 @@ const destPath = {
  * Generate favicons for all devices.
  * @param {function} callback 
  */
-function favico ( callback ) {
+function favico(callback) {
     const settings = {
         appName: "PL App",
         appShortName: "PL App",
@@ -46,7 +68,7 @@ function favico ( callback ) {
         start_url: "/?homescreen=1",
         version: 1.0,
         logging: false,
-        html: `${ destPath }/index.html`,
+        html: `${destPath}/index.html`,
         pipeHTML: true,
         replace: true,
         icons: {
@@ -63,9 +85,9 @@ function favico ( callback ) {
         }
     }
 
-    return src( `${ srcPath.root }/favicon.png` )
-        .pipe( favicons( settings ) )
-        .pipe( dest(`${ destPath.root }/favicons`) )
+    return src(`${srcPath.root}/favicon.png`)
+        .pipe(favicons(settings))
+        .pipe(dest(`${destPath.root}/favicons`))
 }
 
 
@@ -73,11 +95,11 @@ function favico ( callback ) {
  * Copy fonts to production folder.
  * @param {function} callback 
  */
-function fonts ( callback ) {
-    const files = `${ srcPath.fonts }/*.{eot,woff,woff2,ttf,svg,otf}`
+function fonts(callback) {
+    const files = `${srcPath.fonts}/*.{eot,woff,woff2,ttf,svg,otf}`
 
-    return src( files )
-        .pipe( dest( `${ destPath.fonts }` ) )
+    return src(files)
+        .pipe(dest(`${destPath.fonts}`))
 }
 
 
@@ -85,11 +107,11 @@ function fonts ( callback ) {
  * Copy images to production folder.
  * @param {function} callback 
  */
-function images ( callback ) {
-    const files = `${ srcPath.images }/**.{jpg,jpeg,png,svg,webp}`
+function images(callback) {
+    const files = `${srcPath.images}/**.{jpg,jpeg,png,svg,webp}`
 
-    return src( files )
-        .pipe( dest( `${ destPath.images }` ) )
+    return src(files)
+        .pipe(dest(`${destPath.images}`))
 }
 
 
@@ -97,20 +119,20 @@ function images ( callback ) {
  * Compiles sass files to generate production styles.
  * @param {function} callback 
  */
-function scss ( callback ) {
+function scss(callback) {
     const sassSettings = {
         outputStyle: 'compressed'
     }
 
     const autoprefixerSettings = {
-        browsers: [ 'last 2 versions' ],
+        browsers: ['last 2 versions'],
         cascade: false
     }
 
-    return src( `${ srcPath.sass }/styles.scss` )
-        .pipe( sass( sassSettings ) )
-        .pipe( autoprefixer( autoprefixerSettings ) )
-        .pipe( dest( `${ destPath.styles }` ) )
+    return src(`${srcPath.sass}/styles.scss`)
+        .pipe(sass(sassSettings))
+        .pipe(autoprefixer(autoprefixerSettings))
+        .pipe(dest(`${destPath.styles}`))
 
 }
 
@@ -119,25 +141,28 @@ function scss ( callback ) {
  * Compiles ts files to generate production scripts.
  * @param {function} callback 
  */
-function typescript ( callback ) {
+function typescript(callback) {
     const files = [
-        `${ srcPath.ts }/scripts.ts`
+        `${srcPath.ts}/scripts.ts`
     ]
 
     const settings = {
         allowJs: true,
         module: 'amd',
-        outDir: `${ destPath.scripts }`,
+        noImplicitAny: false,
+        removeComments: true,
+        preserveConstEnums: true,
+        outDir: `${destPath.scripts}`,
         outFile: `scripts.js`,
-        rootDir: `${ srcPath.ts }`,
+        rootDir: `${srcPath.ts}`,
         sourceMap: true,
         target: 'ES5'
     }
 
-    return src( files )
-        .pipe( ts( settings ) )
-        .pipe( uglify( ) )
-        .pipe( dest( `${ destPath.scripts }` ) )
+    return src(files)
+        .pipe(ts(settings))
+        // .pipe(uglify())
+        .pipe(dest(`${destPath.scripts}`))
 }
 
 
@@ -145,17 +170,17 @@ function typescript ( callback ) {
  * Handle watch event.
  * @param {function} callback 
  */
-function watcher ( callback ) {
+function watcher(callback) {
     const files = [
-        `${ srcPath.fonts }/**/*.{otf,ttf,woff,svg}`,
-        `${ srcPath.imgs }/**/*.{jpg,jpeg,svg,png}`,
-        `${ srcPath.sass }/**/*.scss`,
-        `${ srcPath.ts }/**/*.ts`
+        `${srcPath.fonts}/**/*.{otf,ttf,woff,svg}`,
+        `${srcPath.imgs}/**/*.{jpg,jpeg,svg,png}`,
+        `${srcPath.sass}/**/*.scss`,
+        `${srcPath.ts}/**/*.ts`
     ]
 
     livereload.listen()
 
-    return watch( files, series( scss, typescript ) )
+    return watch(files, series(scss, typescript))
 }
 
 
@@ -163,22 +188,23 @@ function watcher ( callback ) {
  * Copy images to production folder.
  * @param {function} callback 
  */
-function webpImages ( callback ) {
-    const files = `${ srcPath.images }/**/*.{jpg,jpge,png,tiff,webp}`
+function webpImages(callback) {
+    const files = `${srcPath.images}/**/*.{jpg,jpge,png,tiff,webp}`
 
-    return src( `${ files }` )
-        .pipe( webp(  ) )
-        .pipe( `${ destPath.images }` )
+    return src(`${files}`)
+        .pipe(webp())
+        .pipe(`${destPath.images}`)
 
 }
 
 
-exports.favico     = favico
-exports.fonts      = fonts
-exports.images     = images
-exports.scss       = scss
+exports.dependencies = dependencies
+exports.favico = favico
+exports.fonts = fonts
+exports.images = images
+exports.scss = scss
 exports.typescript = typescript
-exports.watcher    = watcher
+exports.watcher = watcher
 exports.webpImages = webpImages
 
-exports.build = series( favico, fonts, images, scss, typescript )
+exports.build = series(dependencies, favico, fonts, images, scss, typescript)

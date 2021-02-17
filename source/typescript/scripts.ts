@@ -22,7 +22,10 @@
         homeCarousel() {
             let utilC = $('.block.clients .util-carrousel');
             let utilP = $('.block.partners .util-carrousel');
-            if (!utilC || !utilP) return;
+
+            console.log(utilC)
+
+            /* if (!utilC || !utilP) return;
 
             let carrouselClients = new util.Carrousel(
                 utilC,
@@ -47,7 +50,7 @@
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }
-            )
+            ) */
         }
     }
 
