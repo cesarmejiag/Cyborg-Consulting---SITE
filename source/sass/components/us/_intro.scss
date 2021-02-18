@@ -1,0 +1,40 @@
+.block.us-intro {
+  position: relative;
+  font-family: "Avenir Book", sans-serif;
+  .intro-content {
+    .text {
+      text-align: justify;
+    }    
+  }
+  .logo {
+    margin-bottom: 20px;
+  }
+  .image {
+    padding-bottom: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .title {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 767px) {
+  .block.us-intro {
+    .intro-content {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .text {
+      max-width: 500px;
+    }
+    .image {
+      padding-bottom: 80%;
+    }
+    .title {
+      font-size: 16px;  
+    }
+  }
+}
