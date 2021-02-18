@@ -1,0 +1,18 @@
+.block.us-cover {
+  position: relative;
+  padding: 0;
+  .cover-bg {
+    height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media(min-width: 767px) {
+  .block.us-cover {
+    .cover-bg {
+      height: 360px;
+    }
+  }
+}
