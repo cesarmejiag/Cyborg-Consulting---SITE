@@ -39,7 +39,7 @@
         .submenu-list {
           opacity: 1;
           pointer-events: all;
-          top: 50px;          
+          top: 50px;
           transform: translate(-50%, 0px);
         }
         .with-submenu {
@@ -86,7 +86,7 @@
     justify-content: center;
     left: 50%;
     transform: translate(-50%, 20px);
-    transition: all 555ms ease-in-out;  
+    transition: all 555ms ease-in-out;
     padding: 10px;
     position: absolute;
     min-height: 120px;
@@ -177,6 +177,7 @@
     .list {
       max-height: calc(100vh - 85px);
       overflow-y: auto;
+      overflow-x: hidden;
       li.li-menu {
         display: block;
         width: 100%;
@@ -197,6 +198,19 @@
           background-color: rgba(0, 0, 0, 0.1);
           box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
         }
+        &.li-menu:hover {
+          .submenu-list {
+            opacity: 1;
+            pointer-events: all;
+            top: 0px;
+            transform: translate(-50%, 0px);
+          }
+          .with-submenu {
+            &::after {
+              transform: rotate(90deg);
+            }
+          }
+        }
       }
       a {
         color: #fff;
@@ -207,22 +221,23 @@
       }
     }
     .submenu-list {
-      //background-color: darken($highlight-color, 15%);
       position: relative;
       opacity: 1;
       pointer-events: all;
       padding: 0;
       min-height: auto;
+      top: 0px;
       width: 100%;
+      transform: translate(-50%, 0px);
       .li-submenu {
         padding: 10px 0;
-        text-align: left;        
+        text-align: left;
       }
       a {
         font-size: 12px;
         padding-left: 20%;
         &::before {
-          width: 80% !important;          
+          width: 80% !important;
         }
       }
     }

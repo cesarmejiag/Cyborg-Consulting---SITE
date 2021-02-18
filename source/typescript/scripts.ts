@@ -2,9 +2,10 @@
  * Make your magic here!
  */
 
-(() => {
+ import {Carrousel} from './utilCustom.carrousel';
+ 
+ (() => {
     'use strict'
-
     // Register service worker.
     if ("serviceWorker" in navigator) {
         const swPath = 'sw.js';
@@ -24,14 +25,13 @@
         },
 
         homeCarousel() {
+            let carrouselClients = new Carrousel;
+            let carrouselPartners = new Carrousel;
             let utilC = $('.block.clients .util-carrousel');
             let utilP = $('.block.partners .util-carrousel');
+            if (!utilC || !utilP) return;
 
-            console.log(utilC)
-
-            /* if (!utilC || !utilP) return;
-
-            let carrouselClients = new util.Carrousel(
+            carrouselClients.init(
                 utilC,
                 {
                     autoPlay: true,
@@ -41,9 +41,9 @@
                     thumbsToDisplay: 5,
                     scaleImages: true,
                     scrollSpeed: 5000,
-                }
+                }, '' 
             );
-            let carrouselPartners = new util.Carrousel(
+            carrouselPartners.init(
                 utilP,
                 {
                     autoPlay: true,
@@ -53,8 +53,8 @@
                     thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
-                }
-            ) */
+                }, ''
+            )
         },
         Navigation: {
             toggleBtn: null,
