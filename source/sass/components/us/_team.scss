@@ -1,0 +1,36 @@
+.block.us-team {
+  .item {
+    margin-bottom: 20px;
+  }
+  .pic {
+    border-radius: 100%;
+    border:1px solid #bbbbbb;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  .desc {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
+
+@media(min-width:767px) {
+  .block.us-team {
+    .pic {
+      width: 150px;
+      height: 150px;
+    }
+    .item {
+      margin-bottom: 50px;
+    }
+  }
+}

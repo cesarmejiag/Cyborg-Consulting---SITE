@@ -342,8 +342,62 @@ include_once "utils/fragment_helpers.php";
             <section class="block us-team" id="us-team">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content"></div>
+                        <div class="header">
+                            <div class="title">Conoce a Nuestro Equipo</div>
+                        </div>
+                        <div class="content row w-1060">
+                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team1.jpg') ?>
+                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
+                                <div class="desc text-start p-t-10">
+                                    <div class="text-uppercase subtitle">
+                                        Administrador del proyecto de RPA.
+                                    </div>
+                                    <div>
+                                        Forma el equipo de RPA para construir la configuración y entregar
+                                        el programa a las unidades de negocio. Gestiona el equipo de RPA 
+                                        y los interlocutores de negocio para alcanzar los resultados de 
+                                        automatización esperados.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team2.jpg') ?>
+                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
+                                <div class="desc text-start p-t-10">
+                                    <div class="text-uppercase subtitle">
+                                        Respaldo de servicio de RPA.
+                                    </div>
+                                    <div>
+                                        Primera línea de respaldo de la solución de RPA desplegada.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team3.jpg') ?>
+                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
+                                <div class="desc text-start p-t-10">
+                                    <div class="text-uppercase subtitle">
+                                        Supervisor de RPA.
+                                    </div>
+                                    <div>
+                                        Administra, orquesta y controla la mano de obra virtual en el entorno operacional.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team4.jpg') ?>
+                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
+                                <div class="desc text-start p-t-10">
+                                    <div class="text-uppercase subtitle">
+                                        Analista de negocios de RPA
+                                    </div>
+                                    <div>
+                                        Crea las definiciones del proceso y los mapas  del proceso utilizados para automatizar.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
