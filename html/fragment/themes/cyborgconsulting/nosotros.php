@@ -406,10 +406,29 @@ include_once "utils/fragment_helpers.php";
             <section class="block us-join" id="us-join">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content"></div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="image img-fluid-wr">
+                                    <img src="<?= IMGS_PATH ?>equipo.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="header">
+                                    <h2 class="title">¡Únete a nuestro equipo!</h2>
+                                </div>
+                                <div class="content">
+                                    <div>
+                                        Si eres una persona con iniciativa, motivación y 
+                                        quieres integrarte en un equipo de trabajo dinámico 
+                                        en una empresa de vanguardia, te estamos esperando.
+                                    </div>
+                                </div>
+                                <a class="button" href="#">Enviar CV</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <a class="button btn-help" href="#">¡HOLA! ¿PODEMOS AYUDARTE?</a>
             </section>
             <!-- /. -->
 

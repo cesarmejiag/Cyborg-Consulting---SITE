@@ -1,0 +1,64 @@
+.block.us-join {
+  background-color: #d8d8d8;
+
+  .btn-help {
+    display: block;
+    font-size: 10px;
+    max-width: 135px;
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  // Override
+  .holder {
+    max-width: 870px;
+  }
+
+  .image {
+    margin: -40% 0 20px;
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  .header {
+    margin-bottom: 20px;
+    .title {
+      font-size: 25px;
+      line-height: 105%;
+      text-align: left;
+    }
+  }
+
+  a.button {
+    border-radius: 17.5px;
+    padding: 8px;
+  }
+
+  .content {
+    line-height: 135%;
+    margin-bottom: 30px;
+
+    b,
+    strong {
+      font-family: $font-black;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .block.us-join {        
+    .btn-help {
+      display: block;
+      font-size: 10px;
+      max-width: 135px;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+    .header {
+      .title {
+        font-size: 34px;
+      }
+    }
+  }
+}

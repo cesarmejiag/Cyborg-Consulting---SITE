@@ -101,7 +101,7 @@ $CMS_ACTIVE = false;
                                         </div>
                                         <div class="btn-mas m-t-30 mb-4 mb-md-0">
                                             <button class="btn btn-primary button d-block text-uppercase text-white">
-                                                Ver Más
+                                                <a  href="/nosotros">Ver Más</a>   
                                             </button>
                                         </div>
                                     </div>
