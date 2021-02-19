@@ -246,8 +246,43 @@ include_once "utils/fragment_helpers.php";
             <section class="block us-cyborg" id="us-cyborg">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content"></div>
+                        <div class="header">
+                            <div class="title">Cyber Way</div>
+                        </div>
+                        <div class="content d-flex justify-content-between flex-wrap">
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase1.jpg') ?>
+                            <div class="item-wrapper">
+                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
+                                <div class="text-center m-b-20">Fase 1 · Identificación y análisis</div>
+                                <div class="text-center">Sponsor, Process Owner</div>
+                            </div>
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase2.jpg') ?>
+                            <div class="item-wrapper">
+                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
+                                <div class="text-center m-b-20">
+                                    Fase 2 · Definición, diseño y desarrollo
+                                </div>
+                                <div class="text-center">Arquitecto de Soluciones, Desarrolladores RPA y Técnicos de infraestructura.</div>
+                            </div>
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase3.jpg') ?>
+                            <div class="item-wrapper">
+                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
+                                <div class="text-center m-b-20">FASE 3 · Pruebas y certificaciones</div>
+                                <div class="text-center">Resplado servicio RPA</div>
+                            </div>
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase4.jpg') ?>
+                            <div class="item-wrapper">
+                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
+                                <div class="text-center m-b-20">Fase 4 · IMPLEMENTACIÓN</div>
+                                <div class="text-center">Plan de integración RPA</div>
+                            </div>
+                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase5.jpg') ?>
+                            <div class="item-wrapper">
+                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
+                                <div class="text-center m-b-20">Fase 5 · Buenas prácticas</div>
+                                <div class="text-center">Cyborg Academy</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
