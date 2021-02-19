@@ -77,6 +77,9 @@ body {
 .bg-highlight-color {
   background-color: $highlight-color;
 }
+.color-highlight-color {
+  color: $highlight-color;
+}
 
 // Deprecado en Bootstrap 5.
 .text-justify {
@@ -111,13 +114,14 @@ body {
   .normal-size-title {
     font-size: 12px
   }
+  
+  .w-1060 {
+    max-width: 1060px;
+    margin: 0 auto ;
+  }
 }
 
-@media screen and (min-width: 576px) {
-  .body {
-    font-size: 18px;
-  }
-
+@media screen and (min-width: 576px) {  
   .outer-wrapper {
     margin-bottom: 360px;
   }
@@ -138,6 +142,10 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
   .outer-wrapper {
     margin-bottom: 325px;
   }
@@ -164,6 +172,7 @@ body {
 
 @import "components/us/cover";
 @import "components/us/intro";
+@import "components/us/mision";
 
 @import "sections/contact";
 

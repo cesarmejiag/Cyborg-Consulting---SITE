@@ -25,7 +25,7 @@ include_once "utils/fragment_helpers.php";
             ?>
             <section class="block us-cover" id="cover-us">
                 <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
-                    <h1 class="title text-white">Nosotros</h1>
+                    <h1 class="title text-white text-uppercase">Nosotros</h1>
                 </div>
             </section>
             <!-- /.Cover -->
@@ -33,8 +33,8 @@ include_once "utils/fragment_helpers.php";
             <section class="block us-intro" id="us-intro">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header pb-3 pb-md-4">
-                            <div class="row intro-content d-flex align-items-center justify-content-around">
+                        <div class="header pb-3 pb-md-4 w-1060">
+                            <div class="row d-flex align-items-center justify-content-around">
                                 <div class="col-12 col-sm-6">
                                     <div class="logo text-center">
                                         <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
@@ -117,7 +117,7 @@ include_once "utils/fragment_helpers.php";
                                     </div>
                                 </div>
                             </div>
-                            <div class="row pt-3 pt-sm-5 intro-content d-flex align-items-start justify-content-around">
+                            <div class="row w-1060 pt-3 pt-sm-5 intro-content d-flex align-items-start justify-content-around">
                                 <div class="col-12 col-sm-6 pb-4 pb-sm-0">
                                     <div class="text">
                                         Acompañamos a nuestros clientes, desde la elaboración del diagnóstico, 
@@ -138,22 +138,106 @@ include_once "utils/fragment_helpers.php";
                 </div>
             </section>
             <!-- /. -->
-            <!-- Block Misión y Visión -->
+            <!-- Block Misión, Visión y Valores -->
             <section class="block us-mision-vision" id="us-mision-vision">
                 <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content"></div>
-                    </div>
-                </div>
-            </section>
-            <!-- /. -->
-            <!-- Block Valores -->
-            <section class="block us-values" id="us-values">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content"></div>
+                    <div class="container-fluid w-1060">
+                        <!-- Mision y Visión  -->
+                        <div class="header">
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="title text-start mb-4">Misión</div>
+                                    <div class="text">
+                                        Ayudar a nuestros clientes a crear valor en sus negocios 
+                                        mediante la aplicación de soluciones digitales lideres de 
+                                        automatización robótica, implementadas por un equipo de 
+                                        consultoría, integrado en un entorno profesional que fomenta
+                                        el desarrollo personal continuo.
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                <div class="title text-start mb-4">Visión</div>
+                                    <div class="text">
+                                        Ser la consultoría tecnológica boutique líder, especializada 
+                                        en hiperautomatización con enfoque global.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Mision y Vision -->
+                        <div class="content">
+                            <div class="title mb-4">
+                                Valores
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-excelencia.svg" alt="chip"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color">EXCELENCIA</div>
+                                            <div>
+                                                Aportamos valor y estamos orientados a los resultados.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-trabajo-en-equipo.svg" alt="chip"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color">TRABAJO EN EQUIPO</div>
+                                            <div>                                            
+                                                El equipo es lo que nos da fuerza y nos permite alcanzar resultados excepcionales.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-empatia.svg" alt="chip"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color">EMPATÍA</div>
+                                            <div>
+                                                Entender las necesidades de nuestros clientes nos permite construir relaciones a largo plazo.                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-liderazgo.svg" alt="chip"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color">LIDERAZGO</div>
+                                            <div>
+                                            Nuestro know-how nos permite guiar a nuestros clientes al cumplimiento de sus objetivos.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-innovacion.svg" alt="chip"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color">INNOVACIÓN</div>
+                                            <div>
+                                                Creación de nuevas oportunidades, así como actualización y mejora continua de todos nuestros procesos y de los recursos que a nuestros clientes.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-compromiso.svg" alt="chip"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color">COMPROMISO</div>
+                                            <div>
+                                            Lo pactado con nuestros clientes es nuestra prioridad.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

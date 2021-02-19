@@ -1,0 +1,32 @@
+.block.us-mision-vision {
+  font-family: "Avenir Book", sans-serif;  
+  .text {
+    text-align: justify;
+  }
+  .wrapper {
+    margin-bottom: 20px;    
+  }   
+  span {
+    position: relative;
+  }
+  .text.text-start {
+    margin-top: 10px;
+  }
+}
+
+@media(min-width:767px) {
+  .block.us-mision-vision{
+    .wrapper {
+      margin-bottom: 80px;
+      text-align: left;
+      span {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .text {
+        margin-left: 60px;
+      }
+    }
+  }
+}
