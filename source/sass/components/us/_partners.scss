@@ -1,0 +1,15 @@
+.block.us-parners {
+  position: relative;
+  .partner-content {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 767px) {
+  .block.us-parners {
+    .partner-content {
+      margin-top: 60px;
+      margin-bottom: 130px;
+    }
+  }
+}

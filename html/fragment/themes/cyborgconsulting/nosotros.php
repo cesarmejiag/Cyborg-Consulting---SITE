@@ -252,7 +252,58 @@ include_once "utils/fragment_helpers.php";
                 </div>
             </section>
             <!-- /. -->
-            <!-- Block Conoce a Nuestro Equipo -->
+            <!-- Block Partners -->
+            <section class="block us-parners" id="us-partners">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header mb-5">
+                            <div class="title">
+                                Programa Partners
+                            </div>
+                        </div>
+                        <div class="content ">
+                            <div class="row partner-content w-860">
+                                <div class="col-12 col-lg-6 text-center mb-4 mb-lg-0">
+                                    <img class="img-fluid" src="<?= IMGS_PATH ?>partners.jpg" alt="partners">
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="text">
+                                        Buscamos business partners para hacer llegar los beneficios de nuestra completa solución al mayor número de empresas para elevar su competitividad y mejorar sus procesos.
+                                        <br><br>
+                                        Ofrecemos un acompañamiento en todo el proceso, desde la pre-venta hasta la implementación, con la formación específica en el producto para conocer todas las posibilidades y oportunidades de negocio.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-1060">
+                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                    <div class="text">
+                                        Nuestros programas y herramientas están 
+                                        diseñados para ofrecer conocimientos técnicos, 
+                                        de ventas y marketing con el fin de ayudarle a hacer 
+                                        crecer su negocio con éxito y obtener una ventaja 
+                                        competitiva en el mercado
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                    <div class="text">
+                                        Para aprovechar al máximo los beneficios como Partner, 
+                                        ponte en contacto con nosotros.
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                    <div class="text">
+                                        Nos adaptamos perfectamente a todas tus necesidades y 
+                                        trabajamos cada acuerdo como único. Nuestro objetivo es 
+                                        un modelo win-win
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /. -->
+            <!-- Block Únete a Nuestro Equipo -->
             <section class="block us-team" id="us-team">
                 <div class="holder">
                     <div class="container-fluid">

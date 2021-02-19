@@ -114,6 +114,11 @@ body {
   .normal-size-title {
     font-size: 12px
   }
+
+  .w-860 {
+    max-width: 860px;
+    margin: 0 auto;
+  }
   
   .w-1060 {
     max-width: 1060px;
@@ -173,6 +178,7 @@ body {
 @import "components/us/cover";
 @import "components/us/intro";
 @import "components/us/mision";
+@import "components/us/partners";
 
 @import "sections/contact";
 
