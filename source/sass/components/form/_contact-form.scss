@@ -24,14 +24,22 @@
     color: #999;
   }
 
+  .input-container {
+    margin-bottom: 15px;
+  }
+
   input[type="text"],
+  input[type="email"],
   textarea {
     appearance: none;
-    border: 1px solid #dcdcdc;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbb;
     border-radius: 0;
     display: block;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 5px 0;
+    outline: none;
     width: 100%;
   }
 
@@ -40,18 +48,30 @@
     resize: none;
   }
 
+  label {
+    display: block;
+    font-family: $font2-regular;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
   input[type="submit"] {
     appearance: none;
-    background-color: #dcdcdc;
+    background-color: #e8511d;
     border: none;
     border-radius: 0;
-    color: #666;
+    color: #fff;
     cursor: pointer;
     display: block;
+    font-size: 12px;
+    font-family: $font2-regular;
+    letter-spacing: 1.2px;
     margin-left: auto;
-    max-width: 180px;
-    padding: 5px;
+    max-height: 30px;
+    max-width: 115px;
+    padding: 7px 5px;
     text-align: center;
+    text-transform: uppercase;
     width: 100%;
   }
 }

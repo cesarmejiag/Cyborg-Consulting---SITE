@@ -163,7 +163,7 @@ body {
 
 
 @import "components/navigation";
-@import "components/contact-form";
+@import "components/form/contact-form";
 @import "components/footer";
 
 @import "components/home/cover";
@@ -174,6 +174,7 @@ body {
 @import "components/home/industries";
 @import "components/home/ribbon";
 @import "components/home/clients";
+@import "components/home/contact";
 
 @import "components/us/cover";
 @import "components/us/intro";
@@ -182,8 +183,6 @@ body {
 @import "components/us/cyborg-way";
 @import "components/us/team";
 @import "components/us/join";
-
-@import "sections/contact";
 
 @import "mixins/spacing";
 
