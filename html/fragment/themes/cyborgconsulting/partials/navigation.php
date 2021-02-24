@@ -24,9 +24,9 @@ foreach ($root_pages as $option) {
     } else {
         if (is_home()) {
             $classes = 'scroll-to';
-            $href .= '#' . $option->key;
+            $href .= '' . $option->key;
         } else {
-            $href .= '/#' . $option->key;
+            $href .= '' . $option->key;
         }
     }
     // endregion
