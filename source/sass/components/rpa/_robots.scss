@@ -1,0 +1,48 @@
+.block.rpa-robots {
+  .item {
+    background-color: $highlight-color;
+    margin-bottom: 50px;
+    padding: 20px 20px;
+  }
+  .icon {
+    margin: 0 auto 20px;
+    max-width: 100px;
+  }
+  .video {
+    margin-top: 50px;
+  }
+  video {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    width: 75%;
+    transform: translate(-50%, -50%);
+  }
+  .button {
+    border-radius: 17.5px;
+  }
+}
+
+@media (min-width: 576px) {
+  .block.rpa-robots {
+    .item {
+      min-height: 360px;
+      margin-bottom: 0;
+      padding: 0 10px;
+    }
+    .icon {
+      margin: 0 auto;
+      max-width: 185px;
+      top: -92px;
+      width: 100%;
+    }
+    .wrapper {
+      top: -60px;
+    }
+    .video {
+      margin-top: 150px;
+    }
+  }
+}

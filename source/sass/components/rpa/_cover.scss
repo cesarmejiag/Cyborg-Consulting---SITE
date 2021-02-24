@@ -1,0 +1,21 @@
+.block.rpa-cover {
+  position: relative;
+  padding: 0;
+  .cover-bg {
+    height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media(min-width: 767px) {
+  .block.rpa-cover {
+    .title {
+      font-size: 48px;      
+    }
+    .cover-bg {
+      height: 360px;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.block.rpa-gartner {
+  overflow: hidden;
+  .main-image {
+    margin: 0 auto;
+  }
+  .small-image {
+    right: -5%;
+    top: 10%;
+  }
+  .diagram {
+    margin: 60px auto 110px;
+  }
+  .circle {
+    font-size: 24px;
+    border-radius: 100%;
+    text-align: center;
+    padding: 46px 0;
+    margin-bottom: 20px;
+    max-width: 128px;
+    width: 100%;
+  }
+  .column-1 {
+    font-size: 12px;
+    width: 100%;
+    max-width: 295px;
+    div {
+      border: 1px solid $highlight-color;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 25px;
+      min-height: 95px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .column-2 {
+    font-size: 12px;
+    max-width: 166px;
+    width: 100%;
+    div {
+      color: #4a4a4a;
+      border: 1px solid $highlight-color;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 25px;
+      min-height: 95px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .last {
+    font-size: 18px;
+    padding: 25px 0;
+    border-radius: 8px;
+    max-width: 259px;
+    width: 100%;
+  }
+}
+
+@media(min-width:767px) {
+  .block.rpa-gartner {
+    .column-1, .column-2 {
+      font-size: 14px;
+    }
+  }
+}

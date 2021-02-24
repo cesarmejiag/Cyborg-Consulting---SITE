@@ -99,6 +99,10 @@ body {
 .block {
   padding: 30px 0;
 
+  p {
+    margin: 0;
+  }
+
   .header {
     margin-bottom: 35px;
   }
@@ -110,7 +114,7 @@ body {
     margin-top: 0;
     text-align: center;
   }
-
+  
   .normal-size-title {
     font-size: 12px
   }
@@ -141,6 +145,10 @@ body {
     
     .normal-size-title {
       font-size: 14px
+    }
+
+    .sub-title-size {
+      font-size: 26px
     }
 
   }
@@ -182,6 +190,14 @@ body {
 @import "components/us/cyborg-way";
 @import "components/us/team";
 @import "components/us/join";
+
+@import "components/rpa/cover";
+@import "components/rpa/intro";
+@import "components/rpa/cards";
+@import "components/rpa/process";
+@import "components/rpa/robots";
+@import "components/rpa/hiperautomatizacion";
+@import "components/rpa/gartner";
 
 @import "sections/contact";
 
