@@ -294,27 +294,38 @@ include_once "utils/fragment_helpers.php";
                             Gartner, Top 10 Strategic Technology Trends for 2021
                         </div>
                         <div class="diagram d-flex flex-column flex-lg-row flex-wrap align-items-center justify-content-between">
-                            <div class="circle text-white text-uppercase bg-highlight-color">
-                                RPA
+                            <div class="circle text-white text-uppercase bg-highlight-color position-relative">
+                                RPA <span class="d-none d-lg-block arrow"><img src="<?= IMGS_PATH ?>arrow.svg" class="img-fluid" alt=""></span>
                             </div>
-                            <div class="column-1 text-center color-highlight-color">
-                                <div>
-                                    <p>IA</p>
-                                    <p>(NLP, AI Computer Vision, intelligent Optical Reconognition)</p>                                    
+                            <div class="column-wrapper d-flex justify-content-between">
+                                <div class="column-1 text-center color-highlight-color">
+                                    <div>
+                                        <p>IA</p>
+                                        <p>(NLP, AI Computer Vision, intelligent Optical Reconognition)</p>
+                                    </div>
+                                    <div>
+                                        <p>Process Mining</p>
+                                    </div>
+                                    <div>
+                                        <p>Integraciones Nativas</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Process Mining</p>                                    
-                                </div>
-                                <div>
-                                    <p>Integraciones Nativas</p>                                    
+                                <div class="column-2 text-center position-relative">
+                                    <div>
+                                        <p> Machine Learning</p>
+                                    </div>
+                                    <div>
+                                        <p> Lone-running workflows</p>
+                                    </div>
+                                    <div>
+                                        <p> Advanced Analytics</p>
+                                    </div>
+                                    <span class="arrow arrow-last d-none d-lg-block"><img src="<?= IMGS_PATH ?>arrow.svg" class="img-fluid" alt=""></span>
                                 </div>
                             </div>
-                            <div class="column-2 text-center">
-                                <div> <p> Machine Learning</p></div>
-                                <div> <p> Lone-running workflows</p></div>
-                                <div> <p> Advanced Analytics</p></div>
+                            <div class="last text-white text-uppercase bg-highlight-color text-center">
+                                HIPERAUTOMATIZACIÓN
                             </div>
-                            <div class="last text-white text-uppercase bg-highlight-color text-center">HIPERAUTOMATIZACIÓN</div>
                         </div>
                     </div>
                     <div class="content">
