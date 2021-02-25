@@ -6,439 +6,313 @@ include_once "utils/fragment_helpers.php";
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/Thing" lang="es-MX">
 
-    <head>
-        <?php include_once "partials/head.php" ?>
-    </head>
+<head>
+    <?php include_once "partials/head.php" ?>
+</head>
 
-    <body>
+<body>
 
-        <!-- Navigation -->
-        <?php include_once "partials/navigation.php" ?>
-        <!-- /.Navigation -->
+    <!-- Navigation -->
+    <?php include_once "partials/navigation.php" ?>
+    <!-- /.Navigation -->
 
-        <!-- Outer wrapper -->
-        <div class="outer-wrapper">
-            <!-- Block Cover -->
-            <?php
-            $imgCover = IMGS_PATH . 'cover-nosotros.jpg';
-            $img_src = sprintf('background-image:url(%s)', $imgCover)
-            ?>
-            <section class="block us-cover" id="cover-us">
-                <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
-                    <h1 class="title text-white text-uppercase">Nosotros</h1>
-                </div>
-            </section>
-            <!-- /.Cover -->
-            <!-- Block Us Intro -->
-            <section class="block us-intro" id="us-intro">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header pb-3 pb-md-4 w-1060">
-                            <div class="row d-flex align-items-center justify-content-around">
-                                <div class="col-12 col-sm-6">
-                                    <div class="logo text-center">
-                                        <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="text">
-                                        Somos una consultoría boutique de TI con amplia experiencia en hiperautomatización
-                                        de procesos clave que impulsan a las organizaciones de las diversas industrias a
-                                        alcanzar sus objetivos, mejorando su eficiencia, reduciendo costos y aumentando su
-                                        productividad.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content pt-3 pt-sm-4">
-                            <div class="row">
-                                <div class="col-6 col-sm-3">
-                                    <div class="wrapper">
-                                        <?php
-                                            $imgNosotros = IMGS_PATH . 'tecnologia-boton.jpg';
-                                            $img_src = sprintf('background-image:url(%s)', $imgNosotros);
-                                        ?>
-                                        <div class="image" style="<?= $img_src ?>"></div>
-                                        <div>
-                                            <div class="logo text-center m-t-30">
-                                                <img class="img-fluid" src="<?= IMGS_PATH ?>icon-chip.svg" alt="chip">
-                                            </div>
-                                            <div class="title normal-size-title text-wrap text-uppercase text-break">Tecnología</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-3">
-                                    <div class="wrapper">
-                                        <?php
-                                            $imgNosotros = IMGS_PATH . 'consultoria-boton.jpg';
-                                            $img_src = sprintf('background-image:url(%s)', $imgNosotros);
-                                        ?>
-                                        <div class="image" style="<?= $img_src ?>"></div>
-                                        <div>
-                                            <div class="logo text-center m-t-30">
-                                                <img class="img-fluid" src="<?= IMGS_PATH ?>icon-gear.svg" alt="chip">
-                                            </div>
-                                            <div class="title title normal-size-title text-wrap text-uppercase text-break">CONSULTORIA ESPECIALIZADA</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-3">
-                                    <div class="wrapper">
-                                        <?php
-                                            $imgNosotros = IMGS_PATH . 'implementaciones-boton.jpg';
-                                            $img_src = sprintf('background-image:url(%s)', $imgNosotros);
-                                        ?>
-                                        <div class="image" style="<?= $img_src ?>"></div>
-                                        <div>
-                                            <div class="logo text-center m-t-30">
-                                                <img class="img-fluid" src="<?= IMGS_PATH ?>icon-arm.svg" alt="chip">
-                                            </div>
-                                            <div class="title title normal-size-title text-wrap text-break text-uppercase">
-                                                IMPLEMENTACIONES
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-sm-3">
-                                    <div class="wrapper">
-                                        <?php
-                                            $imgNosotros = IMGS_PATH . 'operaciones-y-mantenimiento-boton.jpg';
-                                            $img_src = sprintf('background-image:url(%s)', $imgNosotros);
-                                        ?>
-                                        <div class="image" style="<?= $img_src ?>"></div>
-                                        <div>
-                                            <div class="logo text-center m-t-30">
-                                                <img class="img-fluid" src="<?= IMGS_PATH ?>icon-gears.svg" alt="chip">
-                                            </div>
-                                            <div class="title title normal-size-title text-wrap text-uppercase text-break">
-                                            OPERACIONES Y MANTENIMIENTO
-                                            </div>
-                                        </div>
-                                    </div>
+    <?php $us_page = find_page_by_guid($us_guid, $root_pages); ?>
+    <?php $services = find_page_by_guid($services_guid, $root_pages); ?>
+    <?php $services_records = Page::search(array(
+        'idparent' => $services->idpage,
+        'fragments' => array('img', 'desc-1'),
+        'sortBy' => 'created ASC'
+    ));
+    $services_pr = $services_records['records'];
+    ?>
+    <!-- Outer wrapper -->
+    <div class="outer-wrapper">
+        <!-- Block Cover -->
+        <?php
+        $imgCover = IMGS_PATH . 'cover-nosotros.jpg';
+        $img_src = sprintf('background-image:url(%s)', $imgCover)
+        ?>
+        <section class="block us-cover" id="cover-us">
+            <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
+                <h1 class="title text-white text-uppercase"><?= $us_page->title ?></h1>
+            </div>
+        </section>
+        <!-- /.Cover -->
+        <!-- Block Us Intro -->
+        <section class="block us-intro" id="us-intro">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="header pb-3 pb-md-4 w-1060">
+                        <div class="row d-flex align-items-center justify-content-around">
+                            <div class="col-12 col-sm-6">
+                                <div class="logo text-center">
+                                    <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
                                 </div>
                             </div>
-                            <div class="row w-1060 pt-3 pt-sm-5 intro-content d-flex align-items-start justify-content-around">
-                                <div class="col-12 col-sm-6 pb-4 pb-sm-0">
-                                    <div class="text">
-                                        Acompañamos a nuestros clientes, desde la elaboración del diagnóstico, 
-                                        la generación de alternativas, su evaluación, el diseño de la solución y 
-                                        su instrumentación con la puesta en marcha de cada transformación digital.
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="text">
-                                        Nuestro equipo de trabajo está altamente capacitado y certificado, 
-                                        lo cual nos permite cumplir con los requerimientos de nuestros clientes, 
-                                        logrando la continuidad de sus negocios.
-                                    </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="text">
+                                    <?= $us_page->fragments['intro']->value ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- /. -->
-            <!-- Block Misión, Visión y Valores -->
-            <section class="block us-mision-vision" id="us-mision-vision">
-                <div class="holder">
-                    <div class="container-fluid w-1060">
-                        <!-- Mision y Visión  -->
-                        <div class="header">
-                            <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <div class="title text-start mb-4">Misión</div>
-                                    <div class="text">
-                                        Ayudar a nuestros clientes a crear valor en sus negocios 
-                                        mediante la aplicación de soluciones digitales lideres de 
-                                        automatización robótica, implementadas por un equipo de 
-                                        consultoría, integrado en un entorno profesional que fomenta
-                                        el desarrollo personal continuo.
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                <div class="title text-start mb-4">Visión</div>
-                                    <div class="text">
-                                        Ser la consultoría tecnológica boutique líder, especializada 
-                                        en hiperautomatización con enfoque global.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Mision y Vision -->
-                        <div class="content">
-                            <div class="title mb-4">
-                                Valores
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-sm-4">
-                                    <div class="wrapper position-relative">
-                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-excelencia.svg" alt="chip"></span>
-                                        <div class="text text-start">
-                                            <div class="color-highlight-color">EXCELENCIA</div>
-                                            <div>
-                                                Aportamos valor y estamos orientados a los resultados.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4">
-                                    <div class="wrapper position-relative">
-                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-trabajo-en-equipo.svg" alt="chip"></span>
-                                        <div class="text text-start">
-                                            <div class="color-highlight-color">TRABAJO EN EQUIPO</div>
-                                            <div>                                            
-                                                El equipo es lo que nos da fuerza y nos permite alcanzar resultados excepcionales.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4">
-                                    <div class="wrapper position-relative">
-                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-empatia.svg" alt="chip"></span>
-                                        <div class="text text-start">
-                                            <div class="color-highlight-color">EMPATÍA</div>
-                                            <div>
-                                                Entender las necesidades de nuestros clientes nos permite construir relaciones a largo plazo.                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4">
-                                    <div class="wrapper position-relative">
-                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-liderazgo.svg" alt="chip"></span>
-                                        <div class="text text-start">
-                                            <div class="color-highlight-color">LIDERAZGO</div>
-                                            <div>
-                                            Nuestro know-how nos permite guiar a nuestros clientes al cumplimiento de sus objetivos.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4">
-                                    <div class="wrapper position-relative">
-                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-innovacion.svg" alt="chip"></span>
-                                        <div class="text text-start">
-                                            <div class="color-highlight-color">INNOVACIÓN</div>
-                                            <div>
-                                                Creación de nuevas oportunidades, así como actualización y mejora continua de todos nuestros procesos y de los recursos que a nuestros clientes.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4">
-                                    <div class="wrapper position-relative">
-                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-compromiso.svg" alt="chip"></span>
-                                        <div class="text text-start">
-                                            <div class="color-highlight-color">COMPROMISO</div>
-                                            <div>
-                                            Lo pactado con nuestros clientes es nuestra prioridad.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /. -->
-            <!-- Block Cyborg Way -->
-            <section class="block us-cyborg" id="us-cyborg">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header">
-                            <div class="title">Cyber Way</div>
-                        </div>
-                        <div class="content d-flex justify-content-between flex-wrap">
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase1.jpg') ?>
-                            <div class="item-wrapper">
-                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
-                                <div class="text-center m-b-20">Fase 1 · Identificación y análisis</div>
-                                <div class="text-center">Sponsor, Process Owner</div>
-                            </div>
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase2.jpg') ?>
-                            <div class="item-wrapper">
-                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
-                                <div class="text-center m-b-20">
-                                    Fase 2 · Definición, diseño y desarrollo
-                                </div>
-                                <div class="text-center">Arquitecto de Soluciones, Desarrolladores RPA y Técnicos de infraestructura.</div>
-                            </div>
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase3.jpg') ?>
-                            <div class="item-wrapper">
-                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
-                                <div class="text-center m-b-20">FASE 3 · Pruebas y certificaciones</div>
-                                <div class="text-center">Resplado servicio RPA</div>
-                            </div>
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase4.jpg') ?>
-                            <div class="item-wrapper">
-                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
-                                <div class="text-center m-b-20">Fase 4 · IMPLEMENTACIÓN</div>
-                                <div class="text-center">Plan de integración RPA</div>
-                            </div>
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'fase5.jpg') ?>
-                            <div class="item-wrapper">
-                                <div class="item position-relative mb-4" style="<?= $imgPage_src ?>"></div>
-                                <div class="text-center m-b-20">Fase 5 · Buenas prácticas</div>
-                                <div class="text-center">Cyborg Academy</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /. -->
-            <!-- Block Partners -->
-            <section class="block us-parners" id="us-partners">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header mb-5">
-                            <div class="title">
-                                Programa Partners
-                            </div>
-                        </div>
-                        <div class="content ">
-                            <div class="row partner-content w-860">
-                                <div class="col-12 col-lg-6 text-center mb-4 mb-lg-0">
-                                    <img class="img-fluid" src="<?= IMGS_PATH ?>partners.jpg" alt="partners">
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="text">
-                                        Buscamos business partners para hacer llegar los beneficios de nuestra completa solución al mayor número de empresas para elevar su competitividad y mejorar sus procesos.
-                                        <br><br>
-                                        Ofrecemos un acompañamiento en todo el proceso, desde la pre-venta hasta la implementación, con la formación específica en el producto para conocer todas las posibilidades y oportunidades de negocio.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row w-1060">
-                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
-                                    <div class="text">
-                                        Nuestros programas y herramientas están 
-                                        diseñados para ofrecer conocimientos técnicos, 
-                                        de ventas y marketing con el fin de ayudarle a hacer 
-                                        crecer su negocio con éxito y obtener una ventaja 
-                                        competitiva en el mercado
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
-                                    <div class="text">
-                                        Para aprovechar al máximo los beneficios como Partner, 
-                                        ponte en contacto con nosotros.
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
-                                    <div class="text">
-                                        Nos adaptamos perfectamente a todas tus necesidades y 
-                                        trabajamos cada acuerdo como único. Nuestro objetivo es 
-                                        un modelo win-win
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /. -->
-            <!-- Block Únete a Nuestro Equipo -->
-            <section class="block us-team" id="us-team">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header">
-                            <div class="title">Conoce a Nuestro Equipo</div>
-                        </div>
-                        <div class="content row w-1060">
-                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team1.jpg') ?>
-                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
-                                <div class="desc text-start p-t-10">
-                                    <div class="text-uppercase subtitle">
-                                        Administrador del proyecto de RPA.
-                                    </div>
-                                    <div>
-                                        Forma el equipo de RPA para construir la configuración y entregar
-                                        el programa a las unidades de negocio. Gestiona el equipo de RPA 
-                                        y los interlocutores de negocio para alcanzar los resultados de 
-                                        automatización esperados.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team2.jpg') ?>
-                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
-                                <div class="desc text-start p-t-10">
-                                    <div class="text-uppercase subtitle">
-                                        Respaldo de servicio de RPA.
-                                    </div>
-                                    <div>
-                                        Primera línea de respaldo de la solución de RPA desplegada.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team3.jpg') ?>
-                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
-                                <div class="desc text-start p-t-10">
-                                    <div class="text-uppercase subtitle">
-                                        Supervisor de RPA.
-                                    </div>
-                                    <div>
-                                        Administra, orquesta y controla la mano de obra virtual en el entorno operacional.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
-                            <?php $imgPage_src = sprintf('background-image:url(%s)', IMGS_PATH . 'team4.jpg') ?>
-                                <div class="pic"  style="<?= $imgPage_src ?>"></div>
-                                <div class="desc text-start p-t-10">
-                                    <div class="text-uppercase subtitle">
-                                        Analista de negocios de RPA
-                                    </div>
-                                    <div>
-                                        Crea las definiciones del proceso y los mapas  del proceso utilizados para automatizar.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- /. -->
-            <!-- Block Únete a Nuestro Equipo -->
-            <section class="block us-join" id="us-join">
-                <div class="holder">
-                    <div class="container-fluid">
+                    <div class="content pt-3 pt-sm-4">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="image img-fluid-wr">
-                                    <img src="<?= IMGS_PATH ?>equipo.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="header">
-                                    <h2 class="title">¡Únete a nuestro equipo!</h2>
-                                </div>
-                                <div class="content">
-                                    <div>
-                                        Si eres una persona con iniciativa, motivación y 
-                                        quieres integrarte en un equipo de trabajo dinámico 
-                                        en una empresa de vanguardia, te estamos esperando.
+                            <?php foreach ($services_pr as $service) : ?>
+                                <div class="col-6 col-sm-3">
+                                    <div class="wrapper">
+                                        <?php
+                                        $img_service = Fragment::elementAttributes($service->fragments['img']->value);
+                                        $img_service_src = sprintf('background-image:url(%s)', $img_service['src'])
+                                        ?>
+                                        <div class="image" style="<?= $img_service_src ?>"></div>
+                                        <div>
+                                            <div class="logo text-center m-t-30">
+                                                <img class="img-fluid" src="<?= IMGS_PATH ?>icon-<?= $service->key ?>.svg" alt="<?= $service->title ?>">
+                                            </div>
+                                            <div class="title normal-size-title text-wrap text-uppercase text-break"><?= $service->title ?></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <a class="button" href="#">Enviar CV</a>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="row w-1060 pt-3 pt-sm-5 intro-content d-flex align-items-start justify-content-around">
+                            <div class="col-12 col-sm-6 pb-4 pb-sm-0">
+                                <div class="text">
+                                    <?= $us_page->fragments['desc-1']->value ?>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="text">
+                                    <?= $us_page->fragments['desc-2']->value ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="button btn-help" href="#">¡HOLA! ¿PODEMOS AYUDARTE?</a>
-            </section>
-            <!-- /. -->
+            </div>
+        </section>
+        <!-- /. -->
+        <!-- Block Misión, Visión y Valores -->
+        <?php
+        $us_result = Page::search(array(
+            'idparent'  => $us_page->idpage,
+            'fragments' => array('body','intro','img','text-1','text-2','text-3'),
+            'sortBy'    => 'created ASC'
+        ));
+        $us_pages = $us_result['records'];
+        $vmv = find_page_by_guid('m7PGfV1J3c', $us_pages);
+        $vmv_result = Page::search(array(
+            'idparent'  => $vmv->idpage,
+            'fragments' => array('body'),
+            'sortBy'    => 'created ASC'
+        ));
+        $vmv_pages = $vmv_result['records'];
+        $vision_page = find_page_by_guid('UJtpi280FX', $vmv_pages);
+        $mision_page = find_page_by_guid('U8u5R-RF4y', $vmv_pages);
+        $valores_page = find_page_by_guid('wWSsbe0XSJ', $vmv_pages);
+        ?>
+        <section class="block us-mision-vision" id="us-mision-vision">
+            <div class="holder">
+                <div class="container-fluid w-1060">
+                    <!-- Mision y Visión  -->
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="title text-start mb-4"><?= $mision_page->title ?></div>
+                                <div class="text">
+                                    <?= $mision_page->fragments['body']->value ?>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="title text-start mb-4"><?= $vision_page->title ?></div>
+                                <div class="text">
+                                    <?= $vision_page->fragments['body']->value ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Mision y Vision -->
+                    <?php $valores = Page::search(array(
+                        'idparent'  => $valores_page->idpage,
+                        'fragments' => array('body'),
+                        'sortBy'    => 'created ASC'
+                    ));
+                    $valores_pages = $valores['records']; ?>
+                    <div class="content">
+                        <div class="title mb-4">
+                            <?= $valores_page->title ?>
+                        </div>
+                        <div class="row">
+                            <?php foreach ($valores_pages as $val_page) : ?>
+                                <div class="col-12 col-sm-4">
+                                    <div class="wrapper position-relative">
+                                        <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-<?= $val_page->key ?>.svg" alt="<?= $val_page->name ?>"></span>
+                                        <div class="text text-start">
+                                            <div class="color-highlight-color"><?= $val_page->title ?></div>
+                                            <div><?= $val_page->fragments['body']->value ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /. -->
+        <!-- Block Cyborg Way -->
+        <?php
+            $cyborg_way = find_page_by_guid('S8EpPRgT4y', $us_pages);
+            $cw_result = Page::search(array(
+                'idparent'  => $cyborg_way->idpage,
+                'fragments' => array('desc','img'),
+                'sortBy'    => 'created ASC'
+            ));
+            $cw_pages = $cw_result['records'];
+        ?>
+        <section class="block us-cyborg" id="us-cyborg">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="header">
+                        <div class="title"><?= $cyborg_way->title ?></div>
+                    </div>
+                    <div class="content d-flex justify-content-between flex-wrap">
+                        <?php foreach($cw_pages as $cw_page): ?>
+                        <?php
+                            $img_cw = Fragment::elementAttributes($cw_page->fragments['img']->value);
+                            $img_cw_src = sprintf('background-image:url(%s)', $img_cw['src'])
+                        ?>
+                        <div class="item-wrapper">
+                            <div class="item position-relative mb-4" style="<?= $img_cw_src ?>"></div>
+                            <div class="text-center m-b-20"><?= $cw_page->title ?></div>
+                            <div class="text-center"><?= $cw_page->fragments['desc']->value ?></div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /. -->
+        <!-- Block Partners -->
+        <?php $partners = find_page_by_guid('RyzlfdeJl4', $us_pages); ?>
+        <section class="block us-parners" id="us-partners">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="header mb-5">
+                        <div class="title">
+                            <?= $partners->title ?>
+                        </div>
+                    </div>
+                    <div class="content ">
+                        <div class="row partner-content w-860">
+                            <div class="col-12 col-lg-6 text-center mb-4 mb-lg-0">
+                                <?= $partners->fragments['img']->value ?>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="text">
+                                    <?= $partners->fragments['intro']->value ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row w-1060">
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <div class="text">
+                                    <?= $partners->fragments['text-1']->value ?>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <div class="text">
+                                    <?= $partners->fragments['text-2']->value ?>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <div class="text">
+                                    <?= $partners->fragments['text-3']->value ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /. -->
+        <!-- Block Únete a Nuestro Equipo -->
+        <?php
+            $team_page = find_page_by_guid('XyGeB9WeZI', $us_pages);
+            $team_result = Page::search(array(
+                'idparent'  => $team_page->idpage,
+                'fragments' => array('desc','img'),
+                'sortBy'    => 'created ASC'
+            ));
+            $team_pages = $team_result['records'];
+        ?>
+        <section class="block us-team" id="us-team">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="header">
+                        <div class="title"><?= $team_page->fragments['body']->value ?></div>
+                    </div>
+                    <div class="content row w-1060">
+                        <?php foreach($team_pages as $t_page): ?>
+                        <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
+                            <?php
+                                $img_t = Fragment::elementAttributes($t_page->fragments['img']->value);
+                                $img_t_src = sprintf('background-image:url(%s)', $img_t['src'])
+                            ?>
+                            <div class="pic" style="<?= $img_t_src ?>"></div>
+                            <div class="desc text-start p-t-10">
+                                <div class="text-uppercase subtitle">
+                                    <?= $t_page->title ?>
+                                </div>
+                                <div>
+                                    <?= $t_page->fragments['desc']->value ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /. -->
+        <!-- Block Únete a Nuestro Equipo -->
+        <section class="block us-join" id="us-join">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="image img-fluid-wr">
+                                <img src="<?= IMGS_PATH ?>equipo.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="header">
+                                <h2 class="title">¡Únete a nuestro equipo!</h2>
+                            </div>
+                            <div class="content">
+                                <div>
+                                    Si eres una persona con iniciativa, motivación y
+                                    quieres integrarte en un equipo de trabajo dinámico
+                                    en una empresa de vanguardia, te estamos esperando.
+                                </div>
+                            </div>
+                            <a class="button" href="#">Enviar CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="button btn-help" href="#">¡HOLA! ¿PODEMOS AYUDARTE?</a>
+        </section>
+        <!-- /. -->
 
-        </div>
+    </div>
 
-        <!-- Footer -->
-        <?php include_once "partials/footer.php" ?>
+    <!-- Footer -->
+    <?php include_once "partials/footer.php" ?>
 
-        <!-- Page Scripts -->
-        <?php include_once "partials/scripts.php" ?>
-    </body>
+    <!-- Page Scripts -->
+    <?php include_once "partials/scripts.php" ?>
+</body>
 
 </html>

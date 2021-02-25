@@ -308,7 +308,7 @@ define("scripts", ["require", "exports", "utilCustom.carrousel"], function (requ
                     scrollSpeed: 5000,
                 }, '');
                 carrouselPartners.init(utilP, {
-                    autoPlay: true,
+                    autoPlay: false,
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,

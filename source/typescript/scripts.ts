@@ -46,7 +46,7 @@
             carrouselPartners.init(
                 utilP,
                 {
-                    autoPlay: true,
+                    autoPlay: false,
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,

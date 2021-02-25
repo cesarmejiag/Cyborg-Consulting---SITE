@@ -170,7 +170,7 @@ if ($page instanceof Page)
 // Retrieve root pages.
 $result = Page::search(array(
     'idparent'  => $root_id,
-    'fragments' => array('image', 'slogan', 'intro', 'body', 'whatsapp', 'instagram', 'success-message', 'error-message'),
+    'fragments' => array('desc-1','desc-2','title-gallery-1','title-gallery-2','gallery-1','gallery-2','image', 'slogan', 'intro', 'body', 'whatsapp', 'instagram', 'success-message', 'error-message','main-image','small-image','ribbon','ribbon-image'),
     'sortBy'    => 'created ASC'
 ));
 
