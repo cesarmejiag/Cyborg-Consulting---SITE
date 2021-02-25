@@ -97,7 +97,7 @@ include_once "utils/fragment_helpers.php";
         <?php
         $us_result = Page::search(array(
             'idparent'  => $us_page->idpage,
-            'fragments' => array('body','intro','img','text-1','text-2','text-3'),
+            'fragments' => array('body','intro','img','text-1','text-2','text-3', 'title', 'desc'),
             'sortBy'    => 'created ASC'
         ));
         $us_pages = $us_result['records'];
@@ -277,24 +277,23 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /. -->
         <!-- Block Únete a Nuestro Equipo -->
+        <?php $join_page = find_page_by_guid('qyQWZGMCu7', $us_pages); ?>
         <section class="block us-join" id="us-join">
             <div class="holder">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="image img-fluid-wr">
-                                <img src="<?= IMGS_PATH ?>equipo.jpg" alt="">
+                                <?= $join_page->fragments['img']->value ?>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="header">
-                                <h2 class="title">¡Únete a nuestro equipo!</h2>
+                                <h2 class="title"><?= $join_page->fragments['title']->value ?></h2>
                             </div>
                             <div class="content">
                                 <div>
-                                    Si eres una persona con iniciativa, motivación y
-                                    quieres integrarte en un equipo de trabajo dinámico
-                                    en una empresa de vanguardia, te estamos esperando.
+                                    <?= $join_page->fragments['desc']->value ?>
                                 </div>
                             </div>
                             <a class="button" href="#">Enviar CV</a>
