@@ -3,7 +3,7 @@ include_once "globals.php";
 include_once "utils/fragment_helpers.php";
 $rpa_info_guid = 'vzmB-OasR-';
 $robots_guid = '7neekUcqHu';
-$hiper_guid = 'jXaTzQk90z';
+$hiper_guid = 'YVEr65sESM';
 
 
 ?>
