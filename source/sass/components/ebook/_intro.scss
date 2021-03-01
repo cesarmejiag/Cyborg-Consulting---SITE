@@ -1,0 +1,16 @@
+.block.intro-ebook {
+  b {
+    color:$highlight-color;
+  }
+  .content {
+    margin-top: 60px;
+  }  
+}
+
+@media(min-width:767px) {
+  .block.intro-ebook {
+    .content {
+      margin-top: 120px;
+    }
+  }
+}

@@ -338,7 +338,7 @@ include_once "utils/fragment_helpers.php";
                                 <div class="content">
                                     <div><b>Completa el siguiente formulario y recibe tu ebook acerca de la hiperautomatización.</b></div>
                                 </div>
-                                <a class="button" href="#">Ver más</a>
+                                <a class="button" href="/ebook">Ver más</a>
                             </div>
                         </div>
                     </div>
