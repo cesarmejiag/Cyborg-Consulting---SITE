@@ -1,6 +1,10 @@
 <?php
 include_once "globals.php";
 include_once "utils/fragment_helpers.php";
+$rpa_info_guid = 'vzmB-OasR-';
+$robots_guid = '7neekUcqHu';
+$hiper_guid = 'jXaTzQk90z';
+
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +43,7 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /.Cover -->
         <!-- Block ¿Qué es RPA? -->
-        <?php $rpa_info_page = find_page_by_guid('vzmB-OasR-', $rpa_pages); ?>
+        <?php $rpa_info_page = find_page_by_guid($rpa_info_guid, $rpa_pages); ?>
         <section class="block rpa-intro">
             <div class="holder w-860">
                 <div class="container-fluid">
@@ -54,9 +58,8 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /.¿Qué es? -->
         <!-- Block RPA Cards -->
-        <?php $rpa_cards = find_page_by_guid('vzmB-OasR-', $rpa_pages);
-        $cards_result = Page::search(array(
-            'idparent'  => $rpa_cards->idpage,
+        <?php $cards_result = Page::search(array(
+            'idparent'  => $rpa_info_page->idpage,
             'fragments' => array('body'),
             'sortBy'    => 'created ASC'
         ));
@@ -118,7 +121,7 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /- -->
         <!-- Block Robots -->
-        <?php $robots = find_page_by_guid('7neekUcqHu', $rpa_pages);
+        <?php $robots = find_page_by_guid($robots_guid, $rpa_pages);
         $robots_result = Page::search(array(
             'idparent'  => $robots->idpage,
             'fragments' => array('body', 'img'),
@@ -172,7 +175,7 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /- -->
         <!-- Block Hiperautomatización -->
-        <?php $hiper_page = find_page_by_guid('jXaTzQk90z', $rpa_pages); ?>
+        <?php $hiper_page = find_page_by_guid($hiper_guid, $rpa_pages); ?>
         <section class="block rpa-hiper" id="rpa-hiper">
             <div class="holder w-860">
                 <div class="container-fluid">
@@ -245,10 +248,6 @@ include_once "utils/fragment_helpers.php";
             </div>
         </section>
         <!-- / -->
-
-
-
-
     </div>
 
     <!-- Footer -->

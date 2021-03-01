@@ -1,6 +1,14 @@
 <?php
 include_once "globals.php";
 include_once "utils/fragment_helpers.php";
+$vmv_guid = 'm7PGfV1J3c';
+$vision_guid = 'UQutB-2aiq';
+$mision_guid = '97EgrLScys';
+$valores_guid = '8klDBjVTu6';
+$cyborg_guid = 'S8EpPRgT4y';
+$partners_guid = 'RyzlfdeJl4';
+$team_guid = 'XyGeB9WeZI';
+$join_guid = 'qyQWZGMCu7';
 
 ?>
 <!DOCTYPE html>
@@ -101,16 +109,16 @@ include_once "utils/fragment_helpers.php";
             'sortBy'    => 'created ASC'
         ));
         $us_pages = $us_result['records'];
-        $vmv = find_page_by_guid('m7PGfV1J3c', $us_pages);
+        $vmv = find_page_by_guid($vmv_guid, $us_pages);
         $vmv_result = Page::search(array(
             'idparent'  => $vmv->idpage,
             'fragments' => array('body'),
             'sortBy'    => 'created ASC'
         ));
         $vmv_pages = $vmv_result['records'];
-        $vision_page = find_page_by_guid('UJtpi280FX', $vmv_pages);
-        $mision_page = find_page_by_guid('U8u5R-RF4y', $vmv_pages);
-        $valores_page = find_page_by_guid('wWSsbe0XSJ', $vmv_pages);
+        $vision_page = find_page_by_guid($vision_guid, $vmv_pages);
+        $mision_page = find_page_by_guid($mision_guid, $vmv_pages);
+        $valores_page = find_page_by_guid($valores_guid, $vmv_pages);
         ?>
         <section class="block us-mision-vision" id="us-mision-vision">
             <div class="holder">
@@ -163,7 +171,7 @@ include_once "utils/fragment_helpers.php";
         <!-- /. -->
         <!-- Block Cyborg Way -->
         <?php
-            $cyborg_way = find_page_by_guid('S8EpPRgT4y', $us_pages);
+            $cyborg_way = find_page_by_guid($cyborg_guid, $us_pages);
             $cw_result = Page::search(array(
                 'idparent'  => $cyborg_way->idpage,
                 'fragments' => array('desc','img'),
@@ -195,7 +203,7 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /. -->
         <!-- Block Partners -->
-        <?php $partners = find_page_by_guid('RyzlfdeJl4', $us_pages); ?>
+        <?php $partners = find_page_by_guid($partners_guid, $us_pages); ?>
         <section class="block us-parners" id="us-partners">
             <div class="holder">
                 <div class="container-fluid">
@@ -239,7 +247,7 @@ include_once "utils/fragment_helpers.php";
         <!-- /. -->
         <!-- Block Únete a Nuestro Equipo -->
         <?php
-            $team_page = find_page_by_guid('XyGeB9WeZI', $us_pages);
+            $team_page = find_page_by_guid($team_guid, $us_pages);
             $team_result = Page::search(array(
                 'idparent'  => $team_page->idpage,
                 'fragments' => array('desc','img'),
@@ -277,7 +285,7 @@ include_once "utils/fragment_helpers.php";
         </section>
         <!-- /. -->
         <!-- Block Únete a Nuestro Equipo -->
-        <?php $join_page = find_page_by_guid('qyQWZGMCu7', $us_pages); ?>
+        <?php $join_page = find_page_by_guid($join_guid, $us_pages); ?>
         <section class="block us-join" id="us-join">
             <div class="holder">
                 <div class="container-fluid">
