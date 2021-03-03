@@ -290,6 +290,14 @@ define("scripts", ["require", "exports", "utilCustom.carrousel"], function (requ
             init: function () {
                 Page.homeCarousel();
                 Page.Navigation.init();
+                Page.sideBar();
+            },
+            setStyleAttribute: function (element, attrs) {
+                if (attrs !== undefined) {
+                    Object.keys(attrs).forEach(function (key) {
+                        return element.style.setProperty(key, attrs[key]);
+                    });
+                }
             },
             homeCarousel: function () {
                 var carrouselClients = new utilCustom_carrousel_1.Carrousel;
@@ -316,6 +324,42 @@ define("scripts", ["require", "exports", "utilCustom.carrousel"], function (requ
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, '');
+            },
+            sideBar: function () {
+                var generalWrapper = q('.block.wrapper-template', document);
+                var sideBar = q('.sidebar-menu', generalWrapper);
+                var wrapperSections = q('.wrapper-sections', generalWrapper);
+                if (generalWrapper) {
+                    var reqAnimFrame_1 = window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        function (callback) {
+                            window.setTimeout(callback, 1000 / 60);
+                        };
+                    var calc_1 = function () {
+                        var rect = generalWrapper.getBoundingClientRect();
+                        var rectWrapperSections = wrapperSections.getBoundingClientRect();
+                        if (rect.top <= 80) {
+                            Page.setStyleAttribute(sideBar, { 'position': 'fixed', 'left': '0', 'top': '80px' });
+                            Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto' });
+                        }
+                        if (rect.top >= 80) {
+                            Page.setStyleAttribute(sideBar, { 'position': 'relative', 'left': 'unset', 'top': 'unset' });
+                            Page.setStyleAttribute(wrapperSections, { 'margin-left ': 'auto' });
+                            Page.setStyleAttribute(generalWrapper, { 'align-items': 'flex-start' });
+                        }
+                        if (rectWrapperSections.bottom <= window.innerHeight) {
+                            Page.setStyleAttribute(sideBar, { 'position': 'relative', 'left': 'unset', 'top': 'unset' });
+                            Page.setStyleAttribute(wrapperSections, { 'margin-left ': 'auto' });
+                            Page.setStyleAttribute(generalWrapper, { 'align-items': 'flex-end' });
+                        }
+                    };
+                    window.onscroll = function () {
+                        reqAnimFrame_1(calc_1);
+                    };
+                    window.onresize = function () {
+                        reqAnimFrame_1(calc_1);
+                    };
+                }
             },
             Navigation: {
                 toggleBtn: null,

@@ -2,9 +2,9 @@
  * Make your magic here!
  */
 
- import {Carrousel} from './utilCustom.carrousel';
- 
- (() => {
+import { Carrousel } from './utilCustom.carrousel';
+
+(() => {
     'use strict'
     // Register service worker.
     if ("serviceWorker" in navigator) {
@@ -18,12 +18,20 @@
     let q = (selector, target) => (target || document).querySelector(selector);
     let qa = (selector, target) => (target || document).querySelectorAll(selector);
 
+
     const Page = {
         init() {
             Page.homeCarousel();
             Page.Navigation.init();
+            Page.sideBar();
         },
-
+        setStyleAttribute(element: HTMLElement, attrs: { [key: string]: string }) {
+            if (attrs !== undefined) {
+                Object.keys(attrs).forEach((key: string) => {
+                    return element.style.setProperty(key, attrs[key]);
+                });
+            }
+        },
         homeCarousel() {
             let carrouselClients = new Carrousel;
             let carrouselPartners = new Carrousel;
@@ -41,7 +49,7 @@
                     thumbsToDisplay: 5,
                     scaleImages: true,
                     scrollSpeed: 5000,
-                }, '' 
+                }, ''
             );
             carrouselPartners.init(
                 utilP,
@@ -55,6 +63,46 @@
                     scrollSpeed: 5000,
                 }, ''
             )
+        },
+        sideBar() {
+            let generalWrapper = q('.block.wrapper-template', document);
+            let sideBar = q('.sidebar-menu', generalWrapper);
+            let wrapperSections = q('.wrapper-sections', generalWrapper);
+            if (generalWrapper) {
+                let reqAnimFrame = window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    function (callback) {
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+                let calc = () => {
+                    let rect = generalWrapper.getBoundingClientRect();
+                    let rectWrapperSections = wrapperSections.getBoundingClientRect();
+                    if (rect.top <= 80) {
+                        Page.setStyleAttribute(sideBar, { 'position': 'fixed', 'left': '0', 'top': '80px' });
+                        Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto' });
+                    }
+
+                    if (rect.top >= 80) {
+                        Page.setStyleAttribute(sideBar, { 'position': 'relative', 'left': 'unset', 'top': 'unset' });
+                        Page.setStyleAttribute(wrapperSections, { 'margin-left ': 'auto' });
+                        Page.setStyleAttribute(generalWrapper, { 'align-items': 'flex-start' });
+                    }
+
+                    if (rectWrapperSections.bottom <= window.innerHeight) {
+                        Page.setStyleAttribute(sideBar, { 'position': 'relative', 'left': 'unset', 'top': 'unset' });
+                        Page.setStyleAttribute(wrapperSections, { 'margin-left ': 'auto' });
+                        Page.setStyleAttribute(generalWrapper, { 'align-items': 'flex-end' });
+                    }
+                }
+
+                window.onscroll = function () {
+                    reqAnimFrame(calc);
+                };
+
+                window.onresize = function () {
+                    reqAnimFrame(calc);
+                };
+            }
         },
         Navigation: {
             toggleBtn: null,

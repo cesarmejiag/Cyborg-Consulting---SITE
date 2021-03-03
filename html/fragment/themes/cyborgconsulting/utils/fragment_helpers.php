@@ -15,6 +15,10 @@
  */
 $root_id = 0;
 
+/*
+* Home GUID
+*/
+$home_guid = 'home';
 
 /*
  * Us GUID
@@ -69,9 +73,9 @@ $contact_guid = 'QJ22o0nMwG';
  * @returns Page
  */
 function find_page_by_guid($guid, $pages) {
-    foreach ($pages as $page) {
-        if ($guid === $page->guid)
-            return $page;
+    foreach ($pages as $pages_page) {
+        if ($guid === $pages_page->guid)
+            return $pages_page;
     }
 
     return null;
@@ -148,9 +152,9 @@ function get_original_image($image) {
  * @return boolean
  */
 function is_home() {
-    global $page, $nogalmx_guid;
+    global $page, $home_guid;
 
-    return $page->guid === $nogalmx_guid;
+    return $page->guid === $home_guid;
 }
 
 
@@ -159,7 +163,7 @@ function is_home() {
 // ---------------------------------------------------------------------
 
 if ($page instanceof Page)
-    $is_home = $page->guid === $nogalmx_guid;
+    $is_home = $page->guid === $home_guid;
 
 
 // ---------------------------------------------------------------------
@@ -179,9 +183,9 @@ $root_pages = $result['records'];
 // Retrieve sub pages for models.
 $root_pages_id = array();
 
-foreach ($root_pages as $page) {
-    if ($page->idpage !== 'home') {
-        $root_pages_id[] = $page->idpage;
+foreach ($root_pages as $root_page) {
+    if ($root_page->idpage !== 'home') {
+        $root_pages_id[] = $root_page->idpage;
     }
 }
 
