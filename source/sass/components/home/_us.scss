@@ -1,8 +1,11 @@
 .block.us {
     overflow: hidden;
-    .button {
-        min-width: 100px;
+    a {
+        color: #fff;
+        text-decoration: none;
+        max-width: 100px;
         line-height: 30%;
+        width: 100%;
         margin: 0 auto;
     }
     .main-image {
@@ -11,11 +14,14 @@
         background-position: center;
         background-size: cover;
         width: 100%;
-        
     }
     .side-image {
         right: -5%;
         bottom: -15%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -23,10 +29,10 @@
     .block.us {
         .main-image {
             padding-bottom: 410px;
-            max-width: 485px;    
+            max-width: 485px;
         }
         .button {
-            margin-left:0
+            margin-left: 0;
         }
     }
 }

@@ -1,0 +1,46 @@
+.wrapper-sections {
+  max-width: 60%;
+  width: 100%;
+}
+
+.general-section {
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 160px;
+  &:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  &:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  .holder {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+}
+
+.image {
+  height: 180px;
+  max-width: 250px;
+  overflow: hidden;
+  top: 100%;
+  transform: translate(0, -50%);
+  right: 0;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .block.general-section {
+    min-height: auto;
+  }
+  .wrapper-sections {
+    max-width: 100%;
+  }
+  .image {
+    transform: translate(50%, -50%);
+    right: 50%;
+    z-index: 1;
+  }
+}
