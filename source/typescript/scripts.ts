@@ -2,9 +2,12 @@
  * Make your magic here!
  */
 
- import {Carrousel} from './utilCustom.carrousel';
- 
- (() => {
+import ContactForm from './ContactForm';
+import Classie from './util/Classie';
+import { Carrousel } from './utilCustom.carrousel';
+
+
+(() => {
     'use strict'
     // Register service worker.
     if ("serviceWorker" in navigator) {
@@ -15,8 +18,8 @@
             .catch(res => { console.log('Can not find service worker.') })
     }
 
-    let q = (selector, target) => (target || document).querySelector(selector);
-    let qa = (selector, target) => (target || document).querySelectorAll(selector);
+    let q = (selector: string, target?: any) => (target || document).querySelector(selector);
+    let qa = (selector: string, target?: any) => (target || document).querySelectorAll(selector);
 
     const Page = {
         init() {
@@ -41,7 +44,7 @@
                     thumbsToDisplay: 5,
                     scaleImages: true,
                     scrollSpeed: 5000,
-                }, '' 
+                }, ''
             );
             carrouselPartners.init(
                 utilP,
@@ -80,5 +83,94 @@
     }
 
     Page.init();
+
+    // Initialize Contact Form
+
+    /**
+     * Show or hide element
+     * @param {HTMLElement} element
+     * @param {boolean} show
+     */
+    function showElement(element, show) {
+        show
+            ? Classie.addClass(element, 'displayed')
+            : Classie.removeClass(element, 'displayed');
+    }
+
+    /**
+     * Handle form error event.
+     * @param {number} status
+     * @param {string} statusText
+     */
+    function handleError(status, statusText) {
+        // Show message in console.
+        console.log('There was an error. \nStatus: %s\nStatusText: %s', status, statusText);
+
+        message.innerHTML = `<div class="text error">No pudimos enviar tu mensaje, por favor intentalo más tarde.</div>`;
+
+        setTimeout(function () {
+            showElement(wrapper, true);
+            showElement(message, false);
+
+            message.innerText = "";
+        }, 3000);
+    }
+
+    /**
+     * Handle form sending event.
+     */
+    function handleSending() {
+        // Show message in console.
+        console.log('Sending...');
+
+        showElement(wrapper, false);
+        showElement(message, true);
+
+        message.innerHTML = `<div class="text sending">Enviando mensaje...</div>`;
+    }
+
+    /**
+     * Handle form success event.
+     * @param {object} response
+     * @param {string} status
+     * @param {string} statusText
+     */
+    function handleSuccess(response, status, statusText) {
+        // Show message in console.
+        console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
+        console.log(response);
+
+        if (parseInt(response) === 1) {
+            message.innerHTML = `<div class="text sent">¡Mensaje enviado!</div>`;
+
+            setTimeout(function () {
+                showElement(wrapper, true);
+                showElement(message, false);
+
+                message.innerHTML = "";
+            }, 3000);
+        } else {
+            handleError(status, statusText);
+        }
+    }
+
+
+    var formElement = q('.contact-form');
+    var message = q('.message');
+    var wrapper = q('.wrapper');
+    var form = new ContactForm(formElement, {
+        url: '/fragment/themes/cyborgconsulting/send-mail.php',
+        useAjax: true,
+        inputSelectors: [
+            "input[type=text]",
+            "input[type=email]",
+            "select",
+            "textarea"
+        ]
+    })
+
+    form.error.add(handleError);
+    form.sending.add(handleSending);
+    form.success.add(handleSuccess);
 
 })()
