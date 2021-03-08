@@ -309,12 +309,20 @@ include_once "utils/fragment_helpers.php";
             <!-- /.Clients -->
 
             <!-- Block Contact -->
-            <section class="block contact" id="contacto">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header"></div>
-                        <div class="content">
-                            
+            <?php $contact_section = find_page_by_guid($contact_guid, $root_pages); ?>
+            <section class="block contact" id="<?= $contact_section->key ?>">
+                <div class="header">
+                    <div class="holder">
+                        <div class="container-fluid">
+                            <h2 class="title"><?= $contact_section->title ?></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="holder">
+                        <div class="container-fluid">
+                            <div class="body"><?= $contact_section->fragments['body']->value ?></div>
+                            <?php include_once 'partials/contact-form.php'; ?>
                         </div>
                     </div>
                 </div>

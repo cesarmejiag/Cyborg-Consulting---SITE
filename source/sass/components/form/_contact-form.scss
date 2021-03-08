@@ -1,0 +1,155 @@
+/*
+    Document   : _contact-form.scss
+    Created on : 10/06/2019, 22:49:15 PM
+    Author     : cesarmejia
+    Description:
+*/
+.contact-form {
+  min-height: 150px;
+  position: relative;
+
+  /* Chrome/Opera/Safari */
+  ::-webkit-input-placeholder {
+    color: #999;
+  }
+  /* Firefox 19+ */
+  ::-moz-placeholder {
+    color: #999;
+  }
+  /* IE 10+ */
+  :-ms-input-placeholder {
+    color: #999;
+  }
+  /* Firefox 18- */
+  :-moz-placeholder {
+    color: #999;
+  }
+
+  .input-container {
+    margin-bottom: 10px;
+  }
+
+  .input-container .input-clue {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .input-container.invalid {
+    label {
+      color: #ea6234;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      border-bottom: 1px solid #ea6234;
+    }
+  }
+
+  .message {
+    align-items: center;
+    display: none;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    &.displayed {
+      display: flex;
+    }
+
+    .text {
+      background: no-repeat top center;
+      color: #e8511d;
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      padding-top: 45px;
+    }
+
+    .sent {
+      background-image: url('../images/icon-sent.svg');
+    }
+    .sending {
+      background-image: url('../images/icont-sending.svg');
+    }
+  }
+
+  .wrapper {
+    visibility: hidden;
+    &.displayed {
+      visibility: visible;
+    }
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    outline: none;
+    width: 100%;
+  }
+
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+
+  label {
+    display: block;
+    font-family: $font2-regular;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
+  input[type="submit"] {
+    appearance: none;
+    background-color: #e8511d;
+    border: 1px solid #e8511d;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-family: $font2-regular;
+    letter-spacing: 1.2px;
+    margin-left: auto;
+    max-height: 30px;
+    max-width: 115px;
+    padding: 7px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background 375ms, color 375ms;
+    width: 100%;
+    &:hover {
+      background-color: #fff;
+      color: #e8511d;
+      font-weight: 900;
+    }
+  }
+}
+
+@media screen and (min-width: 567px) {
+  .contact-form {
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-size: 16px;
+      padding: 10px 5px;
+    }
+
+    textarea {
+      height: 135px;
+    }
+  }
+}
