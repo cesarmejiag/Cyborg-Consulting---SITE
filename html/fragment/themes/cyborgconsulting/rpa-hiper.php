@@ -44,7 +44,7 @@ $hiper_guid = 'YVEr65sESM';
         <!-- /.Cover -->
         <!-- Block ¿Qué es RPA? -->
         <?php $rpa_info_page = find_page_by_guid($rpa_info_guid, $rpa_pages); ?>
-        <section class="block rpa-intro">
+        <section class="block rpa-intro" id="<?= $rpa_info_page->key ?>">
             <div class="holder w-860">
                 <div class="container-fluid">
                     <div class="header">
@@ -130,7 +130,7 @@ $hiper_guid = 'YVEr65sESM';
         $robots_pages = $robots_result['records'];
         ?>
 
-        <section class="block rpa-robots" id="rpa-robots">
+        <section class="block rpa-robots" id="<?= $robots->key ?>">
             <div class="holder">
                 <div class="container-fluid">
                     <div class="header">
@@ -176,7 +176,7 @@ $hiper_guid = 'YVEr65sESM';
         <!-- /- -->
         <!-- Block Hiperautomatización -->
         <?php $hiper_page = find_page_by_guid($hiper_guid, $rpa_pages); ?>
-        <section class="block rpa-hiper" id="rpa-hiper">
+        <section class="block rpa-hiper" id="<?= $hiper_page->key ?>">
             <div class="holder w-860">
                 <div class="container-fluid">
                     <div class="header">

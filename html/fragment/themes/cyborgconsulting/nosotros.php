@@ -105,7 +105,7 @@ $join_guid = 'qyQWZGMCu7';
         <?php
         $us_result = Page::search(array(
             'idparent'  => $us_page->idpage,
-            'fragments' => array('body','intro','img','text-1','text-2','text-3', 'title', 'desc'),
+            'fragments' => array('body', 'intro', 'img', 'text-1', 'text-2', 'text-3', 'title', 'desc'),
             'sortBy'    => 'created ASC'
         ));
         $us_pages = $us_result['records'];
@@ -120,7 +120,7 @@ $join_guid = 'qyQWZGMCu7';
         $mision_page = find_page_by_guid($mision_guid, $vmv_pages);
         $valores_page = find_page_by_guid($valores_guid, $vmv_pages);
         ?>
-        <section class="block us-mision-vision" id="us-mision-vision">
+        <section class="block us-mision-vision" id="<?= $vmv->key ?>">
             <div class="holder">
                 <div class="container-fluid w-1060">
                     <!-- Mision y Visión  -->
@@ -171,31 +171,31 @@ $join_guid = 'qyQWZGMCu7';
         <!-- /. -->
         <!-- Block Cyborg Way -->
         <?php
-            $cyborg_way = find_page_by_guid($cyborg_guid, $us_pages);
-            $cw_result = Page::search(array(
-                'idparent'  => $cyborg_way->idpage,
-                'fragments' => array('desc','img'),
-                'sortBy'    => 'created ASC'
-            ));
-            $cw_pages = $cw_result['records'];
+        $cyborg_way = find_page_by_guid($cyborg_guid, $us_pages);
+        $cw_result = Page::search(array(
+            'idparent'  => $cyborg_way->idpage,
+            'fragments' => array('desc', 'img'),
+            'sortBy'    => 'created ASC'
+        ));
+        $cw_pages = $cw_result['records'];
         ?>
-        <section class="block us-cyborg" id="us-cyborg">
+        <section class="block us-cyborg" id="<?= $cyborg_way->key ?>">
             <div class="holder">
                 <div class="container-fluid">
                     <div class="header">
                         <div class="title"><?= $cyborg_way->title ?></div>
                     </div>
                     <div class="content d-flex justify-content-between flex-wrap">
-                        <?php foreach($cw_pages as $cw_page): ?>
-                        <?php
+                        <?php foreach ($cw_pages as $cw_page) : ?>
+                            <?php
                             $img_cw = Fragment::elementAttributes($cw_page->fragments['img']->value);
                             $img_cw_src = sprintf('background-image:url(%s)', $img_cw['src'])
-                        ?>
-                        <div class="item-wrapper">
-                            <div class="item position-relative mb-4" style="<?= $img_cw_src ?>"></div>
-                            <div class="text-center m-b-20"><?= $cw_page->title ?></div>
-                            <div class="text-center"><?= $cw_page->fragments['desc']->value ?></div>
-                        </div>
+                            ?>
+                            <div class="item-wrapper">
+                                <div class="item position-relative mb-4" style="<?= $img_cw_src ?>"></div>
+                                <div class="text-center m-b-20"><?= $cw_page->title ?></div>
+                                <div class="text-center"><?= $cw_page->fragments['desc']->value ?></div>
+                            </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -204,7 +204,7 @@ $join_guid = 'qyQWZGMCu7';
         <!-- /. -->
         <!-- Block Partners -->
         <?php $partners = find_page_by_guid($partners_guid, $us_pages); ?>
-        <section class="block us-parners" id="us-partners">
+        <section class="block us-parners" id="<?= $partners->key ?>">
             <div class="holder">
                 <div class="container-fluid">
                     <div class="header mb-5">
@@ -247,37 +247,37 @@ $join_guid = 'qyQWZGMCu7';
         <!-- /. -->
         <!-- Block Únete a Nuestro Equipo -->
         <?php
-            $team_page = find_page_by_guid($team_guid, $us_pages);
-            $team_result = Page::search(array(
-                'idparent'  => $team_page->idpage,
-                'fragments' => array('desc','img'),
-                'sortBy'    => 'created ASC'
-            ));
-            $team_pages = $team_result['records'];
+        $team_page = find_page_by_guid($team_guid, $us_pages);
+        $team_result = Page::search(array(
+            'idparent'  => $team_page->idpage,
+            'fragments' => array('desc', 'img'),
+            'sortBy'    => 'created ASC'
+        ));
+        $team_pages = $team_result['records'];
         ?>
-        <section class="block us-team" id="us-team">
+        <section class="block us-team" id="<?= $team_page->key ?>">
             <div class="holder">
                 <div class="container-fluid">
                     <div class="header">
                         <div class="title"><?= $team_page->fragments['body']->value ?></div>
                     </div>
                     <div class="content row w-1060">
-                        <?php foreach($team_pages as $t_page): ?>
-                        <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
-                            <?php
+                        <?php foreach ($team_pages as $t_page) : ?>
+                            <div class="item col-sm-6 col-12 d-flex flex-column flex-sm-row align-sm-items-start">
+                                <?php
                                 $img_t = Fragment::elementAttributes($t_page->fragments['img']->value);
                                 $img_t_src = sprintf('background-image:url(%s)', $img_t['src'])
-                            ?>
-                            <div class="pic" style="<?= $img_t_src ?>"></div>
-                            <div class="desc text-start p-t-10">
-                                <div class="text-uppercase subtitle">
-                                    <?= $t_page->title ?>
-                                </div>
-                                <div>
-                                    <?= $t_page->fragments['desc']->value ?>
+                                ?>
+                                <div class="pic" style="<?= $img_t_src ?>"></div>
+                                <div class="desc text-start p-t-10">
+                                    <div class="text-uppercase subtitle">
+                                        <?= $t_page->title ?>
+                                    </div>
+                                    <div>
+                                        <?= $t_page->fragments['desc']->value ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -286,7 +286,7 @@ $join_guid = 'qyQWZGMCu7';
         <!-- /. -->
         <!-- Block Únete a Nuestro Equipo -->
         <?php $join_page = find_page_by_guid($join_guid, $us_pages); ?>
-        <section class="block us-join" id="us-join">
+        <section class="block us-join" id="<?= $join_page->key ?>">
             <div class="holder">
                 <div class="container-fluid">
                     <div class="row">

@@ -2,15 +2,11 @@
 $listOpts = "";
 $navClasses = array();
 
-if (!is_home()) {
-    array_push($navClasses, 'navigation-small');
-}
-
 // region List
 foreach ($root_pages as $option) {
 
     // Remove Home option from menu
-    if ($option->key === 'home') {
+    if ($option->guid === 'home') {
         continue;
     }
 
@@ -35,13 +31,19 @@ foreach ($root_pages as $option) {
     if ($option->guid === $us_guid || $option->guid === $services_guid || $option->guid === $rpa_guid || $option->guid === $industries_guid) {
         $submenu = '<ul class="submenu-list list">';
         foreach ($option->children as $option_sub) {
-            $submenu .= '<li class="d-block li-submenu w-100"><a href="/' . $option->key . '/#' . $option_sub->key . '" class="">' . $option_sub->title . '</a></li>';
+            $submenu .= '<li class="d-block li-submenu w-100"><a href="/' . $option->key . '#' . $option_sub->key . '" class="">' . $option_sub->title . '</a></li>';
         }
-        $submenu .= '</ul>';        
-        $classes .= ' with-submenu ';
+        $submenu .= '</ul>';
+        $classes .= ' with-submenu';
     }
-
     // endregion
+    if ($option->guid === $contact_guid) {
+        if ($is_home) {
+            $href = '#' . $href;
+        } else {
+            $href = '/#' . $href;
+        }
+    }
 
     // region Personalize title.
     $title = $option->title;
@@ -70,13 +72,6 @@ foreach ($root_pages as $option) {
             <ul class="list clearfix">
                 <?= $listOpts ?>
             </ul>
-
-            <!-- <div class="nav-contact d-block d-lg-none">
-                <div class="logo">
-                    <img alt="<?= SITE_NAME ?>" class="img-fluid" src="<?= IMGS_PATH ?>logo.svg">
-                </div>
-                
-            </div> -->
         </div>
 
         <!-- Toggle Button -->

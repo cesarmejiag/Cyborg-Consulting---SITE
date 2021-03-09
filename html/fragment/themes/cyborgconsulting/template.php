@@ -3,7 +3,7 @@ include_once "globals.php";
 include_once "utils/fragment_helpers.php";
 $is_industries_page = false;
 if($page->guid === $industries_guid ) {
-    $is_industries_page = true;
+    $is_industries_page = true;    
 }
 ?>
 <!DOCTYPE html>
