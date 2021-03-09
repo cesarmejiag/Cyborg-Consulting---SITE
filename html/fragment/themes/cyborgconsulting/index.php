@@ -116,7 +116,7 @@ include_once "utils/fragment_helpers.php";
                                     : $img_src = sprintf('background-image:url(%s)', $image_nosotros_bg);
 
                                     ?>
-                                    <a class="d-block mb-3" href="javascript:void(0)">
+                                    <a class="d-block mb-3" href="<?= $services->key . '#' . $service->key ?>">
                                         <div class="item d-flex align-items-center text-white text-center position-relative"
                                             style="<?= $img_src ?>"
                                         >
@@ -249,7 +249,7 @@ include_once "utils/fragment_helpers.php";
                   $imgs_gallery_1 = Fragment::findTagsIn('img',$partners->fragments['gallery-1']->value);
                   $imgs_gallery_2 = Fragment::findTagsIn('img',$partners->fragments['gallery-2']->value); ?>
             <!-- Block Partners -->
-            <section class="block partners py-0" id="socios-estrategicos">
+            <section class="block partners py-0" id="<?= $partners->key ?>">
                 <div class="holder">
                     <div class="container-fluid">
                         <div class="header">
@@ -279,7 +279,7 @@ include_once "utils/fragment_helpers.php";
             <!-- /.Partners -->
 
             <!-- Block Clients -->
-            <section class="block clients py-0" id="<?= $partners->key ?>">
+            <section class="block clients py-0" id="clientes-1">
                 <div class="holder">
                     <div class="container-fluid">
                         <div class="header">

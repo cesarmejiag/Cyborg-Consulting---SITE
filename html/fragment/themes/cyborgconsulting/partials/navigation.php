@@ -44,6 +44,13 @@ foreach ($root_pages as $option) {
             $href = '/#' . $href;
         }
     }
+    if ($option->guid === $clients_guid) {
+        if ($is_home) {
+            $href = '#' . $href;
+        } else {
+            $href = '/#' . $href;
+        }
+    }
 
     // region Personalize title.
     $title = $option->title;
