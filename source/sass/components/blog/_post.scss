@@ -1,0 +1,54 @@
+.block.blog-post {
+  padding-top: 35px;
+  .holder {
+    max-width: 1170px;
+  }
+  .cover-bg {
+    height: 320px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 35px;
+  }
+  .post-body {
+    max-width: 950px;
+    margin: 0 auto 40px;
+  }
+  .blog-btn {
+    background-color: #fff;
+    font-family: 'Avenir Book';
+    display: block;
+    font-size: 14px;
+    max-width: 130px;
+    height: 30px;
+    line-height: 200%;
+    border-radius: 15px;
+    border: solid 1px #e8511d;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    &:hover {
+      color:#e8511d;
+    }
+    &.big-btn {
+      max-width: 187px;
+      height: 46px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .block.blog-post {
+    .title {
+      font-size: 48px;
+    }
+    .cover-bg {
+      height: 524px;
+      margin-bottom: 70px;
+    }
+    .post-body {
+      margin: 0 auto 90px;
+    }
+  }
+}

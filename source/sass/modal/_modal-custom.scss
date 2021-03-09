@@ -1,0 +1,24 @@
+/* Dummy Template */
+.dummy-template {
+  background-color: #fff;
+  color: #76777a;
+  min-height: 85vh;
+  height: 85vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.pl-modal-close-button:after {
+  color: #76777a;
+}
+
+.dummy-template .content-blog {
+  padding: 25px 30px;
+}
+
+.pl-modal-overlay {
+  z-index: 99;
+}
+.pl-modal {
+  z-index: 100;
+}

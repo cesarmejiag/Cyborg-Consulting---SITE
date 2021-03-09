@@ -209,9 +209,14 @@ body {
 
 @import "components/aviso/cover";
 
+@import "components/blog/cover";
+@import "components/blog/posts";
+@import "components/blog/post";
 
 @import "components/home/contact";
 
 @import "mixins/spacing";
 
 @import "util_carrousel/utilCarrousel";
+@import "modal/modal-styles";
+@import "modal/modal-custom";
