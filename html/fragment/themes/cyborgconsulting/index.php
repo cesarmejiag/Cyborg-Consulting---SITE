@@ -191,7 +191,7 @@ include_once "utils/fragment_helpers.php";
                                                 <?= $item->fragments['content']->value ?>
                                             </div>
                                         </div>
-                                        <a class="text-end text-white text-uppercase d-block" href="<?= $item->key ?>">Ver más ></a>
+                                        <a class="text-end text-white text-uppercase d-block" href="<?= $rpa->key . '#' . $item->key ?>">Ver más ></a>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>
