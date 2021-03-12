@@ -435,4 +435,14 @@ import pl from './pl'
     form.sending.add(handleSending);
     form.success.add(handleSuccess);
 
+    // Book Ad
+    const bookAd = q('.book-ad');
+    const closeBtn = q('.book-ad .close-button');
+
+    if (bookAd && closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            Classie.removeClass(bookAd, 'displayed');
+        });
+    }
+
 })()

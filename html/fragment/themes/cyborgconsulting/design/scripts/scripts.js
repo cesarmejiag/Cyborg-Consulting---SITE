@@ -2424,5 +2424,12 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         form.error.add(handleError);
         form.sending.add(handleSending);
         form.success.add(handleSuccess);
+        var bookAd = q('.book-ad');
+        var closeBtn = q('.book-ad .close-button');
+        if (bookAd && closeBtn) {
+            closeBtn.addEventListener('click', function () {
+                Classie_2.default.removeClass(bookAd, 'displayed');
+            });
+        }
     })();
 });

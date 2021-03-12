@@ -355,6 +355,8 @@ include_once "utils/fragment_helpers.php";
             <!-- /.Ebook -->
         </div>
 
+        <?php include_once "partials/book-ad.php" ?>
+
         <!-- Footer -->
         <?php include_once "partials/footer.php" ?>
 

@@ -4,7 +4,8 @@ package-lock.json
 Thumbs.db
 
 # Folders
-/.idea/
-/node_modules/
-/html/fragment/themes/cyborgconsulting/design/
-/html/fragment/themes/cyborgconsulting/favicons/
+.idea
+node_modules
+html/fragment/files/uploads
+html/fragment/themes/cyborgconsulting/design
+html/fragment/themes/cyborgconsulting/favicons
