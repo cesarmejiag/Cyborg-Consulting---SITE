@@ -443,6 +443,10 @@ import pl from './pl'
         closeBtn.addEventListener('click', () => {
             Classie.removeClass(bookAd, 'displayed');
         });
+
+        window.addEventListener('load', () => {
+            Classie.addClass(bookAd, 'displayed');
+        });
     }
 
 })()

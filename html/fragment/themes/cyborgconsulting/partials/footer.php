@@ -18,11 +18,13 @@
                                 <?php else : ?>
                                     <h5><?= $page->title ?></h5>
                                 <?php endif; ?>
+                                <?php if ($page->guid === $us_guid || $page->guid === $services_guid || $page->guid === $rpa_guid): ?>
                                 <ul>
                                     <?php foreach ($page->children as $sub_page) : ?>
                                         <li><a href="<?= $sub_page->key ?>"><?= $sub_page->title ?></a></li>
                                     <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endif; ?>

@@ -7,6 +7,7 @@
     max-width: 100%;
   }
   .info {
+    color: $highlight-color;
     font-family: "Avenir-Heavy", sans-serif;
     font-size: 24px;
   }
@@ -18,7 +19,6 @@
     height: auto;
   }
 }
-
 
 @media (min-width: 991px) {
   .block.ribbon {
@@ -32,7 +32,8 @@
       width: 400px;
       font-size: 30px;
       &::after {
-        content: '';
+        // content: "";
+        content: none;
         left: -100px;
         top: 0;
         border: 4px solid $highlight-color;
