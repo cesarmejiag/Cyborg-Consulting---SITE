@@ -37,7 +37,8 @@ $hiper_guid = 'YVEr65sESM';
             $img_rpa = Fragment::elementAttributes($rpa_page->fragments['image']->value);
             $img_src = sprintf('background-image:url(%s)', $img_rpa['src'])
             ?>
-            <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
+            <div class="cover-bg d-flex align-items-center  justify-content-center">
+                <div class="parallax" style="<?= $img_src ?>"></div>
                 <h1 class="title text-white text-uppercase"><?= $rpa_page->title ?></h1>
             </div>
         </section>
