@@ -92,6 +92,7 @@ body {
   margin-bottom: 135px;
   margin-top: 80px;
   position: relative;
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -183,6 +184,7 @@ body {
 @import "components/home/ribbon";
 @import "components/home/clients";
 @import "components/home/contact";
+@import "components/home/book-ad";
 
 @import "components/us/cover";
 @import "components/us/intro";
