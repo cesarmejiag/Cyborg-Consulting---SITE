@@ -30,29 +30,22 @@ $join_guid = 'qyQWZGMCu7';
         ));
         $services_pr = $services_records['records'];
         ?>
-        <!-- Outer wrapper -->
-        <div class="outer-wrapper">
-            <!-- Block Cover -->
-            <?php
-            $imgCover = IMGS_PATH . 'cover-nosotros.jpg';
-            $img_src = sprintf('background-image:url(%s)', $imgCover)
-            ?>
-            <section class="block us-cover" id="cover-us">
-                <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
-                    <h1 class="title text-white text-uppercase"><?= $us_page->title ?></h1>
-                </div>
-            </section>
-            <!-- /.Cover -->
-            <!-- Block Us Intro -->
-            <section class="block us-intro" id="us-intro">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header pb-3 pb-md-4 w-1060">
-                            <div class="row d-flex align-items-center justify-content-around">
-                                <div class="col-12 col-sm-6">
-                                    <div class="logo text-center">
-                                        <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
-                                    </div>
+        <section class="block us-cover" id="cover-us">
+            <div class="cover-bg d-flex align-items-center  justify-content-center" >
+                <div class="parallax" style="<?= $img_src ?>"></div>
+                <h1 class="title text-white text-uppercase"><?= $us_page->title ?></h1>
+            </div>
+        </section>
+        <!-- /.Cover -->
+        <!-- Block Us Intro -->
+        <section class="block us-intro" id="us-intro">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="header pb-3 pb-md-4 w-1060">
+                        <div class="row d-flex align-items-center justify-content-around">
+                            <div class="col-12 col-sm-6">
+                                <div class="logo text-center">
+                                    <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="text">

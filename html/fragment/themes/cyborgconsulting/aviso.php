@@ -32,7 +32,8 @@ $aviso_guid = '0Zi3-3tvvj';
                 $img = Fragment::elementAttributes($aviso_page->fragments['img']->value);
                 $img_src = sprintf('background-image:url(%s)', $img['src'])
                 ?>
-                <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
+                <div class="cover-bg d-flex align-items-center  justify-content-center">
+                    <div class="parallax" style="<?= $img_src ?>"></div>
                     <h1 class="title text-white text-uppercase"><?= $aviso_page->title ?></h1>
                 </div>
             </section>

@@ -10,7 +10,6 @@
     right: 0;
     z-index: 1;
   }
-  
 }
 
 .general-section {
@@ -31,17 +30,16 @@
   }
 }
 
-
 @media (max-width: 767px) {
   .block.general-section {
     min-height: auto;
-  }
-  .wrapper-sections {
-    max-width: 100%;
-  }
-  .image {
-    transform: translate(50%, -50%);
-    right: 50%;
-    z-index: 1;
+    .wrapper-sections {
+      max-width: 100%;
+    }
+    .image {
+      transform: translate(50%, -50%);
+      right: 50%;
+      z-index: 1;
+    }
   }
 }

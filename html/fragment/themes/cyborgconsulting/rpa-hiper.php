@@ -30,13 +30,23 @@ $hiper_guid = 'YVEr65sESM';
             ));
             $rpa_pages = $rpa_result['records'];
             ?>
-            <section class="block rpa-cover" id="cover-rpa">
-                <?php
-                $img_rpa = Fragment::elementAttributes($rpa_page->fragments['image']->value);
-                $img_src = sprintf('background-image:url(%s)', $img_rpa['src'])
-                ?>
-                <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
-                    <h1 class="title text-white text-uppercase"><?= $rpa_page->title ?></h1>
+            <div class="cover-bg d-flex align-items-center  justify-content-center">
+                <div class="parallax" style="<?= $img_src ?>"></div>
+                <h1 class="title text-white text-uppercase"><?= $rpa_page->title ?></h1>
+            </div>
+        </section>
+        <!-- /.Cover -->
+        <!-- Block ¿Qué es RPA? -->
+        <?php $rpa_info_page = find_page_by_guid($rpa_info_guid, $rpa_pages); ?>
+        <section class="block rpa-intro" id="<?= $rpa_info_page->key ?>">
+            <div class="holder w-860">
+                <div class="container-fluid">
+                    <div class="header">
+                        <h2 class="title text-start text-uppercase sub-title-size">¿Qué es RPA?</h2>
+                    </div>
+                    <div class="content">
+                        <?= $rpa_info_page->fragments['intro']->value ?>
+                    </div>
                 </div>
             </section>
             <!-- /.Cover -->

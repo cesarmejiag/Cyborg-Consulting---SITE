@@ -32,7 +32,8 @@ $ebook_guid = 'eCZ8LJw7BP'
                 $img = Fragment::elementAttributes($ebook_page->fragments['image']->value);
                 $img_src = sprintf('background-image:url(%s)', $img['src'])
                 ?>
-                <div class="cover-bg d-flex align-items-center  justify-content-center" style="<?= $img_src ?>">
+                <div class="cover-bg d-flex align-items-center  justify-content-center">
+                    <div class="parallax" style="<?= $img_src ?>"></div>
                     <h1 class="title text-white text-uppercase"><?= $ebook_page->fragments['title']->value ?></h1>
                 </div>
             </section>
