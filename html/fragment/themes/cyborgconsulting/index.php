@@ -8,7 +8,6 @@ include_once "utils/fragment_helpers.php";
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
-
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -34,20 +33,20 @@ include_once "utils/fragment_helpers.php";
                 'idparent' => $services->idpage,
                 'fragments' => array('img'),
                 'sortBy' => 'created ASC'
-                ));
-                $services_pr = $services_records['records'];
+            ));
+            $services_pr = $services_records['records'];
             ?>
             <section class="block us" id="<?= $nosotros_page->key ?>">
                 <div class="holder">
                     <div class="container-fluid">
                         <div class="content">
                             <div class="row flex-column-reverse flex-md-row">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12 col-md-5">
                                     <div class="images">
                                         <?php
-                                            $image_main_attrs = Fragment::elementAttributes($nosotros_page->fragments['main-image']->value);
-                                            $image_small_attrs = Fragment::elementAttributes($nosotros_page->fragments['small-image']->value);
-                                            $img_main_src = sprintf('background-image:url(%s)', $image_main_attrs['src']);
+                                        $image_main_attrs = Fragment::elementAttributes($nosotros_page->fragments['main-image']->value);
+                                        $image_small_attrs = Fragment::elementAttributes($nosotros_page->fragments['small-image']->value);
+                                        $img_main_src = sprintf('background-image:url(%s)', $image_main_attrs['src']);
                                         ?>
                                         <div class="main-image position-relative" style="<?= $img_main_src ?>">
                                             <div class="side-image d-none d-lg-block position-absolute">
@@ -56,33 +55,29 @@ include_once "utils/fragment_helpers.php";
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div>
+                                <div class="col-12 col-md-7">
+                                    <div class="inner">
                                         <div class="pb-3 pt-0 py-sm-4">
                                             <h2 class="text-start title mt-sm-4"><?= $nosotros_page->title ?></h2>
                                         </div>
                                         <div>
-                                            <p>
-                                                <?= $nosotros_page->fragments['intro']->value ?>
-                                            </p>
-                                            <p class="mt-4">
-                                                Contamos con las siguientes divisiones de negocio:
-                                            </p>
+                                            <p><?= $nosotros_page->fragments['intro']->value ?></p>
+                                            <p class="mt-4">Contamos con las siguientes divisiones de negocio:</p>
                                         </div>
                                         <div class="row align-items-start m-t-45">
-                                        <?php foreach ($services_pr as $service): ?>
-                                            <div class="col-6 col-lg-3 text-center">
-                                                <div class="img m-b-26">
-                                                    <img class="img-fluid" src="<?= IMGS_PATH ?>icon-<?= $service->key ?>.svg" alt="<?= $service->title ?>">
+                                            <?php foreach ($services_pr as $service) : ?>
+                                                <div class="col-6 col-lg-3 text-center">
+                                                    <div class="img m-b-26">
+                                                        <img class="img-fluid" src="<?= IMGS_PATH ?>icon-<?= $service->key ?>.svg" alt="<?= $service->title ?>">
+                                                    </div>
+                                                    <div class="title normal-size-title text-uppercase">
+                                                        <?= $service->title ?>
+                                                    </div>
                                                 </div>
-                                                <div class="title normal-size-title text-wrap text-break text-uppercase">
-                                                    <?= $service->title ?>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         </div>
                                         <div class="btn-mas m-t-30 mb-4 mb-md-0">
-                                            <a class="btn btn-primary button d-block text-uppercase text-white" href="/<?= $nosotros_page->key ?>">Ver Más</a>                                               
+                                            <a class="btn btn-primary button d-block text-uppercase text-white" href="/<?= $nosotros_page->key ?>">Ver Más</a>
                                         </div>
                                     </div>
                                 </div>
@@ -104,27 +99,25 @@ include_once "utils/fragment_helpers.php";
                         </div>
                         <div class="content">
                             <div class="row">
-                                <?php foreach ($services_pr as $service): ?>
-                                <div class="col-6 col-md-3">
-                                    <?php
-                                    $imgNosotros = IMGS_PATH . 'nosotros1.jpg'; // placeholder antes de Fragment
-                                    $image_nosotros_attrs = Fragment::elementAttributes($service->fragments['img']->value);
-                                    $image_nosotros_bg = $image_nosotros_attrs['src'];
+                                <?php foreach ($services_pr as $service) : ?>
+                                    <div class="col-6 col-md-3">
+                                        <?php
+                                        $imgNosotros = IMGS_PATH . 'nosotros1.jpg'; // placeholder antes de Fragment
+                                        $image_nosotros_attrs = Fragment::elementAttributes($service->fragments['img']->value);
+                                        $image_nosotros_bg = $image_nosotros_attrs['src'];
 
-                                    empty($image_nosotros_bg)
-                                    ? $img_src = sprintf('background-image:url(%s)', $imgNosotros)
-                                    : $img_src = sprintf('background-image:url(%s)', $image_nosotros_bg);
+                                        empty($image_nosotros_bg)
+                                            ? $img_src = sprintf('background-image:url(%s)', $imgNosotros)
+                                            : $img_src = sprintf('background-image:url(%s)', $image_nosotros_bg);
 
-                                    ?>
-                                    <a class="d-block mb-3" href="<?= $services->key . '#' . $service->key ?>">
-                                        <div class="item d-flex align-items-center text-white text-center position-relative"
-                                            style="<?= $img_src ?>"
-                                        >
-                                            <div class="label w-100 text-uppercase"><?= $service->title ?></div>
-                                            <div class="mask position-absolute"></div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        ?>
+                                        <a class="d-block mb-3" href="<?= $services->key . '#' . $service->key ?>">
+                                            <div class="item d-flex align-items-center text-white text-center position-relative" style="<?= $img_src ?>">
+                                                <div class="label w-100 text-uppercase"><?= $service->title ?></div>
+                                                <div class="mask position-absolute"></div>
+                                            </div>
+                                        </a>
+                                    </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -139,7 +132,7 @@ include_once "utils/fragment_helpers.php";
                     <div class="container-fluid">
                         <div class="content">
                             <div class="info">
-                                 <?= $home_page->fragments['ribbon']->value ?>
+                                <?= $home_page->fragments['ribbon']->value ?>
                             </div>
                             <div class="image">
                                 <?= $home_page->fragments['ribbon-image']->value ?>
@@ -154,9 +147,9 @@ include_once "utils/fragment_helpers.php";
             <?php $rpa = find_page_by_guid($rpa_guid, $root_pages); ?>
             <?php $rpaPage = Page::search(array(
                 'idparent' => $rpa->idpage,
-                'fragments' => array('img','content'),
+                'fragments' => array('img', 'content'),
                 'sortBy' => 'created ASC'
-                ));
+            ));
             $rpa_pr = $rpaPage['records'];
             ?>
             <section class="block rpa-automatization m-t-50" id="rpa-and-hiperautomatizacion">
@@ -171,29 +164,29 @@ include_once "utils/fragment_helpers.php";
                     <div class="holder">
                         <div class="container-fluid text-white">
                             <div class="row justify-content-center pt-4 py-sm-0">
-                                <?php foreach($rpa_pr as $item): ?>
-                                <div class="col-12 col-sm-4">
-                                    <div class="item">
-                                        <?php
-                                        $imgPlaceHolder = IMGS_PATH . 'rpa.jpg'; // placeholder antes de Fragment
-                                        $imgRPA = Fragment::elementAttributes($item->fragments['img']->value);
-                                        ?>
-                                        <div class="img">
-                                            <?php if(empty($imgRPA)): ?>
-                                                <img src="<?= $imgPlaceHolder ?>" class="img-fluid" alt="rpa">
-                                            <?php else: ?>
-                                                <img src="<?= $imgRPA['src'] ?>" class="img-fluid" alt="<?= $imgRPA['alt'] ?>">
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="info">
-                                            <h5 class="m-t-35 m-b-35 mx-0"><?= $item->title ?></h3>
-                                            <div class="text-justify">
-                                                <?= $item->fragments['content']->value ?>
+                                <?php foreach ($rpa_pr as $item) : ?>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="item">
+                                            <?php
+                                            $imgPlaceHolder = IMGS_PATH . 'rpa.jpg'; // placeholder antes de Fragment
+                                            $imgRPA = Fragment::elementAttributes($item->fragments['img']->value);
+                                            ?>
+                                            <div class="img">
+                                                <?php if (empty($imgRPA)) : ?>
+                                                    <img src="<?= $imgPlaceHolder ?>" class="img-fluid" alt="rpa">
+                                                <?php else : ?>
+                                                    <img src="<?= $imgRPA['src'] ?>" class="img-fluid" alt="<?= $imgRPA['alt'] ?>">
+                                                <?php endif; ?>
                                             </div>
+                                            <div class="info">
+                                                <h5 class="m-t-35 m-b-35 mx-0"><?= $item->title ?></h3>
+                                                    <div class="text-justify">
+                                                        <?= $item->fragments['content']->value ?>
+                                                    </div>
+                                            </div>
+                                            <a class="text-end text-white text-uppercase d-block" href="<?= $rpa->key . '#' . $item->key ?>">Ver más ></a>
                                         </div>
-                                        <a class="text-end text-white text-uppercase d-block" href="<?= $rpa->key . '#' . $item->key ?>">Ver más ></a>
                                     </div>
-                                </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -206,38 +199,38 @@ include_once "utils/fragment_helpers.php";
             <?php $industries = find_page_by_guid($industries_guid, $root_pages); ?>
             <?php $industries_page = Page::search(array(
                 'idparent' => $industries->idpage,
-                'fragments' => array('img','content'),
+                'fragments' => array('img', 'content'),
                 'sortBy' => 'created ASC'
-                ));
+            ));
             $industries_r = $industries_page['records'];
             ?>
             <section class="block industries" id="industrias">
                 <div class="holder">
                     <div class="container-fluid">
                         <?php
-                            $imgIndutries = IMGS_PATH . 'industrias-background.jpg'; // Si no se cuenta con fragment
-                            $imgIndustriesAtts = Fragment::elementAttributes($industries->fragments['image']->value);
-                            $imgIndutries_src = sprintf('background-image:url(%s)', $imgIndustriesAtts['src'])
+                        $imgIndutries = IMGS_PATH . 'industrias-background.jpg'; // Si no se cuenta con fragment
+                        $imgIndustriesAtts = Fragment::elementAttributes($industries->fragments['image']->value);
+                        $imgIndutries_src = sprintf('background-image:url(%s)', $imgIndustriesAtts['src'])
                         ?>
                         <div class="header d-flex justify-content-center align-items-center" style="<?= $imgIndutries_src ?>">
                             <h2 class="title mx-0 text-white text-center"><?= $industries->fragments['intro']->value ?></h2>
                         </div>
                         <div class="content position-relative d-flex justify-content-between flex-wrap">
-                            <?php foreach ($industries_r as $page):
+                            <?php foreach ($industries_r as $page) :
                                 $imgPageAtts = Fragment::elementAttributes($page->fragments['img']->value);
                                 $imgPage_src = sprintf('background-image:url(%s)', $imgPageAtts['src'])
                             ?>
-                            <a class="item position-relative" style="<?= $imgPage_src ?>" href="/<?= $industries->key . '#' . $page->key ?> ">
-                                <div class="item-content">
-                                    <div class="item-title text-center text-white text-uppercase">
-                                        <?= $page->title ?>
+                                <a class="item position-relative" style="<?= $imgPage_src ?>" href="/<?= $industries->key . '#' . $page->key ?> ">
+                                    <div class="item-content">
+                                        <div class="item-title text-center text-white text-uppercase">
+                                            <?= $page->title ?>
+                                        </div>
+                                        <div class="item-info text-center text-white">
+                                            <?= $page->fragments['content']->value ?>
+                                        </div>
+                                        <div class="item-more text-center text-white text-uppercase">Ver más</div>
                                     </div>
-                                    <div class="item-info text-center text-white">
-                                        <?= $page->fragments['content']->value ?>
-                                    </div>
-                                    <div class="item-more text-center text-white text-uppercase">Ver más</div>
-                                </div>
-                            </a>
+                                </a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -245,30 +238,30 @@ include_once "utils/fragment_helpers.php";
             </section>
             <!-- /.Industries -->
 
-            <?php $partners = find_page_by_guid($clients_guid, $root_pages); 
-                  $imgs_gallery_1 = Fragment::findTagsIn('img',$partners->fragments['gallery-1']->value);
-                  $imgs_gallery_2 = Fragment::findTagsIn('img',$partners->fragments['gallery-2']->value); ?>
+            <?php $partners = find_page_by_guid($clients_guid, $root_pages);
+            $imgs_gallery_1 = Fragment::findTagsIn('img', $partners->fragments['gallery-1']->value);
+            $imgs_gallery_2 = Fragment::findTagsIn('img', $partners->fragments['gallery-2']->value); ?>
             <!-- Block Partners -->
             <section class="block partners py-0" id="<?= $partners->key ?>">
                 <div class="holder">
                     <div class="container-fluid">
                         <div class="header">
-                            <h2 class="text-center title"><?= $partners->fragments['title-gallery-1']->value ?></h2> 
+                            <h2 class="text-center title"><?= $partners->fragments['title-gallery-1']->value ?></h2>
                         </div>
                         <div class="content">
                             <div class="carrousel">
                                 <div class="util-carrousel gallery-thumb">
-                                    <?php foreach($imgs_gallery_1 as $img_gallery): ?>
-                                    <div class="thumb align-top">
-                                        <div class="image">
-                                            <div class="content">
-                                                <div class="img-content">
-                                                <?php $image_attrs= Fragment::elementAttributes($img_gallery); ?>
-                                                <img src="<?= $image_attrs['data-image-url'] ?>" alt="<?= $image_attrs['alt'] ?>"  class="">
+                                    <?php foreach ($imgs_gallery_1 as $img_gallery) : ?>
+                                        <div class="thumb align-top">
+                                            <div class="image">
+                                                <div class="content">
+                                                    <div class="img-content">
+                                                        <?php $image_attrs = Fragment::elementAttributes($img_gallery); ?>
+                                                        <img src="<?= $image_attrs['data-image-url'] ?>" alt="<?= $image_attrs['alt'] ?>" class="">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
@@ -283,25 +276,25 @@ include_once "utils/fragment_helpers.php";
                 <div class="holder">
                     <div class="container-fluid">
                         <div class="header">
-                            <h2 class="text-center title"><?= $partners->fragments['title-gallery-2']->value ?></h2> 
+                            <h2 class="text-center title"><?= $partners->fragments['title-gallery-2']->value ?></h2>
                         </div>
                         <div class="content">
                             <div class="carrousel">
                                 <div class="util-carrousel gallery-thumb">
-                                        <?php foreach($imgs_gallery_2 as $img_gallery): ?>
+                                    <?php foreach ($imgs_gallery_2 as $img_gallery) : ?>
                                         <div class="thumb align-top">
                                             <div class="image">
                                                 <div class="content">
                                                     <div class="img-content">
-                                                    <?php $image_attrs= Fragment::elementAttributes($img_gallery); ?>
-                                                    <img src="<?= $image_attrs['data-image-url'] ?>" alt="<?= $image_attrs['alt'] ?>"  class="">
+                                                        <?php $image_attrs = Fragment::elementAttributes($img_gallery); ?>
+                                                        <img src="<?= $image_attrs['data-image-url'] ?>" alt="<?= $image_attrs['alt'] ?>" class="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php endforeach; ?>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -355,6 +348,7 @@ include_once "utils/fragment_helpers.php";
             <!-- /.Ebook -->
         </div>
 
+        <?php include_once "partials/contact-buttons.php" ?>
         <?php include_once "partials/book-ad.php" ?>
 
         <!-- Footer -->

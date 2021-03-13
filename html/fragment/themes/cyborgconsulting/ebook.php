@@ -9,7 +9,6 @@ $ebook_guid = 'eCZ8LJw7BP'
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
-
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -22,12 +21,12 @@ $ebook_guid = 'eCZ8LJw7BP'
             $home_page = find_page_by_guid('home', $root_pages);
             $h_result = Page::search(array(
                 'idparent'  => $home_page->idpage,
-                'fragments' => array('body','image', 'intro', 'slogan', 'main-image', 'small-image','title'),
+                'fragments' => array('body', 'image', 'intro', 'slogan', 'main-image', 'small-image', 'title'),
                 'sortBy'    => 'created ASC'
             ));
             $home_pages = $h_result['records'];
             ?>
-            <?php $ebook_page = find_page_by_guid($ebook_guid,$home_pages);?>
+            <?php $ebook_page = find_page_by_guid($ebook_guid, $home_pages); ?>
             <section class="block rpa-cover" id="cover-ebook">
                 <?php
                 $img = Fragment::elementAttributes($ebook_page->fragments['image']->value);
@@ -50,7 +49,7 @@ $ebook_guid = 'eCZ8LJw7BP'
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="img">
-                                    <?php $img_book = Fragment::elementAttributes($ebook_page->fragments['small-image']->value);?>
+                                        <?php $img_book = Fragment::elementAttributes($ebook_page->fragments['small-image']->value); ?>
                                         <img src="<?= $img_book['src'] ?>" alt="<?= $img_book['alt']  ?>" class="img-fluid">
                                     </div>
                                 </div>
@@ -62,8 +61,11 @@ $ebook_guid = 'eCZ8LJw7BP'
                     </div>
                 </div>
             </section>
-        
         </div>
+
+        <?php include_once "partials/contact-buttons.php" ?>
+        <?php include_once "partials/book-ad.php" ?>
+
         <!-- Footer -->
         <?php include_once "partials/footer.php" ?>
 

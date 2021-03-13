@@ -1,0 +1,36 @@
+.contact-buttons {
+  position: fixed;
+  right: 0;
+  top: 120px;
+  z-index: 99;
+
+  .btn {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    background: no-repeat 10px center;
+    background-color: $highlight-color;
+    display: block;
+    height: 40px;
+    margin-bottom: 20px;
+    outline: none;
+    text-indent: -9999em;
+    transform: translate(10px, 0);
+    transition: transform 375ms;
+    width: 60px;
+    &:hover {
+      transform: translate(5px, 0);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.whatsapp {
+      background-image: url(../images/icon-whatsapp.svg);
+    }
+
+    &.phone {
+      background-image: url(../images/icon-phone.svg);
+    }
+  }
+}

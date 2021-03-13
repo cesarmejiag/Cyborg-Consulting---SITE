@@ -2,8 +2,8 @@
 include_once "globals.php";
 include_once "utils/fragment_helpers.php";
 $is_industries_page = false;
-if($page->guid === $industries_guid ) {
-    $is_industries_page = true;    
+if ($page->guid === $industries_guid) {
+    $is_industries_page = true;
 }
 ?>
 <!DOCTYPE html>
@@ -12,8 +12,6 @@ if($page->guid === $industries_guid ) {
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
-
-
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -33,46 +31,50 @@ if($page->guid === $industries_guid ) {
                 </div>
             </section>
             <!-- /.Cover -->
-            <?php $results= Page::search(array(
+            <?php $results = Page::search(array(
                 'idparent' => $template_page->idpage,
-                'fragments' => array('title','info','img'),
+                'fragments' => array('title', 'info', 'img'),
                 'sortBy' => 'created ASC'
-                ));
-                $records = $results['records'];
+            ));
+            $records = $results['records'];
             ?>
             <section class="block wrapper-template d-flex py-0" id="wrapper-template">
                 <div class="sidebar-menu d-none d-md-block">
-                    <?php foreach($records as $record): ?>
-                        <a href="#<?= $record->key ?>" class="scroll-to"><?= $record->fragments['title']->value ?></a>                    
+                    <?php foreach ($records as $record) : ?>
+                        <a href="#<?= $record->key ?>" class="scroll-to"><?= $record->fragments['title']->value ?></a>
                     <?php endforeach; ?>
                 </div>
-                <div class="wrapper-sections" >
+                <div class="wrapper-sections">
                     <!-- Block general section -->
-                    <?php foreach($records as $record): ?>
-                    <section class="block general-section position-relative" id="<?= $record->key ?>">
-                        <div class="holder">
-                            <div class="container-fluid">
-                                <div class="content">
-                                    <div class="header text-start text-uppercase color-highlight-color">
-                                        <?= $record->fragments['title']->value ?>
-                                    </div>
+                    <?php foreach ($records as $record) : ?>
+                        <section class="block general-section position-relative" id="<?= $record->key ?>">
+                            <div class="holder">
+                                <div class="container-fluid">
                                     <div class="content">
-                                        <?= $record->fragments['info']->value ?>
+                                        <div class="header text-start text-uppercase color-highlight-color">
+                                            <?= $record->fragments['title']->value ?>
+                                        </div>
+                                        <div class="content">
+                                            <?= $record->fragments['info']->value ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php if($is_industries_page): ?>
-                            <div class="image position-absolute">
-                                <?= $record->fragments['img']->value ?>
-                            </div>
-                        <?php endif; ?>
-                    </section>
+                            <?php if ($is_industries_page) : ?>
+                                <div class="image position-absolute">
+                                    <?= $record->fragments['img']->value ?>
+                                </div>
+                            <?php endif; ?>
+                        </section>
                     <?php endforeach; ?>
                     <!-- /.general section -->
                 </div>
             </section>
         </div>
+
+        <?php include_once "partials/contact-buttons.php" ?>
+        <?php include_once "partials/book-ad.php" ?>
+
         <!-- Footer -->
         <?php include_once "partials/footer.php" ?>
 

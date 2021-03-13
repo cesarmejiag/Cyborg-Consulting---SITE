@@ -445,7 +445,7 @@ import pl from './pl'
         });
 
         window.addEventListener('load', () => {
-            Classie.addClass(bookAd, 'displayed');
+            // Classie.addClass(bookAd, 'displayed');
         });
     }
 

@@ -9,7 +9,6 @@ $aviso_guid = '0Zi3-3tvvj';
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
-
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -22,12 +21,12 @@ $aviso_guid = '0Zi3-3tvvj';
             $home_page = find_page_by_guid('home', $root_pages);
             $h_result = Page::search(array(
                 'idparent'  => $home_page->idpage,
-                'fragments' => array('body','img'),
+                'fragments' => array('body', 'img'),
                 'sortBy'    => 'created ASC'
             ));
             $home_pages = $h_result['records'];
             ?>
-            <?php $aviso_page = find_page_by_guid($aviso_guid,$home_pages);?>
+            <?php $aviso_page = find_page_by_guid($aviso_guid, $home_pages); ?>
             <section class="block rpa-cover" id="cover-ebook">
                 <?php
                 $img = Fragment::elementAttributes($aviso_page->fragments['img']->value);
@@ -46,6 +45,10 @@ $aviso_guid = '0Zi3-3tvvj';
                 </div>
             </section>
         </div>
+
+        <?php include_once "partials/contact-buttons.php" ?>
+        <?php include_once "partials/book-ad.php" ?>
+
         <!-- Footer -->
         <?php include_once "partials/footer.php" ?>
 

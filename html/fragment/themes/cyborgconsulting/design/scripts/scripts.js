@@ -2431,7 +2431,6 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 Classie_2.default.removeClass(bookAd, 'displayed');
             });
             window.addEventListener('load', function () {
-                Classie_2.default.addClass(bookAd, 'displayed');
             });
         }
     })();
