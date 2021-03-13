@@ -1,4 +1,5 @@
 .wrapper-sections {
+  font-family: $font2-regular;
   max-width: 60%;
   width: 100%;
   .image {
@@ -17,7 +18,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 120px 0 160px;
+  padding: 70px 0 110px;
   &:nth-child(even) {
     background-color: #f8f8f8;
   }
@@ -27,6 +28,11 @@
   .holder {
     max-width: 820px;
     margin: 0 auto;
+  }
+
+  b {
+    font-family: $font-heavy;
+    font-weight: normal;
   }
 }
 

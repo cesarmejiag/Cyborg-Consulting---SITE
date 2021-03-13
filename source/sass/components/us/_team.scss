@@ -1,11 +1,12 @@
 .block.us-team {
+  font-family: $font2-regular;
   padding-bottom: 180px;
   .item {
     margin-bottom: 20px;
   }
   .pic {
     border-radius: 100%;
-    border:1px solid #bbbbbb;
+    border: 1px solid #bbbbbb;
     background-size: cover;
     background-repeat: no-repeat;
     width: 120px;
@@ -21,11 +22,15 @@
     font-size: 16px;
     margin-bottom: 15px;
   }
+
+  b {
+    font-family: $font-heavy;
+    font-weight: normal;
+  }
 }
 
-
-@media(min-width:767px) {
-  .block.us-team {    
+@media (min-width: 767px) {
+  .block.us-team {
     .pic {
       width: 150px;
       height: 150px;

@@ -1,15 +1,14 @@
 .block.rpa-hiper {
   background-color: #f3f3f3;
   .content {
-    font-family: 'Avenir Book';
-    margin-bottom: 50px;
+    font-family: "Avenir Book";
   }
 }
 
-@media(min-width:767px) {
+@media (min-width: 767px) {
   .block.rpa-hiper {
     .content {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
   }
 }

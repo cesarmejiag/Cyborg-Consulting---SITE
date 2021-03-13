@@ -36,6 +36,7 @@
   }
 
   .content {
+    font-family: $font2-regular;
     line-height: 135%;
     margin-bottom: 30px;
 
@@ -47,7 +48,7 @@
 }
 
 @media screen and (min-width: 576px) {
-  .block.us-join {        
+  .block.us-join {
     .btn-help {
       display: block;
       font-size: 10px;

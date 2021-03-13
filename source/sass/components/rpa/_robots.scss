@@ -1,6 +1,9 @@
 .block.rpa-robots {
+  font-family: $font2-regular;
+
   .item {
     background-color: $highlight-color;
+    border-radius: 5px;
     margin-bottom: 50px;
     padding: 20px 20px;
   }
@@ -23,15 +26,23 @@
   .button {
     border-radius: 17.5px;
   }
+
+  b {
+    font-family: $font-heavy;
+    font-weight: normal;
+  }
 }
 
 @media (min-width: 576px) {
   .block.rpa-robots {
     .item {
       min-height: 360px;
-      margin-top: 90px;  
+      margin-top: 90px;
       margin-bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
       padding: 0 10px;
+      max-width: 300px;
     }
     .icon {
       margin: 0 auto;
@@ -43,7 +54,7 @@
       top: -60px;
     }
     .video {
-      margin-top: 150px;
+      margin-top: 80px;
     }
   }
 }

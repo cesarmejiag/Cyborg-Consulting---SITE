@@ -1,4 +1,6 @@
 .block.us-cyborg {
+  font-family: $font2-regular;
+
   .item-wrapper {
     font-size: 14px;
     margin-bottom: 20px;
@@ -11,18 +13,25 @@
     background-repeat: no-repeat;
     border-radius: 100%;
     overflow: hidden;
-    padding-bottom: 100%;    
+    padding-bottom: 100%;
     width: 100%;
-  }  
-}
+  }
 
-@media(min-width:991px) {
-  .block.us-cyborg {
-    .item-wrapper {
-      margin-bottom: 0;
-      max-width: 16.62%;      
-    }
+  .title {
+    text-transform: uppercase;
+  }
+
+  b {
+    font-family: $font-heavy;
+    font-weight: normal;
   }
 }
 
-
+@media (min-width: 991px) {
+  .block.us-cyborg {
+    .item-wrapper {
+      margin-bottom: 0;
+      max-width: 16.62%;
+    }
+  }
+}

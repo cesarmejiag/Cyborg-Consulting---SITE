@@ -17,6 +17,7 @@ $join_guid = 'qyQWZGMCu7';
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
+
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -30,22 +31,30 @@ $join_guid = 'qyQWZGMCu7';
         ));
         $services_pr = $services_records['records'];
         ?>
-        <section class="block us-cover" id="cover-us">
-            <div class="cover-bg d-flex align-items-center  justify-content-center" >
-                <div class="parallax" style="<?= $img_src ?>"></div>
-                <h1 class="title text-white text-uppercase"><?= $us_page->title ?></h1>
-            </div>
-        </section>
-        <!-- /.Cover -->
-        <!-- Block Us Intro -->
-        <section class="block us-intro" id="us-intro">
-            <div class="holder">
-                <div class="container-fluid">
-                    <div class="header pb-3 pb-md-4 w-1060">
-                        <div class="row d-flex align-items-center justify-content-around">
-                            <div class="col-12 col-sm-6">
-                                <div class="logo text-center">
-                                    <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
+        <!-- Outer wrapper -->
+        <div class="outer-wrapper">
+            <!-- Block Cover -->
+            <?php
+            $imgCover = IMGS_PATH . 'cover-nosotros.jpg';
+            $img_src = sprintf('background-image:url(%s)', $imgCover)
+            ?>
+            <section class="block us-cover" id="cover-us">
+                <div class="cover-bg d-flex align-items-center  justify-content-center">
+                    <div class="parallax" style="<?= $img_src ?>"></div>
+                    <h1 class="title text-white text-uppercase"><?= $us_page->title ?></h1>
+                </div>
+            </section>
+            <!-- /.Cover -->
+            <!-- Block Us Intro -->
+            <section class="block us-intro" id="us-intro">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header pb-3 pb-md-4 w-1060">
+                            <div class="row d-flex align-items-center justify-content-around">
+                                <div class="col-12 col-sm-6">
+                                    <div class="logo text-center">
+                                        <img src="<?= IMGS_PATH ?>logo.svg" alt="logo">
+                                    </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="text">
@@ -147,7 +156,7 @@ $join_guid = 'qyQWZGMCu7';
                                         <div class="wrapper position-relative">
                                             <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-<?= $val_page->key ?>.svg" alt="<?= $val_page->name ?>"></span>
                                             <div class="text text-start">
-                                                <div class="color-highlight-color"><?= $val_page->title ?></div>
+                                                <div class="color-highlight-color"><b><?= $val_page->title ?></b></div>
                                                 <div><?= $val_page->fragments['body']->value ?></div>
                                             </div>
                                         </div>
@@ -183,7 +192,7 @@ $join_guid = 'qyQWZGMCu7';
                                 ?>
                                 <div class="item-wrapper">
                                     <div class="item position-relative mb-4" style="<?= $img_cw_src ?>"></div>
-                                    <div class="text-center m-b-20"><?= $cw_page->title ?></div>
+                                    <div class="text-center m-b-20 tite"><b><?= $cw_page->title ?></b></div>
                                     <div class="text-center"><?= $cw_page->fragments['desc']->value ?></div>
                                 </div>
                             <?php endforeach; ?>
@@ -261,7 +270,7 @@ $join_guid = 'qyQWZGMCu7';
                                     <div class="pic" style="<?= $img_t_src ?>"></div>
                                     <div class="desc text-start p-t-10">
                                         <div class="text-uppercase subtitle">
-                                            <?= $t_page->title ?>
+                                            <b><?= $t_page->title ?></b>
                                         </div>
                                         <div>
                                             <?= $t_page->fragments['desc']->value ?>

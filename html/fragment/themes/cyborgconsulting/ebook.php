@@ -62,6 +62,7 @@ $ebook_guid = 'eCZ8LJw7BP'
                     </div>
                 </div>
             </section>
+
         </div>
 
         <?php include_once "partials/contact-buttons.php" ?>

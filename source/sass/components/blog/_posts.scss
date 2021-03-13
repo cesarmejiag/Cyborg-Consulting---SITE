@@ -1,6 +1,6 @@
 .block.blog-posts {
   color: #000000;
-  font-family: "Helvetica";
+  font-family: $font2-regular;
   min-height: calc(100vh - 250px);
   padding: 80px 0 50px;
   position: relative;
@@ -120,25 +120,24 @@
 
   .title-blog {
     font-size: 18px;
-    font-family: 'Avenir-Heavy';
+    font-family: $font-heavy;
     margin: 20px auto 30px;
     letter-spacing: 0.5px;
     text-align: center;
     position: relative;
     &:after {
-      content:'';
-      border-top:3px solid #4A4A4A;
+      content: "";
+      border-top: 3px solid #4a4a4a;
       position: absolute;
       bottom: -25%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;      
-
+      width: 20px;
     }
   }
 
-  .intro {  
-    color: #76777A;
+  .intro {
+    color: #76777a;
     font-size: 14px;
     letter-spacing: 0.43px;
     line-height: 20px;
@@ -193,7 +192,6 @@
   color: #ffffff;
   cursor: pointer;
   display: block;
-  font-family: "Verb-Semibold", sans-serif;
   font-size: 15px;
   line-height: 30px;
   margin: 0 auto 50px;
@@ -205,51 +203,48 @@
 }
 
 @media (max-width: 767px) {
-
   .block.blog-posts {
-      padding: 35px 0 50px;      
+    padding: 35px 0 50px;
   }
 
   .grid {
+    .grid-item {
+      width: 50%;
 
-      .grid-item {
-          width: 50%;
-
-          .inner {
-              padding-bottom: 40px;
-          }
-
-          &:hover .complete-article:after {
-              height: 1px;
-          }
+      .inner {
+        padding-bottom: 40px;
       }
 
-      .complete-article {
-          margin: 16px auto 0;
+      &:hover .complete-article:after {
+        height: 1px;
       }
+    }
+
+    .complete-article {
+      margin: 16px auto 0;
+    }
   }
 }
 
 @media (max-width: 480px) {
-
   .block.blog-posts {
-      padding: 25px 0 50px;
+    padding: 25px 0 50px;
 
-      .header {
-          margin-bottom: 40px;
+    .header {
+      margin-bottom: 40px;
 
-          .title {
-              font-size: 30px;
-          }
+      .title {
+        font-size: 30px;
       }
+    }
   }
 
   .grid {
-      .grid-item {
-          padding-left: 15px;
-          padding-right: 15px;
-          padding-top: 0;
-          width: 100%;
-      }
+    .grid-item {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 0;
+      width: 100%;
+    }
   }
 }

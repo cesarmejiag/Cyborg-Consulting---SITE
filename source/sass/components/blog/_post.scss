@@ -16,7 +16,7 @@
   }
   .blog-btn {
     background-color: #fff;
-    font-family: 'Avenir Book';
+    font-family: $font2-regular;
     display: block;
     font-size: 14px;
     max-width: 130px;
@@ -28,7 +28,7 @@
     text-decoration: none;
     width: 100%;
     &:hover {
-      color:#e8511d;
+      color: #e8511d;
     }
     &.big-btn {
       max-width: 187px;

@@ -4,8 +4,6 @@ include_once "utils/fragment_helpers.php";
 $rpa_info_guid = 'vzmB-OasR-';
 $robots_guid = '7neekUcqHu';
 $hiper_guid = 'YVEr65sESM';
-
-
 ?>
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/Thing" lang="es-MX">
@@ -13,7 +11,6 @@ $hiper_guid = 'YVEr65sESM';
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
-
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -30,23 +27,14 @@ $hiper_guid = 'YVEr65sESM';
             ));
             $rpa_pages = $rpa_result['records'];
             ?>
-            <div class="cover-bg d-flex align-items-center  justify-content-center">
-                <div class="parallax" style="<?= $img_src ?>"></div>
-                <h1 class="title text-white text-uppercase"><?= $rpa_page->title ?></h1>
-            </div>
-        </section>
-        <!-- /.Cover -->
-        <!-- Block ¿Qué es RPA? -->
-        <?php $rpa_info_page = find_page_by_guid($rpa_info_guid, $rpa_pages); ?>
-        <section class="block rpa-intro" id="<?= $rpa_info_page->key ?>">
-            <div class="holder w-860">
-                <div class="container-fluid">
-                    <div class="header">
-                        <h2 class="title text-start text-uppercase sub-title-size">¿Qué es RPA?</h2>
-                    </div>
-                    <div class="content">
-                        <?= $rpa_info_page->fragments['intro']->value ?>
-                    </div>
+            <section class="block rpa-cover" id="cover-rpa">
+                <?php
+                $img_rpa = Fragment::elementAttributes($rpa_page->fragments['image']->value);
+                $img_src = sprintf('background-image:url(%s)', $img_rpa['src'])
+                ?>
+                <div class="cover-bg d-flex align-items-center  justify-content-center">
+                    <div class="parallax" style="<?= $img_src ?>"></div>
+                    <h1 class="title text-white text-uppercase"><?= $rpa_page->title ?></h1>
                 </div>
             </section>
             <!-- /.Cover -->
@@ -156,14 +144,10 @@ $hiper_guid = 'YVEr65sESM';
                                                 <img src="<?= $robot_image_atts['src'] ?>" class="img-fluid" alt="<?= $robot_image_atts['alt'] ?>">
                                             </div>
                                             <div class="wrapper position-relative text-white text-center normal-size-title">
-                                                <div class="mb-4 text-uppercase">
-                                                    <?= $robot->title ?>
-                                                </div>
-                                                <div>
-                                                    <?= $robot->fragments['body']->value ?>
-                                                </div>
+                                                <div class="mb-4 text-uppercase"><b><?= $robot->title ?></b></div>
+                                                <div><?= $robot->fragments['body']->value ?></div>
                                             </div>
-                                        </div>
+                                        </div> 
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -171,7 +155,7 @@ $hiper_guid = 'YVEr65sESM';
                         <div class="video position-relative text-center w-860">
                             <img src="<?= IMGS_PATH ?>mac.jpg" class="img-fluid" alt="rpa-video">
                             <video controls muted poster="https://via.placeholder.com/645x360/000000/000000">
-                                <source src="<?= TEMPLATE_PATH ?>videos/cover-home.mp4" type="video/mp4">
+                                <source src="<?= TEMPLATE_PATH ?>videos/rpa.mp4" type="video/mp4">
                                 <!-- Add image as fallback -->
                             </video>
                         </div>
