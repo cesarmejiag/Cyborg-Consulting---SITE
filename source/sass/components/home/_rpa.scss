@@ -1,36 +1,45 @@
 .block.rpa-automatization {
-    a {
-        text-decoration: none;
-    }
-    .item {
-        width: 100%;
-        padding-bottom: 25px;
-    }
-    .img {
-        text-align: center;
-    }
-    .info {
-        margin-bottom: 20px;
-    }
+  a {
+    font-size: 14px;
+    font-family: $font-heavy;
+    text-decoration: none;
+  }
+  .item {
+    width: 100%;
+    padding-bottom: 25px;
+  }
+  .img {
+    text-align: center;
+  }
+
+  h5 {
+    font-family: $font-heavy;
+    text-transform: uppercase;
+  }
+
+  .info {
+    font-family: $font2-regular;
+    margin-bottom: 20px;
+  }
 }
 
 @media (min-width: 576px) {
-    .block.rpa-automatization {
-        .item {
-            max-width: 370px;
-            padding-bottom: 130px;
-            margin: -5% auto 0;
-        }
-        .info {
-            margin-bottom: 55px;
-        }
+  .block.rpa-automatization {
+    .item {
+      max-width: 370px;
+      padding-bottom: 130px;
+      margin: -5% auto 0;
     }
+    .info {
+      margin-bottom: 55px;
+    }
+  }
 }
 
 @media (min-width: 768px) {
-    .block.rpa-automatization {
-        .header {
-            margin-bottom: 90px;
-        }
+  .block.rpa-automatization {
+    .header {
+      margin-bottom: 90px;
     }
+  }
 }
