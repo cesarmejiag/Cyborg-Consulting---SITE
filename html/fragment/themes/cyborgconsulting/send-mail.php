@@ -7,14 +7,14 @@ $post_data = json_decode($_POST['data'], true);
 
 
 // Configure mail.
-$to      = "contacto@nogalmx.com";
+$to      = "alvaro.algara@cyborgconsulting.com.mx";
 // $to      = "iconfidence@gmail.com";
-$subject = "Mensaje de nogalmx.com";
+$subject = "Mensaje de cyborgconsulting.com.mx";
 $message = "";
 
 $headers = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$headers .= 'From: NogalMX <contacto@nogalmx.com>' . "\r\n";
+$headers .= 'From: CyborgConsulting <contacto@cyborgconsulting.com.mx>' . "\r\n";
 // $headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
 $headers .= 'Bcc: iconfidence@gmail.com' . "\r\n";
 

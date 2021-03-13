@@ -1,4 +1,4 @@
-<div class="book-ad d-sm-none d-md-flex">
+<div class="book-ad d-none d-md-flex">
     <button class="close-button">cerrar</button>
     <div class="image">
         <img class="img-fluid" src="<?= IMGS_PATH ?>book-banner.jpg" alt="eBook">
