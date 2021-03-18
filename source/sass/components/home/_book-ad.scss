@@ -1,16 +1,16 @@
 .book-ad {
+  bottom: 70px;
   display: flex;
-  max-width: 430px;
+  max-width: 300px;
   position: fixed;
   right: 0;
-  top: 50%;
   transition: transform 357ms;
-  transform: translate(120%, -50%);
-  width: 100%;
+  transform: translate(120%, 0);
+  width: 90%;
   z-index: 99;
 
   &.displayed {
-    transform: translate(0, -50%);
+    transform: translate(0, 0);
   }
 
   .close-button {
@@ -30,7 +30,7 @@
     background-color: #f9f9f9;
     flex-shrink: 0;
     position: relative;
-    width: 35%;
+    width: 20%;
     img {
       display: block;
       left: 50%;
@@ -41,21 +41,37 @@
   }
 
   .text {
-    background-color: #E8511D;
+    background-color: #e8511d;
     color: #fff;
-    font-family: $font-regular;
+    font-family: $font2-regular;
     font-size: 12px;
     padding: 15px 20px;
-    text-align: justify;
-    
+
     a {
       color: #fff;
       font-size: 10px;
+      font-family: $font-heavy;
       text-decoration: none;
       text-transform: uppercase;
       &:hover {
         text-decoration: underline;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .book-ad {
+    bottom: 0;
+    max-width: 430px;
+    width: 100%;
+
+    .image {
+      width: 35%;
+    }
+
+    .text {
+      min-height: 140px;
     }
   }
 }
