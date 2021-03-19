@@ -33,12 +33,12 @@ TODO.md
 - [x] Nuestros Clientes Grupo más y Socio Estrategico
 - [x] Misión y visión agregar espacio
 - [ ] Enviar cv
-- [-] Chat (Agregar estilos de CyborgConsulting)
+- [x] Chat (Agregar estilos de CyborgConsulting)
 - [ ] Recortar espacio en servicios entre bloque y bloque
-- [ ] Agregar imágenes en servicios
+- [x] Agregar imágenes en servicios
 - [ ] Agregar formulario
 - [ ] Solicita tu demo
-- [-] Blog (Agregar imágenes)
+- [x] Blog (Agregar imágenes)
 - [x] Slogan poner abajo
 - [x] Hacer más grande el texto de popup de book
 - [x] Quitar botón de pinterest
