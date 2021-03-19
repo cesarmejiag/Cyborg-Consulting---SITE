@@ -19,20 +19,20 @@ TODO.md
 - [x] Revisar tipo de texto
 
 **Home móvil**
-- [ ] Revisar video en iPhone
+- [x] Revisar video en iPhone
 - [ ] Revisar 
 - [ ] Ebook Agregar espacio
 - [x] Justificar texto
 
 ### 18 de marzo 2021
 
-- [ ] Cambiar fuentes
+- [x] Cambiar fuentes
 - [ ] Botón descarga ebook
-- [ ] Nosotros están pegados los botones
-- [ ] Home iconos no alineads
-- [ ] RPA quitar margen
-- [ ] Nuestros Clientes Grupo más y Socio Estrategico
-- [ ] Misión y visión agregar espacio
+- [x] Nosotros están pegados los botones
+- [x] Home iconos no alineads
+- [x] RPA quitar margen
+- [x] Nuestros Clientes Grupo más y Socio Estrategico
+- [x] Misión y visión agregar espacio
 - [ ] Enviar cv
 - [ ] Chat
 - [ ] Recortar espacio en servicios entre bloque y bloque

@@ -228,11 +228,11 @@ $hiper_guid = 'YVEr65sESM';
                             <h2 class="text-center title text-uppercase mb-3">¿EN QUÉ NOS APOYAMOS?</h2>
                             <div class="text-center sub-title-size text-uppercase color-highlight-color mb-5">Plataforma para la hiperautomatización punta a punta.</div>
                             <div class="image-wrapper position-relative">
+                            <div class="small-image">
+                                    <img src="<?= IMGS_PATH ?>uipath.png" alt="" class="img-fluid">
+                                </div>
                                 <div class="main-image text-center">
                                     <img src="<?= IMGS_PATH ?>rpa-infografia.svg" alt="rpa-infografia" class="img-fluid">
-                                </div>
-                                <div class="small-image position-absolute d-none d-lg-block">
-                                    <img src="<?= IMGS_PATH ?>uipath.png" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>

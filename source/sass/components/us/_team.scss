@@ -2,20 +2,20 @@
   font-family: $font2-regular;
   padding-bottom: 180px;
   .item {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   .pic {
     border-radius: 100%;
     border: 1px solid #bbbbbb;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 120px;
+    flex-shrink: 0;
     height: 120px;
-    margin: 0 auto;
+    margin: 0 auto 15px;
+    width: 120px;
   }
   .desc {
     flex: 1;
-    margin-left: 20px;
     font-size: 14px;
   }
   .subtitle {
@@ -26,6 +26,14 @@
   b {
     font-family: $font-heavy;
     font-weight: normal;
+  }
+}
+
+@media (min-width: 576px) {
+  .block.us-team {
+    .desc {
+      margin-left: 20px;
+    }
   }
 }
 

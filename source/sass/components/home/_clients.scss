@@ -1,11 +1,12 @@
-.block.clients, .block.partners {
+.block.clients,
+.block.partners {
   /*Carrousel styles*/
   .carrousel {
     margin: 0 auto;
     position: relative;
     .util-carrousel .carrousel-wrapper {
       width: 100%;
-      max-width: 650px; 
+      max-width: 650px;
       margin: 0 auto;
       .thumbs-container {
         display: flex;
@@ -26,6 +27,14 @@
   .prev-button,
   .next-button {
     display: none !important;
+  }
+}
+
+.block.partners {
+  .carrousel {
+    .util-carrousel .carrousel-wrapper {
+      max-width: 720px;
+    }
   }
 }
 

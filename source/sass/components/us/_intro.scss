@@ -1,13 +1,16 @@
 .block.us-intro {
   position: relative;
-  font-family: "Avenir Book", sans-serif;
   .intro-content {
     .text {
       text-align: justify;
-    }    
+    }
+  }
+  .wrapper {
+    margin-bottom: 40px;
   }
   .logo {
     margin-bottom: 20px;
+    margin-top: 10px;
   }
   .image {
     padding-bottom: 80%;
@@ -26,11 +29,17 @@
     .text {
       max-width: 500px;
     }
+    .wrapper {
+      margin-bottom: 0;
+    }
     .image {
       padding-bottom: 80%;
     }
+    .logo {
+      margin-top: 30px;
+    }
     .title {
-      font-size: 16px;  
+      font-size: 16px;
     }
   }
 }
