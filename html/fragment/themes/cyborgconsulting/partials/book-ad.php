@@ -1,11 +1,11 @@
-<div class="book-ad d-sm-none d-md-flex">
+<div class="book-ad">
     <button class="close-button">cerrar</button>
     <div class="image">
         <img class="img-fluid" src="<?= IMGS_PATH ?>book-banner.jpg" alt="eBook">
     </div>
     <div class="text">
-        <div>¡Consigue la Guia definitiva de hiperatumatizacion! Todo lo que debes conocer acerca de la hiperautomatizacion, estrategia de ruta, plataforma asi como otros muchos beneficios.</div>
+        <div>¡Consigue la guía definitiva de hiperautomatización!.</div>
         <div><br /></div>
-        <div><a href="">Descargala aquí</a></div>
+        <div><a href="/ebook">Descargala aquí</a></div>
     </div>
 </div>

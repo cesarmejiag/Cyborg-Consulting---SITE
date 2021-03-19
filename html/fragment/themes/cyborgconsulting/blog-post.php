@@ -34,7 +34,7 @@ $post_modal = find_setting_by_name('modal', $page_fragments);
                                 $img_src = sprintf('background-image:url(%s)', $img['src'])
                                 ?>
                                 <div class="cover-bg d-flex align-items-center justify-content-center" style="<?= $img_src ?>">
-                                    <div class="text-white sub-title-size"><?= $page->title ?></div>
+                                    <div class="text-white title"><?= $page->title ?></div>
                                 </div>
                                 <div class="post-body"><?= $post_body->value ?></div>
                                 <div class="btns d-flex align-items-center flex-column flex-sm-row">

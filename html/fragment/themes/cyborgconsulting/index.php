@@ -19,7 +19,7 @@ include_once "utils/fragment_helpers.php";
             <!-- Block Cover -->
             <section class="block cover" id="<?= $home_page->key ?>">
                 <h1 class="title"><?= $home_page->fragments['slogan']->value ?></h1>
-                <video autoplay muted loop>
+                <video autoplay muted loop playsinline>
                     <source src="<?= TEMPLATE_PATH ?>videos/cover-home.mp4" type="video/mp4">
                     <!-- Add image as fallback -->
                 </video>
@@ -66,8 +66,8 @@ include_once "utils/fragment_helpers.php";
                                         </div>
                                         <div class="row align-items-start m-t-45">
                                             <?php foreach ($services_pr as $service) : ?>
-                                                <div class="col-6 col-lg-3 text-center">
-                                                    <div class="img m-b-26">
+                                                <div class="col-6 col-lg-3 text-center m-b-25">
+                                                    <div class="img m-b-15">
                                                         <img class="img-fluid" src="<?= IMGS_PATH ?>icon-<?= $service->key ?>.svg" alt="<?= $service->title ?>">
                                                     </div>
                                                     <div class="title normal-size-title text-uppercase">
@@ -180,7 +180,7 @@ include_once "utils/fragment_helpers.php";
                                             </div>
                                             <div class="info">
                                                 <h5 class="m-t-35 m-b-35 mx-0"><?= $item->title ?></h3>
-                                                    <div class="text-justify"><?= $item->fragments['content']->value ?></div>
+                                                    <div><?= $item->fragments['content']->value ?></div>
                                             </div>
                                             <a class="text-end text-white text-uppercase d-block" href="<?= $rpa->key . '#' . $item->key ?>">Ver más ></a>
                                         </div>

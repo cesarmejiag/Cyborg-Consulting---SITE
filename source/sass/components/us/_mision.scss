@@ -1,10 +1,10 @@
 .block.us-mision-vision {
-  font-family: "Avenir Book", sans-serif;
+  padding-bottom: 0;
   .text {
-    text-align: justify;
+    margin-bottom: 40px;
   }
   .wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   span {
     position: relative;
@@ -19,10 +19,17 @@
   }
 }
 
+@media (min-width: 576px) {
+  .block.us-mision-vision {
+    .text {
+      margin-bottom: 0;
+    }
+  }
+}
+
 @media (min-width: 767px) {
   .block.us-mision-vision {
     .wrapper {
-      margin-bottom: 80px;
       text-align: left;
       span {
         position: absolute;

@@ -81,7 +81,7 @@ import pl from './pl'
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 3,
+                    thumbsToDisplay: 4,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, ''

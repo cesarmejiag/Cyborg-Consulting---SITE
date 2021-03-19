@@ -74,7 +74,7 @@ $join_guid = 'qyQWZGMCu7';
                                             ?>
                                             <div class="image" style="<?= $img_service_src ?>"></div>
                                             <div>
-                                                <div class="logo text-center m-t-30">
+                                                <div class="logo text-center">
                                                     <img class="img-fluid" src="<?= IMGS_PATH ?>icon-<?= $service->key ?>.svg" alt="<?= $service->title ?>">
                                                 </div>
                                                 <div class="title normal-size-title text-wrap text-uppercase text-break"><?= $service->title ?></div>
@@ -83,15 +83,17 @@ $join_guid = 'qyQWZGMCu7';
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                            <div class="row w-1060 pt-3 pt-sm-5 intro-content d-flex align-items-start justify-content-around">
-                                <div class="col-12 col-sm-6 pb-4 pb-sm-0">
-                                    <div class="text">
-                                        <?= $us_page->fragments['desc-1']->value ?>
+                            <div class="w-1060 pt-sm-5 intro-content">
+                                <div class="row d-flex align-items-start justify-content-around">
+                                    <div class="col-12 col-sm-6 pb-4 pb-sm-0">
+                                        <div class="text">
+                                            <?= $us_page->fragments['desc-1']->value ?>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="text">
-                                        <?= $us_page->fragments['desc-2']->value ?>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="text">
+                                            <?= $us_page->fragments['desc-2']->value ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,47 +123,49 @@ $join_guid = 'qyQWZGMCu7';
             ?>
             <section class="block us-mision-vision" id="<?= $vmv->key ?>">
                 <div class="holder">
-                    <div class="container-fluid w-1060">
-                        <!-- Mision y Visión  -->
-                        <div class="header">
-                            <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <div class="title text-start mb-4"><?= $mision_page->title ?></div>
-                                    <div class="text">
-                                        <?= $mision_page->fragments['body']->value ?>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="title text-start mb-4"><?= $vision_page->title ?></div>
-                                    <div class="text">
-                                        <?= $vision_page->fragments['body']->value ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Mision y Vision -->
-                        <?php $valores = Page::search(array(
-                            'idparent'  => $valores_page->idpage,
-                            'fragments' => array('body'),
-                            'sortBy'    => 'created ASC'
-                        ));
-                        $valores_pages = $valores['records']; ?>
-                        <div class="content">
-                            <div class="title mb-4">
-                                <?= $valores_page->title ?>
-                            </div>
-                            <div class="row">
-                                <?php foreach ($valores_pages as $val_page) : ?>
-                                    <div class="col-12 col-sm-4">
-                                        <div class="wrapper position-relative">
-                                            <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-<?= $val_page->key ?>.svg" alt="<?= $val_page->name ?>"></span>
-                                            <div class="text text-start">
-                                                <div class="color-highlight-color"><b><?= $val_page->title ?></b></div>
-                                                <div><?= $val_page->fragments['body']->value ?></div>
-                                            </div>
+                    <div class="container-fluid">
+                        <div class="w-1060">
+                            <!-- Mision y Visión  -->
+                            <div class="header">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="title text-start mb-4"><?= $mision_page->title ?></div>
+                                        <div class="text">
+                                            <?= $mision_page->fragments['body']->value ?>
                                         </div>
                                     </div>
-                                <?php endforeach; ?>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="title text-start mb-4"><?= $vision_page->title ?></div>
+                                        <div class="text">
+                                            <?= $vision_page->fragments['body']->value ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Mision y Vision -->
+                            <?php $valores = Page::search(array(
+                                'idparent'  => $valores_page->idpage,
+                                'fragments' => array('body'),
+                                'sortBy'    => 'created ASC'
+                            ));
+                            $valores_pages = $valores['records']; ?>
+                            <div class="content">
+                                <div class="title mb-4">
+                                    <?= $valores_page->title ?>
+                                </div>
+                                <div class="row">
+                                    <?php foreach ($valores_pages as $val_page) : ?>
+                                        <div class="col-12 col-sm-4">
+                                            <div class="wrapper position-relative">
+                                                <span><img class="img-fluid" src="<?= IMGS_PATH ?>val-<?= $val_page->key ?>.svg" alt="<?= $val_page->name ?>"></span>
+                                                <div class="text text-start">
+                                                    <div class="color-highlight-color"><b><?= $val_page->title ?></b></div>
+                                                    <div><?= $val_page->fragments['body']->value ?></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
