@@ -3,6 +3,10 @@
   .holder {
     max-width: 1170px;
   }
+  .title {
+    font-size: 22px;
+    line-height: normal;
+  }
   .cover-bg {
     height: 320px;
     background-position: center;
@@ -41,7 +45,7 @@
 @media (min-width: 767px) {
   .block.blog-post {
     .title {
-      font-size: 48px;
+      font-size: 28px;
     }
     .cover-bg {
       height: 524px;

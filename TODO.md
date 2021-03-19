@@ -3,8 +3,8 @@ TODO.md
 
 **Desktop**
 - [x] Cambiar favicon
-- [ ] Texto Cover - cambiar posición de las letras para que no tape el video
-- [ ] Cambiar palabra Hyperautomation
+- [x] Texto Cover - cambiar posición de las letras para que no tape el video
+- [x] Cambiar palabra Hyperautomation
 
 **Nosotros Home**
 - [x] Se baja la s
@@ -20,8 +20,7 @@ TODO.md
 
 **Home móvil**
 - [x] Revisar video en iPhone
-- [ ] Revisar 
-- [ ] Ebook Agregar espacio
+- [x] Ebook Agregar espacio
 - [x] Justificar texto
 
 ### 18 de marzo 2021
@@ -34,10 +33,11 @@ TODO.md
 - [x] Nuestros Clientes Grupo más y Socio Estrategico
 - [x] Misión y visión agregar espacio
 - [ ] Enviar cv
-- [ ] Chat
+- [x] Chat - En espera de Álvaro
 - [ ] Recortar espacio en servicios entre bloque y bloque
 - [ ] Agregar imágenes en servicios
 - [ ] Agregar formulario
 - [ ] Solicita tu demo
 - [ ] Blog
-- [ ] Slogan poner abajo
+- [x] Slogan poner abajo
+- [x] Hacer más grande el texto de popup de book

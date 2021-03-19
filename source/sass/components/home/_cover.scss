@@ -1,6 +1,6 @@
 .cover {
   background-color: #000;
-  height: 100vh;
+  height: calc(100vh - 80px);
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -9,13 +9,13 @@
   .title {
     color: #fff;
     font-family: $font-black;
-    font-size: 25px;
+    font-size: 35px;
     left: 50%;
     max-width: 900px;
     position: absolute;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.76);
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 75%;
     width: 90%;
     z-index: 1;
   }

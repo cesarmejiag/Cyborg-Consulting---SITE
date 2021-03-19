@@ -71,7 +71,11 @@
     }
 
     .text {
+      font-size: 15px;
       min-height: 140px;
+      a {
+        font-size: 13px;
+      }
     }
   }
 }
