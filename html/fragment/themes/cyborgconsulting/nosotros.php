@@ -308,7 +308,7 @@ $join_guid = 'qyQWZGMCu7';
                         </div>
                     </div>
                 </div>
-                <a class="button btn-help" href="#">¡HOLA! ¿PODEMOS AYUDARTE?</a>
+                <a class="button btn-help purechat-button-expand" href="javascript:void(0)">¡HOLA! ¿PODEMOS AYUDARTE?</a>
             </section>
             <!-- /. -->
 
@@ -322,5 +322,6 @@ $join_guid = 'qyQWZGMCu7';
 
         <!-- Page Scripts -->
         <?php include_once "partials/scripts.php" ?>
+        <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '4e85731d-595a-4d65-9e01-d5238a8c5689', f: true }); done = true; } }; })();</script>
     </body>
 </html>

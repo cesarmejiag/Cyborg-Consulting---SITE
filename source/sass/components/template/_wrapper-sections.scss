@@ -11,6 +11,10 @@
     right: 0;
     z-index: 1;
   }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .general-section {
@@ -37,7 +41,7 @@
 }
 
 @media (max-width: 767px) {
-  .block.general-section {
+  .wrapper-template {
     min-height: auto;
     .wrapper-sections {
       max-width: 100%;
