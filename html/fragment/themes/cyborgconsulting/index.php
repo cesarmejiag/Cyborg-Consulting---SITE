@@ -180,7 +180,7 @@ include_once "utils/fragment_helpers.php";
                                             </div>
                                             <div class="info">
                                                 <h5 class="m-t-35 m-b-35 mx-0"><?= $item->title ?></h3>
-                                                    <div class="text-justify"><?= $item->fragments['content']->value ?></div>
+                                                    <div><?= $item->fragments['content']->value ?></div>
                                             </div>
                                             <a class="text-end text-white text-uppercase d-block" href="<?= $rpa->key . '#' . $item->key ?>">Ver más ></a>
                                         </div>

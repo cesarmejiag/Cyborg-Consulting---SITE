@@ -33,11 +33,14 @@ TODO.md
 - [x] Nuestros Clientes Grupo más y Socio Estrategico
 - [x] Misión y visión agregar espacio
 - [ ] Enviar cv
-- [x] Chat - En espera de Álvaro
+- [-] Chat (Agregar estilos de CyborgConsulting)
 - [ ] Recortar espacio en servicios entre bloque y bloque
 - [ ] Agregar imágenes en servicios
 - [ ] Agregar formulario
 - [ ] Solicita tu demo
-- [ ] Blog
+- [-] Blog (Agregar imágenes)
 - [x] Slogan poner abajo
 - [x] Hacer más grande el texto de popup de book
+- [x] Quitar botón de pinterest
+- [x] Quitar justificación
+- [ ] Revisar template de menú y contenido en móviles, el ancho debe ser de 100% en móviles
