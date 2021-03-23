@@ -5,6 +5,9 @@
 <!-- Page Scripts  -->
 <script data-main="<?= JS_PATH ?>scripts.js" src="<?= JS_PATH ?>require.min.js"></script>
 <script src="<?= JS_PATH ?>parallax.min.js"></script>
+<!-- Start of HubSpot Embed Code -->          
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9067945.js"></script>
+<!-- End of HubSpot Embed Code -->
 <script>
     requirejs(['scripts']);
 </script>

@@ -321,8 +321,7 @@ $join_guid = 'qyQWZGMCu7';
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- <a class="button btn-help purechat-button-expand" href="javascript:void(0)">¡HOLA! ¿PODEMOS AYUDARTE?</a> -->
+                </div>                
             </section>
             <!-- /. -->
         </div>
