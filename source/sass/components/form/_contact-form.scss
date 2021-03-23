@@ -8,6 +8,10 @@
   min-height: 150px;
   position: relative;
 
+  .title {
+    font-size: 25px;
+  }
+
   /* Chrome/Opera/Safari */
   ::-webkit-input-placeholder {
     color: #999;
@@ -69,10 +73,10 @@
     }
 
     .sent {
-      background-image: url('../images/icon-sent.svg');
+      background-image: url("../images/icon-sent.svg");
     }
     .sending {
-      background-image: url('../images/icont-sending.svg');
+      background-image: url("../images/icont-sending.svg");
     }
   }
 
@@ -105,13 +109,36 @@
     resize: none;
   }
 
+  select {
+    background-color: transparent;
+    border: 1px solid #979797;
+    display: block;
+    font-family: inherit;
+    outline: none;
+    padding: 5px 5px;
+    text-align: center;
+    width: 100%;
+  }
+
   label {
     display: block;
     font-family: $font2-regular;
     font-size: 12px;
     letter-spacing: 1.2px;
+    &.select-label,
+    &.cv-label {
+      font-family: $font-heavy;
+      font-size: 16px;
+      letter-spacing: 0;
+      margin: 15px 0;
+      text-transform: uppercase;
+    }
+    &.cv-label {
+      text-align: center;
+    }
   }
 
+  .cv-button,
   input[type="submit"] {
     appearance: none;
     background-color: #e8511d;
@@ -124,7 +151,7 @@
     font-family: $font2-regular;
     letter-spacing: 1.2px;
     margin-left: auto;
-    max-height: 30px;
+    height: 35px;
     max-width: 115px;
     padding: 7px 5px;
     text-align: center;
@@ -137,10 +164,19 @@
       font-weight: 900;
     }
   }
+
+  .cv-button {
+    margin: 0 auto 25px;
+    border-radius: 3em;
+  }
 }
 
 @media screen and (min-width: 567px) {
   .contact-form {
+    .title {
+      font-size: 32px;
+    }
+
     input[type="text"],
     input[type="email"],
     textarea {
@@ -150,6 +186,12 @@
 
     textarea {
       height: 135px;
+    }
+
+    label {
+      &.select-label {
+        margin: 25px 0;
+      }
     }
   }
 }

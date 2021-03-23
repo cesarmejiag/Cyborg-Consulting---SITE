@@ -266,7 +266,7 @@ export default class ContactForm {
                 name: string = input.name,
                 value: string = input.value,
                 valid: boolean = false;
-
+                
             for (let i = 0; i < rules.length; i++) {
                 let rule: string = rules[i],
                     args: string,
@@ -802,7 +802,7 @@ export default class ContactForm {
             this._texts = [];
 
             [].forEach.call(this.inputs, (input: HTMLInputElement) => {
-                if ("text" === input.type || "email" === input.type || "hidden" === input.type || "textarea" === input.tagName.toLowerCase()) {
+                if ("text" === input.type || "email" === input.type || "hidden" === input.type || "textarea" === input.tagName.toLowerCase() || "select" === input.tagName.toLowerCase()) {
                     this._texts.push(input);
                 }
             });

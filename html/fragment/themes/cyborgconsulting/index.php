@@ -19,10 +19,6 @@ include_once "utils/fragment_helpers.php";
             <!-- Block Cover -->
             <section class="block cover" id="<?= $home_page->key ?>">
                 <h1 class="title"><?= $home_page->fragments['slogan']->value ?></h1>
-                <video autoplay muted loop playsinline>
-                    <source src="<?= TEMPLATE_PATH ?>videos/cover-home.mp4" type="video/mp4">
-                    <!-- Add image as fallback -->
-                </video>
             </section>
             <!-- /.Cover -->
 

@@ -17,7 +17,6 @@ $join_guid = 'qyQWZGMCu7';
         <?php include_once "partials/head.php" ?>
     </head>
     <body>
-
         <!-- Navigation -->
         <?php include_once "partials/navigation.php" ?>
         <!-- /.Navigation -->
@@ -102,6 +101,7 @@ $join_guid = 'qyQWZGMCu7';
                 </div>
             </section>
             <!-- /. -->
+
             <!-- Block Misión, Visión y Valores -->
             <?php
             $us_result = Page::search(array(
@@ -172,6 +172,7 @@ $join_guid = 'qyQWZGMCu7';
                 </div>
             </section>
             <!-- /. -->
+
             <!-- Block Cyborg Way -->
             <?php
             $cyborg_way = find_page_by_guid($cyborg_guid, $us_pages);
@@ -205,6 +206,7 @@ $join_guid = 'qyQWZGMCu7';
                 </div>
             </section>
             <!-- /. -->
+
             <!-- Block Partners -->
             <?php $partners = find_page_by_guid($partners_guid, $us_pages); ?>
             <section class="block us-parners" id="<?= $partners->key ?>">
@@ -248,6 +250,7 @@ $join_guid = 'qyQWZGMCu7';
                 </div>
             </section>
             <!-- /. -->
+
             <!-- Block Únete a Nuestro Equipo -->
             <?php
             $team_page = find_page_by_guid($team_guid, $us_pages);
@@ -287,6 +290,7 @@ $join_guid = 'qyQWZGMCu7';
                 </div>
             </section>
             <!-- /. -->
+
             <!-- Block Únete a Nuestro Equipo -->
             <?php $join_page = find_page_by_guid($join_guid, $us_pages); ?>
             <section class="block us-join" id="<?= $join_page->key ?>">
@@ -307,15 +311,20 @@ $join_guid = 'qyQWZGMCu7';
                                         <?= $join_page->fragments['desc']->value ?>
                                     </div>
                                 </div>
-                                <a class="button" href="#">Enviar CV</a>
+                                <a class="button" href="javascript:void(0)">Enviar CV</a>
+                            </div>
+                        </div>
+
+                        <div class="d-none">
+                            <div class="cv-form-wrapper">
+                                <?php include_once "partials/cv-form.php"; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="button btn-help purechat-button-expand" href="javascript:void(0)">¡HOLA! ¿PODEMOS AYUDARTE?</a>
+                <!-- <a class="button btn-help purechat-button-expand" href="javascript:void(0)">¡HOLA! ¿PODEMOS AYUDARTE?</a> -->
             </section>
             <!-- /. -->
-
         </div>
 
         <?php include_once "partials/contact-buttons.php" ?>
@@ -326,6 +335,5 @@ $join_guid = 'qyQWZGMCu7';
 
         <!-- Page Scripts -->
         <?php include_once "partials/scripts.php" ?>
-        <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '4e85731d-595a-4d65-9e01-d5238a8c5689', f: true }); done = true; } }; })();</script>
     </body>
 </html>
