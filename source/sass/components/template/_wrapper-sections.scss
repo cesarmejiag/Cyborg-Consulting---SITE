@@ -18,11 +18,12 @@
 }
 
 .general-section {
-  min-height: 600px;
+  // min-height: 600px;
   position: relative;
   display: flex;
   align-items: center;
-  padding: 70px 0 110px;
+  // padding: 70px 0 110px;
+  padding: 40px 0;
   &:nth-child(even) {
     background-color: #f8f8f8;
   }
@@ -51,5 +52,9 @@
       right: 50%;
       z-index: 1;
     }
+  }
+
+  .general-section {
+    padding: 70px 0;
   }
 }
