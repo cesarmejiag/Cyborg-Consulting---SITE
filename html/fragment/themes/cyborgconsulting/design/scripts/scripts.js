@@ -2397,46 +2397,45 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 cover.appendChild(video);
             }
         }
-        function showElement(element, show) {
-            show
-                ? Classie_2.default.addClass(element, 'displayed')
-                : Classie_2.default.removeClass(element, 'displayed');
-        }
-        function handleError(status, statusText) {
-            console.log('There was an error. \nStatus: %s\nStatusText: %s', status, statusText);
-            message.innerHTML = "<div class=\"text error\">No pudimos enviar tu mensaje, por favor intentalo m\u00E1s tarde.</div>";
-            setTimeout(function () {
-                showElement(wrapper, true);
-                showElement(message, false);
-                message.innerText = "";
-            }, 3000);
-        }
-        function handleSending() {
-            console.log('Sending...');
-            showElement(wrapper, false);
-            showElement(message, true);
-            message.innerHTML = "<div class=\"text sending\">Enviando mensaje...</div>";
-        }
-        function handleSuccess(response, status, statusText) {
-            console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
-            console.log(response);
-            if (parseInt(response) === 1) {
-                message.innerHTML = "<div class=\"text sent\">\u00A1Mensaje enviado!</div>";
+        function initForm(formEl) {
+            function showElement(element, show) {
+                show
+                    ? Classie_2.default.addClass(element, 'displayed')
+                    : Classie_2.default.removeClass(element, 'displayed');
+            }
+            function handleError(status, statusText) {
+                console.log('There was an error. \nStatus: %s\nStatusText: %s', status, statusText);
+                message.innerHTML = "<div class=\"text error\">No pudimos enviar tu mensaje, por favor intentalo m\u00E1s tarde.</div>";
                 setTimeout(function () {
                     showElement(wrapper, true);
                     showElement(message, false);
-                    message.innerHTML = "";
+                    message.innerText = "";
                 }, 3000);
             }
-            else {
-                handleError(status, statusText);
+            function handleSending() {
+                console.log('Sending...');
+                showElement(wrapper, false);
+                showElement(message, true);
+                message.innerHTML = "<div class=\"text sending\">Enviando mensaje...</div>";
             }
-        }
-        var formElement = q('.contact-form');
-        if (formElement) {
-            var message = q('.message');
-            var wrapper = q('.wrapper');
-            var form = new ContactForm_1.default(formElement, {
+            function handleSuccess(response, status, statusText) {
+                console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
+                console.log(response);
+                if (parseInt(response) === 1) {
+                    message.innerHTML = "<div class=\"text sent\">\u00A1Mensaje enviado!</div>";
+                    setTimeout(function () {
+                        showElement(wrapper, true);
+                        showElement(message, false);
+                        message.innerHTML = "";
+                    }, 3000);
+                }
+                else {
+                    handleError(status, statusText);
+                }
+            }
+            var message = q('.message', formEl);
+            var wrapper = q('.wrapper', formEl);
+            var form = new ContactForm_1.default(formEl, {
                 url: '/fragment/themes/cyborgconsulting/send-mail.php',
                 useAjax: true,
                 inputSelectors: [
@@ -2449,6 +2448,10 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
             form.error.add(handleError);
             form.sending.add(handleSending);
             form.success.add(handleSuccess);
+        }
+        var formElement = q('.contact-form');
+        if (formElement) {
+            initForm(formElement);
         }
         var bookAd = q('.book-ad');
         var closeBtn = q('.book-ad .close-button');
@@ -2463,7 +2466,15 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         var usJoin = q('.us-join');
         if (usJoin) {
             var cvBtn = q('.button', usJoin);
-            var initializeForm_1 = function (form) {
+            var initializeForm_1 = function (wrapper) {
+                var form = q('form', wrapper);
+                var uploadBtn = q('.cv-button', wrapper);
+                initForm(form);
+                uploadBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var file = q('input[type="file"]', e.target.parentElement);
+                    file.click();
+                });
             };
             cvBtn.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2471,6 +2482,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 var clone = formWrapper.cloneNode(true);
                 var modal = new pl_1.default.Modal({ effectName: 'pl-effect-2' });
                 var elems = qa('*', clone);
+                Classie_2.default.addClass(modal.modal, 'cv-modal');
                 [].forEach.call(elems, function (el) {
                     el.addEventListener(pl_1.default.Modal.transitionSelect(), function (e) {
                         e.stopPropagation();

@@ -375,80 +375,78 @@ import pl from './pl'
     }
 
     // Initialize Contact Form
-    /**
-     * Show or hide element
-     * @param {HTMLElement} element
-     * @param {boolean} show
-     */
-    function showElement(element, show) {
-        show
-            ? Classie.addClass(element, 'displayed')
-            : Classie.removeClass(element, 'displayed');
-    }
+    function initForm(formEl) {
+        /**
+         * Show or hide element
+         * @param {HTMLElement} element
+         * @param {boolean} show
+         */
+        function showElement(element, show) {
+            show
+                ? Classie.addClass(element, 'displayed')
+                : Classie.removeClass(element, 'displayed');
+        }
 
-    /**
-     * Handle form error event.
-     * @param {number} status
-     * @param {string} statusText
-     */
-    function handleError(status, statusText) {
-        // Show message in console.
-        console.log('There was an error. \nStatus: %s\nStatusText: %s', status, statusText);
+        /**
+         * Handle form error event.
+         * @param {number} status
+         * @param {string} statusText
+         */
+        function handleError(status, statusText) {
+            // Show message in console.
+            console.log('There was an error. \nStatus: %s\nStatusText: %s', status, statusText);
 
-        message.innerHTML = `<div class="text error">No pudimos enviar tu mensaje, por favor intentalo más tarde.</div>`;
-
-        setTimeout(function () {
-            showElement(wrapper, true);
-            showElement(message, false);
-
-            message.innerText = "";
-        }, 3000);
-    }
-
-    /**
-     * Handle form sending event.
-     */
-    function handleSending() {
-        // Show message in console.
-        console.log('Sending...');
-
-        showElement(wrapper, false);
-        showElement(message, true);
-
-        message.innerHTML = `<div class="text sending">Enviando mensaje...</div>`;
-    }
-
-    /**
-     * Handle form success event.
-     * @param {object} response
-     * @param {string} status
-     * @param {string} statusText
-     */
-    function handleSuccess(response, status, statusText) {
-        // Show message in console.
-        console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
-        console.log(response);
-
-        if (parseInt(response) === 1) {
-            message.innerHTML = `<div class="text sent">¡Mensaje enviado!</div>`;
+            message.innerHTML = `<div class="text error">No pudimos enviar tu mensaje, por favor intentalo más tarde.</div>`;
 
             setTimeout(function () {
                 showElement(wrapper, true);
                 showElement(message, false);
 
-                message.innerHTML = "";
+                message.innerText = "";
             }, 3000);
-        } else {
-            handleError(status, statusText);
         }
-    }
 
+        /**
+         * Handle form sending event.
+         */
+        function handleSending() {
+            // Show message in console.
+            console.log('Sending...');
 
-    var formElement = q('.contact-form');
-    if (formElement) {
-        var message = q('.message');
-        var wrapper = q('.wrapper');
-        var form = new ContactForm(formElement, {
+            showElement(wrapper, false);
+            showElement(message, true);
+
+            message.innerHTML = `<div class="text sending">Enviando mensaje...</div>`;
+        }
+
+        /**
+         * Handle form success event.
+         * @param {object} response
+         * @param {string} status
+         * @param {string} statusText
+         */
+        function handleSuccess(response, status, statusText) {
+            // Show message in console.
+            console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
+            console.log(response);
+
+            if (parseInt(response) === 1) {
+                message.innerHTML = `<div class="text sent">¡Mensaje enviado!</div>`;
+
+                setTimeout(function () {
+                    showElement(wrapper, true);
+                    showElement(message, false);
+
+                    message.innerHTML = "";
+                }, 3000);
+            } else {
+                handleError(status, statusText);
+            }
+        }
+
+        var message = q('.message', formEl);
+        var wrapper = q('.wrapper', formEl);
+        var form = new ContactForm(formEl, {
             url: '/fragment/themes/cyborgconsulting/send-mail.php',
             useAjax: true,
             inputSelectors: [
@@ -462,6 +460,12 @@ import pl from './pl'
         form.error.add(handleError);
         form.sending.add(handleSending);
         form.success.add(handleSuccess);
+    }
+
+
+    var formElement = q('.contact-form');
+    if (formElement) {
+        initForm(formElement);
     }
 
     // Book Ad
@@ -483,9 +487,16 @@ import pl from './pl'
 
     if (usJoin) {
         const cvBtn = q('.button', usJoin);
-        const initializeForm = form => {
-            
+        const initializeForm = wrapper => {
+            const form = q('form', wrapper);
+            const uploadBtn = q('.cv-button', wrapper);
+            initForm(form);
 
+            uploadBtn.addEventListener('click', e => {
+                e.preventDefault();
+                const file = q('input[type="file"]', e.target.parentElement);
+                file.click();
+            })
         }
 
         cvBtn.addEventListener('click', e => {
@@ -495,6 +506,8 @@ import pl from './pl'
             const clone = formWrapper.cloneNode(true)
             const modal = new pl.Modal({ effectName: 'pl-effect-2' });
             const elems = qa('*', clone);
+
+            Classie.addClass(modal.modal, 'cv-modal');
 
             [].forEach.call(elems, el => {
                 el.addEventListener(pl.Modal.transitionSelect(), e => {
