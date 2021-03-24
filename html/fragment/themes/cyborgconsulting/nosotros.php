@@ -34,8 +34,8 @@ $join_guid = 'qyQWZGMCu7';
         <div class="outer-wrapper">
             <!-- Block Cover -->
             <?php
-            $imgCover = IMGS_PATH . 'cover-nosotros.jpg';
-            $img_src = sprintf('background-image:url(%s)', $imgCover)
+            $imgCover = Fragment::elementAttributes($us_page->fragments['image']->value);
+            $img_src = sprintf('background-image:url(%s)', $imgCover['src'])
             ?>
             <section class="block us-cover" id="cover-us">
                 <div class="cover-bg d-flex align-items-center  justify-content-center">
