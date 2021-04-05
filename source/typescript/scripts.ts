@@ -520,4 +520,15 @@ import pl from './pl'
         });
     }
 
+    // Override styles of hubspot chat
+    /* const timer = setInterval(() => {
+        const hubspotBtn: HTMLElement = q('#hubspot-messages-iframe-container');
+
+        if (hubspotBtn && hubspotBtn.getAttribute('style')) {
+            const style = hubspotBtn.getAttribute('style');
+            hubspotBtn.setAttribute('style', `${style} bottom: 50px !important;`);
+            clearInterval(timer);
+        }
+    }, 100); */
+
 })()
