@@ -4,8 +4,10 @@
   .item-wrapper {
     font-size: 14px;
     margin-bottom: 30px;
-    max-width: 45%;
-    width: 100%;
+    max-width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 50%;
   }
   .item {
     background-size: cover;
@@ -31,7 +33,7 @@
   .block.us-cyborg {
     .item-wrapper {
       margin-bottom: 0;
-      max-width: 16.62%;
+      width: 16%;
     }
   }
 }

@@ -189,7 +189,7 @@ $join_guid = 'qyQWZGMCu7';
                         <div class="header">
                             <div class="title"><?= $cyborg_way->title ?></div>
                         </div>
-                        <div class="content d-flex justify-content-between flex-wrap">
+                        <div class="content d-flex justify-content-around flex-wrap">
                             <?php foreach ($cw_pages as $cw_page) : ?>
                                 <?php
                                 $img_cw = Fragment::elementAttributes($cw_page->fragments['img']->value);
@@ -212,7 +212,7 @@ $join_guid = 'qyQWZGMCu7';
             <section class="block us-parners" id="<?= $partners->key ?>">
                 <div class="holder">
                     <div class="container-fluid">
-                        <div class="header mb-5">
+                        <div class="header mb-4">
                             <div class="title">
                                 <?= $partners->title ?>
                             </div>

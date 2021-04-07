@@ -3,13 +3,12 @@
   max-width: 60%;
   width: 100%;
   .image {
-    height: 180px;
-    max-width: 250px;
-    overflow: hidden;
-    top: 100%;
-    transform: translate(0, -50%);
-    right: 0;
-    z-index: 1;
+    margin-bottom: -80px;
+    margin-top: 20px;
+    img {
+      display: block;
+      margin: 0 0 0 auto;
+    }
   }
   img {
     max-width: 100%;
@@ -18,10 +17,6 @@
 }
 
 .general-section {
-  // min-height: 600px;
-  position: relative;
-  display: flex;
-  align-items: center;
   padding: 40px 0;
   padding: 40px 0;
   &:nth-child(even) {
@@ -48,9 +43,10 @@
       max-width: 100%;
     }
     .image {
-      transform: translate(50%, -50%);
-      right: 50%;
-      z-index: 1;
+      margin-bottom: 0;
+      img {
+        margin: 0 auto;
+      }
     }
   }
 

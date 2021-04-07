@@ -7,7 +7,7 @@ if ($page->guid === $industries_guid) {
 }
 ?>
 <!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/Thing" lang="es-MX" data-something="true">
+<html itemscope itemtype="http://schema.org/Thing" lang="es-MX">
     <head>
         <?php include_once "partials/head.php" ?>
     </head>
@@ -48,7 +48,7 @@ if ($page->guid === $industries_guid) {
                 <div class="wrapper-sections">
                     <!-- Block general section -->
                     <?php foreach ($records as $record) : ?>
-                        <section class="block general-section position-relative" id="<?= $record->key ?>">
+                        <section class="block general-section" id="<?= $record->key ?>">
                             <div class="holder">
                                 <div class="container-fluid">
                                     <div class="content">
@@ -62,7 +62,7 @@ if ($page->guid === $industries_guid) {
                                 </div>
                             </div>
                             <?php if ($is_industries_page) : ?>
-                                <div class="image position-absolute">
+                                <div class="image">
                                     <?= $record->fragments['img']->value ?>
                                 </div>
                             <?php endif; ?>
