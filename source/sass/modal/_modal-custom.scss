@@ -19,11 +19,24 @@
 .pl-modal-overlay {
   z-index: 999999;
   &.pl-modal-open {
-    background-color: rgba(255, 255, 255, .9);
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }
+
 .pl-modal {
   max-width: 550px;
   width: 95%;
   z-index: 999999;
+}
+
+.pl-modal-close-button {
+  right: 25px;
+}
+
+.cv-modal {
+  height: 655px;
+  max-height: 95%;
+  .pl-modal-content {
+    height: 100%;
+  }
 }

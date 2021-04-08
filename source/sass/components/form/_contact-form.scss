@@ -4,6 +4,14 @@
     Author     : cesarmejia
     Description:
 */
+.cv-form-wrapper {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  height: 100%;
+  overflow: auto;
+  padding: 25px 25px;
+}
+
 .contact-form {
   min-height: 150px;
   position: relative;
@@ -193,5 +201,9 @@
         margin: 25px 0;
       }
     }
+  }
+
+  .cv-form-wrapper {
+    padding: 45px 65px;
   }
 }
