@@ -452,6 +452,7 @@ import pl from './pl'
             inputSelectors: [
                 "input[type=text]",
                 "input[type=email]",
+                "input[type=file]",
                 "select",
                 "textarea"
             ]

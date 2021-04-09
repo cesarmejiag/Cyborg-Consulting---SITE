@@ -465,7 +465,7 @@ define("ContactForm", ["require", "exports", "util/Classie", "util/Util", "core/
                 if ("radio" === type && input.checked) {
                     data[name] = input.value;
                 }
-                if ("text" === type || "email" === type || "hidden" === type || "textarea" === input.tagName.toLowerCase()) {
+                if ("text" === type || "email" === type || "hidden" === type || "select" === input.tagName.toLowerCase() || "textarea" === input.tagName.toLowerCase()) {
                     data[name] = input.value;
                 }
             });
@@ -2441,6 +2441,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 inputSelectors: [
                     "input[type=text]",
                     "input[type=email]",
+                    "input[type=file]",
                     "select",
                     "textarea"
                 ]
