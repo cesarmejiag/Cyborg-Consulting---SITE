@@ -41,17 +41,15 @@ $post_modal = find_setting_by_name('modal', $page_fragments);
                                     <a href="/blog" class="blog-btn text-uppercase color-highlight-color mb-4">
                                         Regresar
                                     </a>
-                                    <?php if (strlen($post_modal->value) > 0) : ?>
-                                        <button class="blog-btn big-btn text-uppercase color-highlight-color mb-4" data-pl-modal-effect="pl-effect-1">
-                                            ¿Quieres saber más?
-                                        </button>
-                                    <?php endif; ?>
+                                    <button class="blog-btn big-btn text-uppercase color-highlight-color mb-4" data-pl-modal-effect="pl-effect-1">
+                                        ¿Quieres saber más?
+                                    </button>
                                 </div>
                                 <!-- Dummy Template -->
                                 <div class="d-none">
                                     <div class="dummy-template">
                                         <div class="content-blog">
-                                            <?= $post_modal->value ?>
+                                            <?php include_once 'partials/contact-form.php'; ?>
                                         </div>
                                     </div>
                                 </div>
