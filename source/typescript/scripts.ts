@@ -28,6 +28,19 @@ import pl from './pl'
         return check;
     }
 
+    const formatDate = datetime => {
+        let formated = '';
+        try {
+            const months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sept', 'oct', 'nov', 'dic'];
+            const parts = datetime.split(' ');
+            const date = parts[0].split('-');
+
+            formated = `${date[2]} ${months[Number(date[1]) - 1]} ${date[0]} - ${parts[1]}`
+        } catch (e) { formated = datetime; }
+
+        return formated;
+    }
+
     const Page = {
         init() {
             Page.homeCarousel();
@@ -135,19 +148,33 @@ import pl from './pl'
         },
         modal() {
             // Point to needed elements.
-            let button = q('.big-btn', document);
-            let dummyTemplate = q('.dummy-template', document);
-            let modal = new pl.Modal({ effectName: 'pl-effect-2' });
+            const button = q('.big-btn', document);
+            if (button) {
+                const initializeForm = wrapper => {
+                    const form = q('form', wrapper);
+                    initForm(form);
+                }
 
-            if (button && dummyTemplate) {
-                button.addEventListener('click', (ev) => {
-                    ev.preventDefault();
-                    let effect = button.dataset['plModalEffect'];
-                    modal.changeEffect(effect);
-                    modal.open(dummyTemplate);
+                button.addEventListener('click', e => {
+                    e.preventDefault();
+
+                    const formWrapper = q('.cv-form-wrapper');
+                    const clone = formWrapper.cloneNode(true)
+                    const modal = new pl.Modal({ effectName: 'pl-effect-2' });
+                    const elems = qa('*', clone);
+
+                    Classie.addClass(modal.modal, 'cv-modal');
+
+                    [].forEach.call(elems, el => {
+                        el.addEventListener(pl.Modal.transitionSelect(), e => {
+                            e.stopPropagation();
+                        });
+                    });
+
+                    modal.opened.add(() => initializeForm(clone));
+                    modal.open(clone);
                 });
             }
-
         },
         Blog: {
 
@@ -192,12 +219,12 @@ import pl from './pl'
              *
              */
             createPost: function (post, index) {
-
                 let gridItem = document.createElement('a');
                 let image = "";
                 let abstract = "intro" in post.fragments ? post.fragments['intro'].value : '';
                 let title = post.title || '';
                 let name = post.key;
+                let created = formatDate(post.created);
 
                 image = post.fragments['image'].value;
 
@@ -210,6 +237,7 @@ import pl from './pl'
                     <div class="inner" data-name="${name}">
                         <div class="inner-image">${image}</div>
                         <div class="title-blog color-highlight-color">${title}</div>
+                        <div class="date-blog">${created}</div>
                         <div class="intro">${abstract}</div>
                         <!--<div class="complete-article">Leer</div>-->
                     </div>
@@ -519,6 +547,13 @@ import pl from './pl'
             modal.opened.add(() => initializeForm(clone));
             modal.open(clone);
         });
+    }
+
+    // Blog post
+    const blogPost = q('.blog-post');
+    if (blogPost) {
+        const date = q('.post-date span', blogPost);
+        date.innerText = formatDate(date.innerText);
     }
 
     // Override styles of hubspot chat

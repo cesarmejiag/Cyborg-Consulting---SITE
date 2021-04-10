@@ -1,7 +1,7 @@
 <form class="contact-form" autocomplete="off" novalidate>
     <div class="message"></div>
     <div class="wrapper displayed">
-        <h1 class="title">¡Únete a nuestro equipo!</h1>
+        <h1 class="title">¡Quiero saber más!</h1>
         <div class="row">
             <input name="Pagina" type="hidden" value="<?= SITE_URL . '/' . $page->key ?>">
             <div class="col-xs-12">
@@ -30,26 +30,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="input-container">
-                    <label class="select-label" for="contact-from-cv">¿Cuál es el área de interes?*</label>
-                    <select data-clue="Selecciona una opción" data-validate="notEmpty" name="Área de interés" id="contact-from-cv">
-                        <option value="">Seleccionar</option>
-                        <option value="Administrador del proyecto de RPA">Administrador del proyecto de RPA</option>
-                        <option value="Respaldo de servicio de RPA">Respaldo de servicio de RPA</option>
-                        <option value="Supervisor de RPA">Supervisor de RPA</option>
-                        <option value="Analista de negocios de RPA">Analista de negocios de RPA</option>
-                        <option value="Administrador de cambios de RPA">Administrador de cambios de RPA</option>
-                        <option value="Desarrollador de RPA">Desarrollador de RPA</option>
-                        <option value="Arquitecto de  soluciones RPA">Arquitecto de soluciones RPA</option>
-                        <option value="Técnico de infraestructuras de RPA">Técnico de infraestructuras de RPA</option>
-                    </select>
+                    <textarea data-clue="Introduce tu mensaje." data-validate="notEmpty" id="contact-form-message" name="Message"></textarea>
+                    <label for="contact-form-message">Mensaje*</label>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <label class="cv-label">¡Sube tu CV!</label>
-                <button class="cv-button">Upload</button>
-                <input class="d-none" name="cv" type="file">
             </div>
         </div>
         <div class="row">

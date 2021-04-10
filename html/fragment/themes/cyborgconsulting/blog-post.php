@@ -36,21 +36,18 @@ $post_modal = find_setting_by_name('modal', $page_fragments);
                                 <div class="cover-bg d-flex align-items-center justify-content-center" style="<?= $img_src ?>">
                                     <div class="text-white title"><?= $page->title ?></div>
                                 </div>
-                                <div class="post-body"><?= $post_body->value ?></div>
+                                <div class="post-body">
+                                    <div class="post-date">Publicado: <span><?= $page->created ?></span></div>
+                                    <div><?= $post_body->value ?></div>
+                                </div>
                                 <div class="btns d-flex align-items-center flex-column flex-sm-row">
-                                    <a href="/blog" class="blog-btn text-uppercase color-highlight-color mb-4">
-                                        Regresar
-                                    </a>
-                                    <button class="blog-btn big-btn text-uppercase color-highlight-color mb-4" data-pl-modal-effect="pl-effect-1">
-                                        ¿Quieres saber más?
-                                    </button>
+                                    <a href="/blog" class="blog-btn text-uppercase color-highlight-color mb-4">Regresar</a>
+                                    <button class="blog-btn big-btn text-uppercase color-highlight-color mb-4" data-pl-modal-effect="pl-effect-1">¿Quieres saber más?</button>
                                 </div>
                                 <!-- Dummy Template -->
                                 <div class="d-none">
-                                    <div class="dummy-template">
-                                        <div class="content-blog">
-                                            <?php include_once 'partials/contact-form.php'; ?>
-                                        </div>
+                                    <div class="cv-form-wrapper">
+                                        <?php include_once 'partials/blog-form.php'; ?>
                                     </div>
                                 </div>
                                 <!-- /.Dummy Template -->

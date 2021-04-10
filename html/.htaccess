@@ -6,8 +6,15 @@
 # Enable Rewriting                                                                       #
 RewriteEngine on
 #
+#
 # Disable magic quotes
 php_flag magic_quotes_gpc off
+#
+#
+# Redirect http to https
+RewriteCond %{SERVER_PORT} 80 
+# RewriteRule ^(.*)$ https://www.cyborgconsulting.com.mx/$1 [R,L]
+#
 #
 # Redirect /fragment to backend                                                          #
 RewriteRule ^fragment/$ /fragment/latte/releases/fragment/support/actions/backend.php [L]

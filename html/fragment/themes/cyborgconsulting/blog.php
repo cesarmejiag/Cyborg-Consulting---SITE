@@ -46,9 +46,9 @@ include_once "utils/fragment_helpers.php";
                     </div>
                 </div>
                 <!-- <div class="scroll-indication">
-                    <img src="<?= IMGS_PATH ?>scroll-arrow.svg" alt="">
-                    <span>scroll</span>
-                </div> -->
+                        <img src="<?= IMGS_PATH ?>scroll-arrow.svg" alt="">
+                        <span>scroll</span>
+                    </div> -->
             </section>
             <!-- /.Blog Internal -->
         </div>
