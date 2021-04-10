@@ -465,7 +465,7 @@ define("ContactForm", ["require", "exports", "util/Classie", "util/Util", "core/
                 if ("radio" === type && input.checked) {
                     data[name] = input.value;
                 }
-                if ("text" === type || "email" === type || "hidden" === type || "textarea" === input.tagName.toLowerCase()) {
+                if ("text" === type || "email" === type || "hidden" === type || "select" === input.tagName.toLowerCase() || "textarea" === input.tagName.toLowerCase()) {
                     data[name] = input.value;
                 }
             });
@@ -2146,6 +2146,19 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 check = true; })(navigator.userAgent || navigator.vendor || window['opera']);
             return check;
         };
+        var formatDate = function (datetime) {
+            var formated = '';
+            try {
+                var months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sept', 'oct', 'nov', 'dic'];
+                var parts = datetime.split(' ');
+                var date = parts[0].split('-');
+                formated = date[2] + " " + months[Number(date[1]) - 1] + " " + date[0] + " - " + parts[1];
+            }
+            catch (e) {
+                formated = datetime;
+            }
+            return formated;
+        };
         var Page = {
             init: function () {
                 Page.homeCarousel();
@@ -2243,14 +2256,25 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
             },
             modal: function () {
                 var button = q('.big-btn', document);
-                var dummyTemplate = q('.dummy-template', document);
-                var modal = new pl_1.default.Modal({ effectName: 'pl-effect-2' });
-                if (button && dummyTemplate) {
-                    button.addEventListener('click', function (ev) {
-                        ev.preventDefault();
-                        var effect = button.dataset['plModalEffect'];
-                        modal.changeEffect(effect);
-                        modal.open(dummyTemplate);
+                if (button) {
+                    var initializeForm_1 = function (wrapper) {
+                        var form = q('form', wrapper);
+                        initForm(form);
+                    };
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        var formWrapper = q('.cv-form-wrapper');
+                        var clone = formWrapper.cloneNode(true);
+                        var modal = new pl_1.default.Modal({ effectName: 'pl-effect-2' });
+                        var elems = qa('*', clone);
+                        Classie_2.default.addClass(modal.modal, 'cv-modal');
+                        [].forEach.call(elems, function (el) {
+                            el.addEventListener(pl_1.default.Modal.transitionSelect(), function (e) {
+                                e.stopPropagation();
+                            });
+                        });
+                        modal.opened.add(function () { return initializeForm_1(clone); });
+                        modal.open(clone);
                     });
                 }
             },
@@ -2278,10 +2302,11 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     var abstract = "intro" in post.fragments ? post.fragments['intro'].value : '';
                     var title = post.title || '';
                     var name = post.key;
+                    var created = formatDate(post.created);
                     image = post.fragments['image'].value;
                     pl_1.default.Classie.addClass(gridItem, 'grid-item');
                     gridItem.href = post.key;
-                    gridItem.innerHTML = "\n                    <div class=\"number\" hidden>" + index + "</div>\n                    <div class=\"name\" hidden>" + name + "</div>\n                    <div class=\"inner\" data-name=\"" + name + "\">\n                        <div class=\"inner-image\">" + image + "</div>\n                        <div class=\"title-blog color-highlight-color\">" + title + "</div>\n                        <div class=\"intro\">" + abstract + "</div>\n                        <!--<div class=\"complete-article\">Leer</div>-->\n                    </div>\n                ";
+                    gridItem.innerHTML = "\n                    <div class=\"number\" hidden>" + index + "</div>\n                    <div class=\"name\" hidden>" + name + "</div>\n                    <div class=\"inner\" data-name=\"" + name + "\">\n                        <div class=\"inner-image\">" + image + "</div>\n                        <div class=\"title-blog color-highlight-color\">" + title + "</div>\n                        <div class=\"date-blog\">" + created + "</div>\n                        <div class=\"intro\">" + abstract + "</div>\n                        <!--<div class=\"complete-article\">Leer</div>-->\n                    </div>\n                ";
                     return gridItem;
                 },
                 handleDataArrived: function (data) {
@@ -2441,6 +2466,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 inputSelectors: [
                     "input[type=text]",
                     "input[type=email]",
+                    "input[type=file]",
                     "select",
                     "textarea"
                 ]
@@ -2466,7 +2492,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         var usJoin = q('.us-join');
         if (usJoin) {
             var cvBtn = q('.button', usJoin);
-            var initializeForm_1 = function (wrapper) {
+            var initializeForm_2 = function (wrapper) {
                 var form = q('form', wrapper);
                 var uploadBtn = q('.cv-button', wrapper);
                 initForm(form);
@@ -2488,9 +2514,14 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                         e.stopPropagation();
                     });
                 });
-                modal.opened.add(function () { return initializeForm_1(clone); });
+                modal.opened.add(function () { return initializeForm_2(clone); });
                 modal.open(clone);
             });
+        }
+        var blogPost = q('.blog-post');
+        if (blogPost) {
+            var date = q('.post-date span', blogPost);
+            date.innerText = formatDate(date.innerText);
         }
     })();
 });

@@ -436,7 +436,7 @@ export default class ContactForm {
             }
 
             // Texts
-            if ("text" === type || "email" === type || "hidden" === type || "textarea" === input.tagName.toLowerCase()) {
+            if ("text" === type || "email" === type || "hidden" === type || "select" === input.tagName.toLowerCase() || "textarea" === input.tagName.toLowerCase()) {
                 data[name] = input.value;
             }
         });

@@ -121,19 +121,27 @@
   .title-blog {
     font-size: 18px;
     font-family: $font-heavy;
-    margin: 20px auto 30px;
+    margin: 20px auto 15px;
     letter-spacing: 0.5px;
     text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 5px;
     position: relative;
     &:after {
       content: "";
       border-top: 3px solid #4a4a4a;
       position: absolute;
-      bottom: -25%;
+      bottom: -5px;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 20px;
     }
+  }
+
+  .date-blog {
+    color: #76777a;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 
   .intro {

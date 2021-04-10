@@ -14,6 +14,12 @@
     background-size: cover;
     margin-bottom: 35px;
   }
+  .post-date {
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: right;
+    opacity: .6;
+  }
   .post-body {
     max-width: 950px;
     margin: 0 auto 40px;
@@ -35,8 +41,8 @@
       color: #e8511d;
     }
     &.big-btn {
+      border-radius: 5em;
       max-width: 187px;
-      height: 46px;
       margin: 0 auto;
     }
   }
@@ -53,6 +59,11 @@
     }
     .post-body {
       margin: 0 auto 90px;
+    }
+    .blog-btn {
+      &.big-btn {
+        height: 46px;
+      }
     }
   }
 }

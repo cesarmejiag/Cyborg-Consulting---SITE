@@ -2,6 +2,7 @@
     <div class="message"></div>
     <div class="wrapper displayed">
         <div class="row">
+            <input name="Pagina" type="hidden" value="<?= SITE_URL ?>">
             <div class="col-xs-12 col-sm-6">
                 <div class="input-container">
                     <input data-clue="Introduce un nombre válido." data-validate="range:3" id="contact-form-name" name="Nombre" type="text" />
