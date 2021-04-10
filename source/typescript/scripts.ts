@@ -118,7 +118,7 @@ import pl from './pl'
                 utilC,
                 {
                     autoPlay: true,
-                    easing: 'linear',
+                    easing: 'linear', 
                     delay: 4990,
                     infiniteScroll: true,
                     thumbsToDisplay: 5,
