@@ -8,13 +8,25 @@
     max-width: 100%;
     height: auto;
   }
+  .w-920 {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .block.us-parners {
+    .center-responsive {
+      text-align: center;
+    }
+  }
 }
 
 @media (min-width: 767px) {
   .block.us-parners {
     .partner-content {
       margin-top: 60px;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
   }
 }
