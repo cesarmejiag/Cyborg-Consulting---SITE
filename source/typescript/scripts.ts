@@ -48,6 +48,39 @@ import pl from './pl'
             Page.sideBar();
             Page.Blog.init();
             Page.modal();
+            Page.scrollTo();
+        },
+        scrollTo: function () {
+            $('.sub-menu')
+                .on('click', function (event) {
+                    let headHeight = $('header').outerHeight();
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top - headHeight - 50
+                            }, 1000, function () {
+                                $.fn.focusNoScroll = function () {
+                                    let x = window.scrollX, y = window.scrollY;
+                                    this.focus();
+                                    window.scrollTo(x, y);
+                                    return this;
+
+                                };
+                                let $target = $(target);
+                                $target.focusNoScroll();
+                                if ($target.is(":focus")) { 
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); 
+                                    $target.focusNoScroll(); 
+                                };
+                            });
+                        }
+                    }
+                });
         },
         isMobileSize: function () {
             return window.innerWidth < 767;
@@ -85,7 +118,7 @@ import pl from './pl'
                 utilC,
                 {
                     autoPlay: true,
-                    easing: 'linear',
+                    easing: 'linear', 
                     delay: 4990,
                     infiniteScroll: true,
                     thumbsToDisplay: 5,
@@ -362,10 +395,14 @@ import pl from './pl'
             init() {
                 this.navigation = q('.navigation', null);
                 this.toggleBtn = q('.toggle-btn', this.navigation);
+                this.toggleBtns = qa('.toggle-btns', this.navigation);
                 this.wrapper = q('.list-wrapper', this.navigation);
 
                 this.toggleCollapsed = this.toggleCollapsed.bind(this);
                 this.toggleBtn.addEventListener('click', this.toggleCollapsed);
+                [].forEach.call(this.toggleBtns, el => {
+                    el.addEventListener('click', this.toggleCollapsed);
+                });
             },
             toggleCollapsed() {
                 if (this.wrapper.classList.contains('list-collapsed')) {

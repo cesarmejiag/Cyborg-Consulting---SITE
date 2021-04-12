@@ -19,7 +19,7 @@ foreach ($root_pages as $option) {
         $href .= $option->key;
     } else {
         if (is_home()) {
-            $classes = 'scroll-to';
+            $classes = '';
             $href .= '' . $option->key;
         } else {
             $href .= '' . $option->key;
@@ -31,10 +31,10 @@ foreach ($root_pages as $option) {
     if ($option->guid === $us_guid || $option->guid === $services_guid || $option->guid === $rpa_guid || $option->guid === $industries_guid) {
         $submenu = '<ul class="submenu-list list">';
         foreach ($option->children as $option_sub) {
-            $submenu .= '<li class="d-block li-submenu w-100"><a href="/' . $option->key . '#' . $option_sub->key . '" class="">' . $option_sub->title . '</a></li>';
+            $submenu .= '<li class="d-block li-submenu w-100"><a href="/' . $option->key . '#' . $option_sub->key . '" class="toggle-btns sub-menu">' . $option_sub->title . '</a></li>';
         }
         $submenu .= '</ul>';
-        $classes .= ' with-submenu';
+        $classes .= 'with-submenu';
     }
     // endregion
     if ($option->guid === $contact_guid) {
@@ -60,7 +60,7 @@ foreach ($root_pages as $option) {
     }
     // endregion
 
-    $listOpts .= '<li class="li-menu"><a class="' . $classes . '" href="' . $href . '">' . $title . '</a>' . $submenu . '</li>';
+    $listOpts .= '<li class="li-menu"><a class="toggle-btns'  . $classes . '" href="' . $href . '">' . $title . '</a>' . $submenu . '</li>';
 }
 
 // endregion
