@@ -519,13 +519,22 @@ import pl from './pl'
         const initializeForm = wrapper => {
             const form = q('form', wrapper);
             const uploadBtn = q('.cv-button', wrapper);
+            const label = q('.cv-label', wrapper);
+            const file = q('input[type="file"]', wrapper);
+            
             initForm(form);
 
             uploadBtn.addEventListener('click', e => {
                 e.preventDefault();
-                const file = q('input[type="file"]', e.target.parentElement);
                 file.click();
-            })
+            });
+
+            file.addEventListener('change', e => {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                    label.innerText = e.target.files[0].name;
+                }
+            });
         }
 
         cvBtn.addEventListener('click', e => {

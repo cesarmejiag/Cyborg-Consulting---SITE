@@ -2495,11 +2495,18 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
             var initializeForm_2 = function (wrapper) {
                 var form = q('form', wrapper);
                 var uploadBtn = q('.cv-button', wrapper);
+                var label = q('.cv-label', wrapper);
+                var file = q('input[type="file"]', wrapper);
                 initForm(form);
                 uploadBtn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    var file = q('input[type="file"]', e.target.parentElement);
                     file.click();
+                });
+                file.addEventListener('change', function (e) {
+                    var files = e.target.files;
+                    if (files && files.length > 0) {
+                        label.innerText = e.target.files[0].name;
+                    }
                 });
             };
             cvBtn.addEventListener('click', function (e) {
