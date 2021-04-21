@@ -16,7 +16,7 @@ $headers = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers .= 'From: CyborgConsulting <info@cyborgconsulting.com.mx>' . "\r\n";
 // $headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
-$headers .= 'Bcc: iconfidence@gmail.com' . "\r\n";
+$headers .= 'Bcc: iconfidence@gmail.com, alvaro.algara@gmail.com' . "\r\n";
 
 
 // Extract each data from form to create the mail message.
