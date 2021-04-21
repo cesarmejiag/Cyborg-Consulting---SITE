@@ -118,7 +118,7 @@ import pl from './pl'
                 utilC,
                 {
                     autoPlay: true,
-                    easing: 'linear',
+                    easing: 'linear', 
                     delay: 4990,
                     infiniteScroll: true,
                     thumbsToDisplay: 5,
@@ -182,7 +182,6 @@ import pl from './pl'
         modal() {
             // Point to needed elements.
             const button = q('.big-btn', document);
-            const rpaDemo = q('.btn-demo', document);
             if (button) {
                 const initializeForm = wrapper => {
                     const form = q('form', wrapper);
@@ -208,31 +207,6 @@ import pl from './pl'
                     modal.opened.add(() => initializeForm(clone));
                     modal.open(clone);
                 });
-            }
-            if (rpaDemo) {
-                const initializeForm = wrapper => {
-                    const form = q('form', wrapper);
-                    initForm(form);
-                }
-
-                rpaDemo.addEventListener('click', e => {
-                    e.preventDefault();
-                    const formWrapper = q('.demo-form-wrapper');
-                    const clone = formWrapper.cloneNode(true)
-                    const modal = new pl.Modal({ effectName: 'pl-effect-2' });
-                    const elems = qa('*', clone);
-
-                    Classie.addClass(modal.modal, 'demo-modal');
-
-                    [].forEach.call(elems, el => {
-                        el.addEventListener(pl.Modal.transitionSelect(), e => {
-                            e.stopPropagation();
-                        });
-                    });
-
-                    modal.opened.add(() => initializeForm(clone));
-                    modal.open(clone);
-                })
             }
         },
         Blog: {
