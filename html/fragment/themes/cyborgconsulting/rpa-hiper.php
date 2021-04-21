@@ -162,6 +162,11 @@ $hiper_guid = 'YVEr65sESM';
                         <div class="btn-wrapper text-center m-t-50">
                             <button class="btn button btn-demo">Solicitar Demo</button>
                         </div>
+                        <div class="d-none">
+                            <div class="demo-form-wrapper">
+                                <?php include_once "partials/demo-form.php"; ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
