@@ -2166,6 +2166,40 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 Page.sideBar();
                 Page.Blog.init();
                 Page.modal();
+                Page.scrollTo();
+            },
+            scrollTo: function () {
+                $('.sub-menu')
+                    .on('click', function (event) {
+                    var headHeight = $('header').outerHeight();
+                    if (location.pathname.replace(/^\//, '') == this['pathname'].replace(/^\//, '') && location.hostname == this['hostname']) {
+                        var target = $(this['hash']);
+                        target = target.length ? target : $('[name=' + this['hash'].slice(1) + ']');
+                        if (target.length) {
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top - headHeight - 50
+                            }, 1000, function () {
+                                $.fn['focusNoScroll'] = function () {
+                                    var x = window.scrollX, y = window.scrollY;
+                                    this.focus();
+                                    window.scrollTo(x, y);
+                                    return this;
+                                };
+                                var $target = $(target);
+                                $target['focusNoScroll']();
+                                if ($target.is(":focus")) {
+                                    return false;
+                                }
+                                else {
+                                    $target.attr('tabindex', '-1');
+                                    $target['focusNoScroll']();
+                                }
+                                ;
+                            });
+                        }
+                    }
+                });
             },
             isMobileSize: function () {
                 return window.innerWidth < 767;
@@ -2387,11 +2421,16 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 navigation: null,
                 wrapper: null,
                 init: function () {
+                    var _this_1 = this;
                     this.navigation = q('.navigation', null);
                     this.toggleBtn = q('.toggle-btn', this.navigation);
+                    this.toggleBtns = qa('.toggle-btns', this.navigation);
                     this.wrapper = q('.list-wrapper', this.navigation);
                     this.toggleCollapsed = this.toggleCollapsed.bind(this);
                     this.toggleBtn.addEventListener('click', this.toggleCollapsed);
+                    [].forEach.call(this.toggleBtns, function (el) {
+                        el.addEventListener('click', _this_1.toggleCollapsed);
+                    });
                 },
                 toggleCollapsed: function () {
                     if (this.wrapper.classList.contains('list-collapsed')) {
@@ -2495,11 +2534,18 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
             var initializeForm_2 = function (wrapper) {
                 var form = q('form', wrapper);
                 var uploadBtn = q('.cv-button', wrapper);
+                var label = q('.cv-label', wrapper);
+                var file = q('input[type="file"]', wrapper);
                 initForm(form);
                 uploadBtn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    var file = q('input[type="file"]', e.target.parentElement);
                     file.click();
+                });
+                file.addEventListener('change', function (e) {
+                    var files = e.target.files;
+                    if (files && files.length > 0) {
+                        label.innerText = e.target.files[0].name;
+                    }
                 });
             };
             cvBtn.addEventListener('click', function (e) {

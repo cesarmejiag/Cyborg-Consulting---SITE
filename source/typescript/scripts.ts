@@ -54,15 +54,15 @@ import pl from './pl'
             $('.sub-menu')
                 .on('click', function (event) {
                     let headHeight = $('header').outerHeight();
-                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (location.pathname.replace(/^\//, '') == this['pathname'].replace(/^\//, '') && location.hostname == this['hostname']) {
+                        var target = $(this['hash']);
+                        target = target.length ? target : $('[name=' + this['hash'].slice(1) + ']');
                         if (target.length) {
                             event.preventDefault();
                             $('html, body').animate({
                                 scrollTop: target.offset().top - headHeight - 50
                             }, 1000, function () {
-                                $.fn.focusNoScroll = function () {
+                                $.fn['focusNoScroll'] = function () {
                                     let x = window.scrollX, y = window.scrollY;
                                     this.focus();
                                     window.scrollTo(x, y);
@@ -70,12 +70,12 @@ import pl from './pl'
 
                                 };
                                 let $target = $(target);
-                                $target.focusNoScroll();
-                                if ($target.is(":focus")) {
+                                $target['focusNoScroll']();
+                                if ($target.is(":focus")) { 
                                     return false;
                                 } else {
-                                    $target.attr('tabindex', '-1');
-                                    $target.focusNoScroll();
+                                    $target.attr('tabindex', '-1'); 
+                                    $target['focusNoScroll'](); 
                                 };
                             });
                         }
@@ -582,13 +582,22 @@ import pl from './pl'
         const initializeForm = wrapper => {
             const form = q('form', wrapper);
             const uploadBtn = q('.cv-button', wrapper);
+            const label = q('.cv-label', wrapper);
+            const file = q('input[type="file"]', wrapper);
+            
             initForm(form);
 
             uploadBtn.addEventListener('click', e => {
                 e.preventDefault();
-                const file = q('input[type="file"]', e.target.parentElement);
                 file.click();
-            })
+            });
+
+            file.addEventListener('change', e => {
+                const files = e.target.files;
+                if (files && files.length > 0) {
+                    label.innerText = e.target.files[0].name;
+                }
+            });
         }
 
         cvBtn.addEventListener('click', e => {
