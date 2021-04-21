@@ -568,8 +568,22 @@ import pl from './pl'
 
             file.addEventListener('change', e => {
                 const files = e.target.files;
+                
                 if (files && files.length > 0) {
-                    label.innerText = e.target.files[0].name;
+                    const { name, size } = files[0];
+
+                    if (name.toLowerCase().lastIndexOf('.pdf') === -1) {
+                        Classie.addClass(label, 'label-error');
+                        label.innerText = `Sólo se permiten archivos PDF`;
+                        file.value = null;
+                    } else if (size > 20971520) {
+                        Classie.addClass(label, 'label-error');
+                        label.innerText = `El archivo no debe pesar más de 20 mb`;
+                        file.value = null;
+                    } else {
+                        Classie.removeClass(label, 'label-error');
+                        label.innerText = name;
+                    }
                 }
             });
         }
@@ -600,6 +614,21 @@ import pl from './pl'
     if (blogPost) {
         const date = q('.post-date span', blogPost);
         date.innerText = formatDate(date.innerText);
+    }
+
+    // Rpa robots
+    const rpaRobots = q('.rpa-robots');
+    if (rpaRobots) {
+        const demoBtn = q('.btn-demo', rpaRobots);
+
+        demoBtn.addEventListener('click', e => {
+            const id = e.target.dataset['id'];
+            const headHeight = $('.navigation').outerHeight();
+
+            $('html, body').animate({
+                scrollTop: $(`#${id}`).offset().top - headHeight
+            }, 1000);
+        });
     }
 
     // Override styles of hubspot chat

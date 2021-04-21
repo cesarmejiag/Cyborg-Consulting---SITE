@@ -2544,7 +2544,21 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 file.addEventListener('change', function (e) {
                     var files = e.target.files;
                     if (files && files.length > 0) {
-                        label.innerText = e.target.files[0].name;
+                        var _a = files[0], name_2 = _a.name, size = _a.size;
+                        if (name_2.toLowerCase().lastIndexOf('.pdf') === -1) {
+                            Classie_2.default.addClass(label, 'label-error');
+                            label.innerText = "S\u00F3lo se permiten archivos PDF";
+                            file.value = null;
+                        }
+                        else if (size > 20971520) {
+                            Classie_2.default.addClass(label, 'label-error');
+                            label.innerText = "El archivo no debe pesar m\u00E1s de 20 mb";
+                            file.value = null;
+                        }
+                        else {
+                            Classie_2.default.removeClass(label, 'label-error');
+                            label.innerText = name_2;
+                        }
                     }
                 });
             };
@@ -2568,6 +2582,17 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         if (blogPost) {
             var date = q('.post-date span', blogPost);
             date.innerText = formatDate(date.innerText);
+        }
+        var rpaRobots = q('.rpa-robots');
+        if (rpaRobots) {
+            var demoBtn = q('.btn-demo', rpaRobots);
+            demoBtn.addEventListener('click', function (e) {
+                var id = e.target.dataset['id'];
+                var headHeight = $('.navigation').outerHeight();
+                $('html, body').animate({
+                    scrollTop: $("#" + id).offset().top - headHeight
+                }, 1000);
+            });
         }
     })();
 });

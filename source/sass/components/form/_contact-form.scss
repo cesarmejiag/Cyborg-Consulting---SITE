@@ -144,6 +144,9 @@
       letter-spacing: 0;
       margin: 15px 0;
       text-transform: uppercase;
+      &.label-error {
+        color: #ea6234;
+      }
     }
     &.cv-label {
       text-align: center;
