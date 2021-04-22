@@ -8,6 +8,9 @@
     padding-left: 10px;
     padding-right: 10px;
     width: 50%;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   .item {
     background-size: cover;

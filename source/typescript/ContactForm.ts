@@ -66,19 +66,19 @@ export default class ContactForm {
 
     /**
      * Make an ajax request with contact form data.
-     * @param {object} data
+     * @param {FormData} data
      */
-    private ajaxRequest(data) {
+    private ajaxRequest(data: FormData) {
         let async = true;
         let method = 'POST';
         let settings = this._settings;
-        let dataString = `data=${JSON.stringify(data)}`;
-
+        // let dataString = `data=${JSON.stringify(data)}`;
+        
         this.onSending();
 
         this._req.open(method, settings['url'], async);
-        this._req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        this._req.send(dataString);
+        // this._req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        this._req.send(data);
 
     }
 
@@ -416,28 +416,30 @@ export default class ContactForm {
      * @returns {object}
      */
     getFormValues() {
-        let data: Object = {},
-            name: string,
-            type: string;
+        const data: FormData = new FormData();
 
         [].forEach.call(this.inputs, (input: HTMLInputElement) => {
-            name = input.name;
-            type = input.type;
+            const {files, name, type, value} = input;
 
             // Checkboxes
             if ("checkbox" === type && input.checked) {
-                if ("string" === typeof data[name]) { data[name] += `, ${input.value}`; }
-                else { data[name] = input.value; }
+                if ("string" === typeof data.get(name)) { data.set(name, data.get(name) + `, ${input.value}`); }
+                else { data.append(name, value); }
             }
 
             // Radios
             if ("radio" === type && input.checked) {
-                data[name] = input.value;
+                data.append(name, value);
             }
 
             // Texts
             if ("text" === type || "email" === type || "hidden" === type || "select" === input.tagName.toLowerCase() || "textarea" === input.tagName.toLowerCase()) {
-                data[name] = input.value;
+                data.append(name, value);
+            }
+
+            // File
+            if ("file" === type && files.length > 0) {
+                data.append(name, files[0]);
             }
         });
 
@@ -497,10 +499,12 @@ export default class ContactForm {
                 // Maybe submit is called manually and there is no ev.
                 ev && ev.preventDefault();
 
-                let data = {
+                /* let data = {
                     host: location.hostname,
                     data: this.getFormValues()
-                };
+                }; */
+                const data = this.getFormValues();
+                data.append('host', location.hostname);
 
                 this.ajaxRequest(data);
 

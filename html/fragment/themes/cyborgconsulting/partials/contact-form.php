@@ -1,4 +1,4 @@
-<form class="contact-form" autocomplete="off" novalidate>
+<form class="home-form contact-form" autocomplete="off" novalidate>
     <div class="message"></div>
     <div class="wrapper displayed">
         <div class="row">
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="input-container">
-                    <textarea data-clue="Introduce tu mensaje." data-validate="notEmpty" id="contact-form-message" name="Message"></textarea>
+                    <textarea data-clue="Introduce tu mensaje." data-validate="notEmpty" id="contact-form-message" name="Mensaje"></textarea>
                     <label for="contact-form-message">Mensaje*</label>
                 </div>
             </div>

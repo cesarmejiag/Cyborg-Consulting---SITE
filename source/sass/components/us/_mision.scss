@@ -1,5 +1,20 @@
 .block.us-mision-vision {
   padding-bottom: 0;
+
+  .header {
+    .col-12:last-child {
+      .text {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .content {
+    .title {
+      text-align: left;
+    }
+  }
+
   .text {
     margin-bottom: 40px;
   }
@@ -29,6 +44,12 @@
 
 @media (min-width: 767px) {
   .block.us-mision-vision {
+    .content {
+      .title {
+        text-align: center;
+      }
+    }
+
     .wrapper {
       text-align: left;
       span {

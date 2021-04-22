@@ -57,7 +57,10 @@ $ebook_guid = 'eCZ8LJw7BP'
                             </div>
                         </div>
                         <div class="content">
-                            <h2 class="text-center color-highlight-color"><?= $ebook_page->fragments['slogan']->value ?></h2>
+                            <div class="body">
+                                <h2 class="text-center color-highlight-color"><?= $ebook_page->fragments['slogan']->value ?></h2>
+                            </div>
+                            <?php include_once 'partials/ebook-form.php'; ?>
                         </div>
                     </div>
                 </div>

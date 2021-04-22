@@ -218,7 +218,7 @@ $join_guid = 'qyQWZGMCu7';
                             </div>
                         </div>
                         <div class="content ">
-                            <div class="row partner-content w-920">
+                            <div class="row partner-content w-1060">
                                 <div class="col-12 col-lg-6 text-left center-responsive mb-4 mb-lg-0">
                                     <?= $partners->fragments['img']->value ?>
                                 </div>
@@ -239,7 +239,7 @@ $join_guid = 'qyQWZGMCu7';
                                         <?= $partners->fragments['text-2']->value ?>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4 mb-4 mb-sm-0">
+                                <div class="col-12 col-sm-4">
                                     <div class="text">
                                         <?= $partners->fragments['text-3']->value ?>
                                     </div>

@@ -144,7 +144,7 @@
   .navigation {
     .list-wrapper {
       background-color: $highlight-color;
-      height: 100%;
+      height: calc(100% - 80px);
       left: 0;
       opacity: 0;
       padding: 0;
