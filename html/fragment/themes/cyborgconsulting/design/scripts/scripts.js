@@ -2502,7 +2502,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                         message.innerHTML = "";
                         if (Classie_2.default.hasClass(form.element, 'ebook-form')) {
                             var download = document.createElement('a');
-                            download.setAttribute('href', '/fragment/themes/cyborgconsulting/humans.txt');
+                            download.setAttribute('href', '/fragment/themes/cyborgconsulting/ebook.pdf');
                             download.setAttribute('download', 'download');
                             download.click();
                         }
@@ -2530,7 +2530,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
             form.sending.add(handleSending);
             form.success.add(function (response, status, statusText) { return handleSuccess(form, response, status, statusText); });
         }
-        var formElement = q('.home-form, .ebook-form');
+        var formElement = q('.home-form, .ebook-form, .industries-form');
         if (formElement) {
             initForm(formElement);
         }

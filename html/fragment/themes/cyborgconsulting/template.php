@@ -72,19 +72,33 @@ if ($page->guid === $industries_guid) {
                 </div>
             </section>
 
-            <section class="block contact demo-form" id="">
-                <div class="holder">
-                    <div class="container-fluid">
-                        <div class="header">
-                            <h2 class="title">¡Solicita tu demostración hoy mismo!</h2>
-                        </div>
-                        <div class="content">
-                            <?php include_once 'partials/demo-form.php'; ?>
+            <?php if ($page->guid === $industries_guid) : ?>
+                <!-- Block Industries Form -->
+                <section class="block contact industries-form" id="formulario-industrias">
+                    <div class="content">
+                        <div class="holder">
+                            <div class="container-fluid">
+                                <?php include_once 'partials/industries-form.php'; ?>
+                            </div>
+                        </div>            
+                    </div>
+                </section>
+                <!-- /.Industries Form -->
+            <?php else : ?>
+                <section class="block contact demo-form" id="solicita-tu-demostracion">
+                    <div class="holder">
+                        <div class="container-fluid">
+                            <div class="header">
+                                <h2 class="title">¡Solicita tu demostración hoy mismo!</h2>
+                            </div>
+                            <div class="content">
+                                <?php include_once 'partials/demo-form.php'; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <!-- /.Contact -->
+                </section>
+                <!-- /.Contact -->
+            <?php endif; ?>
         </div>
 
         <?php include_once "partials/contact-buttons.php" ?>

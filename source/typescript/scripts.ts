@@ -517,7 +517,7 @@ import pl from './pl'
 
                     if (Classie.hasClass(form.element, 'ebook-form')) {
                         const download: HTMLElement = document.createElement('a');
-                        download.setAttribute('href', '/fragment/themes/cyborgconsulting/humans.txt');
+                        download.setAttribute('href', '/fragment/themes/cyborgconsulting/ebook.pdf');
                         download.setAttribute('download', 'download');
                         download.click();
                     }
@@ -548,7 +548,7 @@ import pl from './pl'
     }
 
 
-    var formElement = q('.home-form, .ebook-form');
+    var formElement = q('.home-form, .ebook-form, .industries-form');
     if (formElement) {
         initForm(formElement);
     }
