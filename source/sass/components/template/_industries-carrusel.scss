@@ -1,6 +1,4 @@
 .industries-carrusel {
-  margin-top: 70px;
-
   .el-slider {
     overflow: hidden;
   }
@@ -36,10 +34,12 @@
   }
 
   .buttons {
+    background-color: #fff;
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
 
     button {
       background: none;
@@ -102,6 +102,7 @@
 
 @media screen and (min-width: 768px) {
   .industries-carrusel {
+    margin-top: 70px;
     .buttons {
       button {
         padding: 0 20px;
