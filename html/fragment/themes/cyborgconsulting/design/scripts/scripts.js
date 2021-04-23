@@ -2125,7 +2125,7 @@ define("pl", ["require", "exports"], function (require, exports) {
     })(pl || (pl = {}));
     exports.default = pl;
 });
-define("el-slider", ["require", "exports"], function (require, exports) {
+define("el-slider", ["require", "exports", "util/Classie"], function (require, exports, classie_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var ElSlider = (function () {
@@ -2140,13 +2140,32 @@ define("el-slider", ["require", "exports"], function (require, exports) {
         ElSlider.prototype.initEvents = function () {
             for (var i = 0; i < this.buttons.length; i++) {
                 var button = this.buttons[i];
-                button.addEventListener('click', this.handleClick);
+                button.addEventListener('click', this.handleClick.bind(this));
             }
         };
         ElSlider.prototype.handleClick = function (_a) {
             var currentTarget = _a.currentTarget;
             var key = currentTarget.dataset['key'];
-            console.log(key);
+            for (var i = 0; i < this.buttons.length; i++) {
+                if (this.buttons[i] === currentTarget) {
+                    classie_1.default.addClass(this.buttons[i], 'active');
+                }
+                else {
+                    classie_1.default.removeClass(this.buttons[i], 'active');
+                }
+            }
+            this.changeSlide(key);
+        };
+        ElSlider.prototype.changeSlide = function (key) {
+            for (var i = 0; i < this.slides.length; i++) {
+                var slide = this.slides[i];
+                if (slide.dataset['key'] === key) {
+                    classie_1.default.addClass(slide, 'active');
+                }
+                else {
+                    classie_1.default.removeClass(slide, 'active');
+                }
+            }
         };
         return ElSlider;
     }());
