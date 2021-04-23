@@ -14,7 +14,7 @@
 /*
  * Site Name
  */
-define("SITE_NAME", "CYBORG Consulting | Hiperautomatización, RPA e Inteligencia Artificial");
+define("SITE_NAME", "CYBORG Consting | Especialistas en RPA e Hiperautomatización");
 
 
 /*

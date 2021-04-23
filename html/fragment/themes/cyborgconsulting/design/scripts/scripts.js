@@ -2144,9 +2144,8 @@ define("el-slider", ["require", "exports"], function (require, exports) {
             }
         };
         ElSlider.prototype.handleClick = function (_a) {
-            var target = _a.target;
-            var key = target.dataset['key'];
-            debugger;
+            var currentTarget = _a.currentTarget;
+            var key = currentTarget.dataset['key'];
             console.log(key);
         };
         return ElSlider;

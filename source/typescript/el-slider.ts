@@ -21,9 +21,8 @@ class ElSlider {
         }
     }
 
-    private handleClick({ target }) {
-        const key = target.dataset['key'];
-        debugger;
+    private handleClick({ currentTarget }) {
+        const key = currentTarget.dataset['key'];
         console.log(key);
     }
 
