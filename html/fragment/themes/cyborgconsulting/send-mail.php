@@ -1,6 +1,4 @@
 <?php
-echo 1;
-die();
 if (!isset($_POST['host'])) { die('Invalid url.'); }
 
 use PHPMailer\PHPMailer\PHPMailer;

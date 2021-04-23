@@ -1,5 +1,5 @@
 <?php
-$json = file_get_contents('/../countries.json', true);
+$json = file_get_contents('https://cyborgconsulting.com.mx/fragment/themes/cyborgconsulting/countries.json');
 $countries = json_decode($json, true);
 ?>
 <form class="ebook-form contact-form" autocomplete="off" novalidate>

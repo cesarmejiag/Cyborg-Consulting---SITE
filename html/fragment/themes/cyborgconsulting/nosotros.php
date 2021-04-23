@@ -129,13 +129,13 @@ $join_guid = 'qyQWZGMCu7';
                             <div class="header">
                                 <div class="row">
                                     <div class="col-12 col-sm-6">
-                                        <div class="title text-start mb-4"><?= $mision_page->title ?></div>
+                                        <div class="title text-center mb-4"><?= $mision_page->title ?></div>
                                         <div class="text">
                                             <?= $mision_page->fragments['body']->value ?>
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <div class="title text-start mb-4"><?= $vision_page->title ?></div>
+                                        <div class="title text-center mb-4"><?= $vision_page->title ?></div>
                                         <div class="text">
                                             <?= $vision_page->fragments['body']->value ?>
                                         </div>
@@ -218,7 +218,7 @@ $join_guid = 'qyQWZGMCu7';
                             </div>
                         </div>
                         <div class="content ">
-                            <div class="row partner-content w-1060">
+                            <div class="row partner-content w-920">
                                 <div class="col-12 col-lg-6 text-left center-responsive mb-4 mb-lg-0">
                                     <?= $partners->fragments['img']->value ?>
                                 </div>
@@ -228,7 +228,7 @@ $join_guid = 'qyQWZGMCu7';
                                     </div>
                                 </div>
                             </div>
-                            <div class="row w-1060">
+                            <div class="row">
                                 <div class="col-12 col-sm-4 mb-4 mb-sm-0">
                                     <div class="text">
                                         <?= $partners->fragments['text-1']->value ?>

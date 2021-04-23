@@ -2125,7 +2125,35 @@ define("pl", ["require", "exports"], function (require, exports) {
     })(pl || (pl = {}));
     exports.default = pl;
 });
-define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCustom.carrousel", "pl"], function (require, exports, ContactForm_1, Classie_2, utilCustom_carrousel_1, pl_1) {
+define("el-slider", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var ElSlider = (function () {
+        function ElSlider(el) {
+            if (!el) {
+                throw new Error("Can't initialize ElSlider");
+            }
+            this.slides = el.querySelectorAll('.slides .slide');
+            this.buttons = el.querySelectorAll('.buttons button');
+            this.initEvents();
+        }
+        ElSlider.prototype.initEvents = function () {
+            for (var i = 0; i < this.buttons.length; i++) {
+                var button = this.buttons[i];
+                button.addEventListener('click', this.handleClick);
+            }
+        };
+        ElSlider.prototype.handleClick = function (_a) {
+            var target = _a.target;
+            var key = target.dataset['key'];
+            debugger;
+            console.log(key);
+        };
+        return ElSlider;
+    }());
+    exports.default = ElSlider;
+});
+define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCustom.carrousel", "pl", "el-slider"], function (require, exports, ContactForm_1, Classie_2, utilCustom_carrousel_1, pl_1, el_slider_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     (function () {
@@ -2609,6 +2637,10 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     scrollTop: $("#" + id).offset().top - headHeight
                 }, 1000);
             });
+        }
+        var elSlider = q('.el-slider');
+        if (elSlider) {
+            new el_slider_1.default(elSlider);
         }
     })();
 });

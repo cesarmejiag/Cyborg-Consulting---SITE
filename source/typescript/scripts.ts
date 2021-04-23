@@ -5,7 +5,8 @@
 import ContactForm from './ContactForm';
 import Classie from './util/Classie';
 import { Carrousel } from './utilCustom.carrousel';
-import pl from './pl'
+import pl from './pl';
+import ElSlider from './el-slider';
 
 
 (() => {
@@ -648,6 +649,11 @@ import pl from './pl'
                 scrollTop: $(`#${id}`).offset().top - headHeight
             }, 1000);
         });
+    }
+
+    const elSlider = q('.el-slider');
+    if (elSlider) {
+        new ElSlider(elSlider);
     }
 
     // Override styles of hubspot chat
