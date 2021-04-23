@@ -78,43 +78,82 @@ if ($page->guid === $industries_guid) {
                     <div class="holder">
                         <div class="container-fluid">
                             <div class="content">
+                                <div class="util-carrousel gallery-thumb">
+                                    <div class="thumb align-top">
+                                        <div class="image">
+                                            <div class="content">
+                                                <div class="img-content">
+                                                    <?php $image_attrs = Fragment::elementAttributes($img_gallery); ?>
+                                                    <img src="<?= $image_attrs['data-image-url'] ?>" alt="<?= $image_attrs['alt'] ?>" class="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="el-slider">
                                     <div class="slides">
                                         <div class="slide active" data-key="rrhh-y-nomina">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/01-RRHH.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/01-RRHH.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>RRHH Y NÓMINA</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/01-RRHH.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/01-RRHH.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="it">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/02-ITsvg.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/02-IT.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>IT</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/02-ITsvg.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/02-IT.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="servicios-al-cliente">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/03-servicio-al-cliente.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/03-servicio-al-cliente.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>SERVICIO AL CLIENTE</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/03-servicio-al-cliente.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/03-servicio-al-cliente.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="finanzas-y-contabilidad">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/04-finanzas.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/04-finanzas.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>FINANZAS Y CONTABILIDAD</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/04-finanzas.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/04-finanzas.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="fabricacion-y-logistica">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/05-fabricacion.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/05-fabricacion.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>FABRICACION Y LOGISTICA</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/05-fabricacion.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/05-fabricacion.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="salud-y-farmacia">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/06-salud.png" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/06-salud.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>SALUD Y FARMACIA</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/06-salud.png" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/06-salud.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="gobierno">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/07-gobierno.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/07-gobierno.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>GOBIERNO</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/07-gobierno.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/07-gobierno.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="seguros">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/08-seguros.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/08-seguros.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>SEGUROS</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/08-seguros.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/08-seguros.svg" alt="">
+                                            </div>
                                         </div>
                                         <div class="slide" data-key="banca-y-servicios-fin">
-                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/09-banca.svg" alt="">
-                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/09-banca.svg" alt="">
+                                            <div class="wrapper">
+                                                <h3>BANCA Y SERVICIOS FINANCIEROS</h3>
+                                                <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/09-banca.svg" alt="">
+                                                <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/09-banca.svg" alt="">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="buttons">

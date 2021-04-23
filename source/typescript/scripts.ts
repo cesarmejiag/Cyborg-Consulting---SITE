@@ -133,7 +133,7 @@ import ElSlider from './el-slider';
                     easing: 'linear', 
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 5,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, ''
@@ -145,7 +145,7 @@ import ElSlider from './el-slider';
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 4,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, ''

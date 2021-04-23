@@ -1,13 +1,31 @@
 .industries-carrusel {
+  margin-top: 70px;
+
+  .el-slider {
+    overflow: hidden;
+  }
+
   .slides {
+    align-items: flex-start;
+    display: flex;
     margin-bottom: 55px;
+    transition: height 375ms, transform 375ms;
   }
 
   .slide {
-    &.active {
-      display: block;
+    flex-shrink: 0;
+    width: 100%;
+    .wrapper {
+      margin: 0 auto;
+      max-width: 1070px;
     }
-    display: none;
+
+    h3 {
+      color: #E8511D;
+      font-family: $font-heavy;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
 
     img {
       display: block;

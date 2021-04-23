@@ -2130,13 +2130,28 @@ define("el-slider", ["require", "exports", "util/Classie"], function (require, e
     Object.defineProperty(exports, "__esModule", { value: true });
     var ElSlider = (function () {
         function ElSlider(el) {
+            var _this = this;
+            this.current = 0;
             if (!el) {
                 throw new Error("Can't initialize ElSlider");
             }
+            this.slidesWrapper = el.querySelector('.slides');
             this.slides = el.querySelectorAll('.slides .slide');
             this.buttons = el.querySelectorAll('.buttons button');
-            this.initEvents();
+            window.addEventListener('load', function () {
+                _this.setHeight();
+                _this.initEvents();
+                _this.setInterval();
+            });
         }
+        ElSlider.prototype.setInterval = function () {
+            var _this = this;
+            clearInterval(this.interval);
+            this.interval = setInterval(function () {
+                _this.current = (_this.current < _this.slides.length - 1) ? _this.current + 1 : 0;
+                _this.buttons[_this.current].click();
+            }, 5000);
+        };
         ElSlider.prototype.initEvents = function () {
             for (var i = 0; i < this.buttons.length; i++) {
                 var button = this.buttons[i];
@@ -2145,27 +2160,23 @@ define("el-slider", ["require", "exports", "util/Classie"], function (require, e
         };
         ElSlider.prototype.handleClick = function (_a) {
             var currentTarget = _a.currentTarget;
-            var key = currentTarget.dataset['key'];
+            var j;
             for (var i = 0; i < this.buttons.length; i++) {
                 if (this.buttons[i] === currentTarget) {
                     classie_1.default.addClass(this.buttons[i], 'active');
+                    j = i;
                 }
                 else {
                     classie_1.default.removeClass(this.buttons[i], 'active');
                 }
             }
-            this.changeSlide(key);
+            this.slidesWrapper.style.transform = "translateX(-" + j * 100 + "%)";
+            this.current = j;
+            this.setInterval();
+            this.setHeight();
         };
-        ElSlider.prototype.changeSlide = function (key) {
-            for (var i = 0; i < this.slides.length; i++) {
-                var slide = this.slides[i];
-                if (slide.dataset['key'] === key) {
-                    classie_1.default.addClass(slide, 'active');
-                }
-                else {
-                    classie_1.default.removeClass(slide, 'active');
-                }
-            }
+        ElSlider.prototype.setHeight = function () {
+            this.slidesWrapper.style.height = this.slides[this.current].clientHeight + 'px';
         };
         return ElSlider;
     }());
@@ -2293,7 +2304,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 5,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, '');
@@ -2302,7 +2313,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 4,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, '');
