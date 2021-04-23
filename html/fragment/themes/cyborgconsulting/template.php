@@ -79,63 +79,82 @@ if ($page->guid === $industries_guid) {
                         <div class="container-fluid">
                             <div class="content">
                                 <div class="el-slider">
-                                    <div class="slides"></div>
-                                    <ul class="buttons">
-                                        <li>
-                                            <button data-key="rrhh-y-nomina">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-rrhh-y-nomina.svg" alt="RRHH y nómina icono">
-                                                <span>RRHH y nómina</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="it">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-it.svg" alt="IT icono">
-                                                <span>IT</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="servicios-al-cliente">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-servicios-al-cliente.svg" alt="Servicios al cliente icono">
-                                                <span>Servicios al cliente</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="finanzas-y-contabilidad">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-finanzas-y-contabilidad.svg" alt="Finanzas y contabilidad icono">
-                                                <span>Finanzas y contabilidad</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="fabricacion-y-logistica">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-fabricacion-y-logistica.svg" alt="Fabricación y logistica icono">
-                                                <span>Fabricación y logistica</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="salud-y-farmacia">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-salud-y-farmacia.svg" alt="Salud y farmacia icono">
-                                                <span>Salud y farmacia</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="gobierno">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-gobierno.svg" alt="Gobierno icono">
-                                                <span>Gobierno</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="seguros">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-seguros.svg" alt="Seguros icono">
-                                                <span>Seguros</span>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button data-key="banca-y-servicios-fin">
-                                                <img src="<?= IMGS_PATH ?>rrhh-icon-banca-y-servicios-fin.svg" alt="Banca y servicios fin icono">
-                                                <span>Banca y servicios fin</span>
-                                            </button>
-                                        </li>
-                                    </ul>
+                                    <div class="slides">
+                                        <div class="slide active" data-key="rrhh-y-nomina">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/01-RRHH.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/01-RRHH.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="it">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/02-ITsvg.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/02-IT.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="servicios-al-cliente">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/03-servicio-al-cliente.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/03-servicio-al-cliente.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="finanzas-y-contabilidad">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/04-finanzas.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/04-finanzas.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="fabricacion-y-logistica">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/05-fabricacion.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/05-fabricacion.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="salud-y-farmacia">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/06-salud.png" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/06-salud.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="gobierno">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/07-gobierno.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/07-gobierno.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="seguros">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/08-seguros.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/08-seguros.svg" alt="">
+                                        </div>
+                                        <div class="slide" data-key="banca-y-servicios-fin">
+                                            <img class="d-none d-sm-block" src="<?= IMGS_PATH ?>slider/09-banca.svg" alt="">
+                                            <img class="d-block d-sm-none" src="<?= IMGS_PATH ?>slider/mobile/09-banca.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="active" data-key="rrhh-y-nomina">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-rrhh-y-nomina.php' ?></span>
+                                            <span class="txt">RRHH y nómina</span>
+                                        </button>
+                                        <button data-key="it">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-it.php' ?></span>
+                                            <span class="txt">IT</span>
+                                        </button>
+                                        <button data-key="servicios-al-cliente">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-servicios-al-cliente.php' ?></span>
+                                            <span class="txt">Servicios al cliente</span>
+                                        </button>
+                                        <button data-key="finanzas-y-contabilidad">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-finanzas-y-contabilidad.php' ?></span>
+                                            <span class="txt">Finanzas y contabilidad</span>
+                                        </button>
+                                        <button data-key="fabricacion-y-logistica">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-fabricacion-y-logistica.php' ?></span>
+                                            <span class="txt">Fabricación y logistica</span>
+                                        </button>
+                                        <button data-key="salud-y-farmacia">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-salud-y-farmacia.php' ?></span>
+                                            <span class="txt">Salud y farmacia</span>
+                                        </button>
+                                        <button data-key="gobierno">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-gobierno.php' ?></span>
+                                            <span class="txt">Gobierno</span>
+                                        </button>
+                                        <button data-key="seguros">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-seguros.php' ?></span>
+                                            <span class="txt">Seguros</span>
+                                        </button>
+                                        <button data-key="banca-y-servicios-fin">
+                                            <span class="img"><?php include_once 'partials/svg/rrhh-icon-banca-y-servicios-fin.php' ?></span>
+                                            <span class="txt">Banca y servicios fin</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

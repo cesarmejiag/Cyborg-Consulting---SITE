@@ -1,23 +1,99 @@
 .industries-carrusel {
-  .buttons {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+  .slides {
+    margin-bottom: 55px;
+  }
 
-    li {
-      padding: 0 20px;
+  .slide {
+    &.active {
+      display: block;
     }
+    display: none;
+
+    img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+
+  .buttons {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     button {
       background: none;
-      border: 1px solid #e8511d;
-      border-radius: 50em;
-      height: 75px;
+      border: none;
+      margin-bottom: 15px;
       outline: none;
-      padding: 0;
-      width: 75px;
+      padding: 0 10px;
+      width: 95px;
+      &:hover,
+      &.active {
+        .img {
+          background-color: #e8511d;
+        }
+
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+
+        .txt {
+          font-family: $font-heavy;
+        }
+      }
+
+      .img {
+        align-items: center;
+        border: 1px solid #e8511d;
+        border-radius: 50em;
+        display: flex;
+        height: 75px;
+        justify-content: center;
+        margin-bottom: 10px;
+        transition: background-color 375ms;
+        width: 75px;
+
+        svg {
+          path {
+            transition: fill 375ms;
+          }
+        }
+
+        img {
+          display: block;
+          height: auto;
+          max-width: 100%;
+        }
+      }
+
+      .txt {
+        color: #e8511d;
+        display: block;
+        font-size: 10px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .industries-carrusel {
+    .buttons {
+      button {
+        padding: 0 20px;
+        width: 115px;
+      }
+
+      .img {
+        height: 75px;
+        width: 75px;
+      }
     }
   }
 }
