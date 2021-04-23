@@ -1,7 +1,7 @@
 .wrapper-sections {
   font-family: $font2-regular;
-  max-width: 60%;
-  width: 100%;
+  width: calc(100% - 350px);
+  //width: 100%;
   .image {
     margin-bottom: -80px;
     margin-top: 20px;
