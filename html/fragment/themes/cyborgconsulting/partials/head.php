@@ -39,7 +39,7 @@
 <meta name="twitter:card" content="summary">
 
 <!-- Web Application Manifest -->
-<link rel="manifest" href="manifest.json">
+<!-- <link rel="manifest" href="manifest.json"> -->
 
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">

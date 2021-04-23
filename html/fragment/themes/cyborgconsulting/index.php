@@ -148,7 +148,7 @@ include_once "utils/fragment_helpers.php";
             ));
             $rpa_pr = $rpaPage['records'];
             ?>
-            <section class="block rpa-automatization m-t-50" id="rpa-and-hiperautomatizacion">
+            <section class="block rpa-automatization" id="rpa-and-hiperautomatizacion">
                 <div class="holder">
                     <div class="container-fluid">
                         <div class="header">

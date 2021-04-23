@@ -45,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/Sexar/goplek-boilerplate/issues"
   },
-  "homepage": "https://github.com/Sexar/goplek-boilerplate#readme"
+  "homepage": "https://github.com/Sexar/goplek-boilerplate#readme",
+  "browserslist": [
+    "last 2 versions"
+  ]
 }

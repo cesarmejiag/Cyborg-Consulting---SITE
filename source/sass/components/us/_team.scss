@@ -1,6 +1,6 @@
 .block.us-team {
   font-family: $font2-regular;
-  padding-bottom: 180px;
+  padding-bottom: 110px;
   .item {
     margin-bottom: 30px;
   }
@@ -39,6 +39,7 @@
 
 @media (min-width: 767px) {
   .block.us-team {
+    padding-bottom: 150px;
     .pic {
       width: 150px;
       height: 150px;

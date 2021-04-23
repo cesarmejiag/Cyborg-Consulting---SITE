@@ -125,7 +125,6 @@ function scss(callback) {
     }
 
     const autoprefixerSettings = {
-        browsers: ['last 2 versions'],
         cascade: false
     }
 

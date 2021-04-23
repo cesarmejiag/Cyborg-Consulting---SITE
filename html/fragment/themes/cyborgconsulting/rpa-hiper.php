@@ -38,6 +38,7 @@ $hiper_guid = 'YVEr65sESM';
                 </div>
             </section>
             <!-- /.Cover -->
+
             <!-- Block ¿Qué es RPA? -->
             <?php $rpa_info_page = find_page_by_guid($rpa_info_guid, $rpa_pages); ?>
             <section class="block rpa-intro" id="<?= $rpa_info_page->key ?>">
@@ -53,6 +54,7 @@ $hiper_guid = 'YVEr65sESM';
                 </div>
             </section>
             <!-- /.¿Qué es? -->
+
             <!-- Block RPA Cards -->
             <?php $cards_result = Page::search(array(
                 'idparent'  => $rpa_info_page->idpage,
@@ -88,6 +90,7 @@ $hiper_guid = 'YVEr65sESM';
                 </div>
             </section>
             <!-- /.RPA Cards -->
+
             <!-- Block ¿Qué Procesos? -->
             <section class="block rpa-process">
                 <div class="holder w-860">
@@ -116,8 +119,10 @@ $hiper_guid = 'YVEr65sESM';
                 </div>
             </section>
             <!-- /- -->
+
             <!-- Block Robots -->
-            <?php $robots = find_page_by_guid($robots_guid, $rpa_pages);
+            <?php 
+            $robots = find_page_by_guid($robots_guid, $rpa_pages);
             $robots_result = Page::search(array(
                 'idparent'  => $robots->idpage,
                 'fragments' => array('body', 'img'),
@@ -125,7 +130,6 @@ $hiper_guid = 'YVEr65sESM';
             ));
             $robots_pages = $robots_result['records'];
             ?>
-
             <section class="block rpa-robots" id="<?= $robots->key ?>">
                 <div class="holder">
                     <div class="container-fluid">
@@ -147,7 +151,7 @@ $hiper_guid = 'YVEr65sESM';
                                                 <div class="mb-4 text-uppercase"><b><?= $robot->title ?></b></div>
                                                 <div><?= $robot->fragments['body']->value ?></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
@@ -160,12 +164,13 @@ $hiper_guid = 'YVEr65sESM';
                             </video>
                         </div>
                         <div class="btn-wrapper text-center m-t-50">
-                            <button class="btn button btn-demo">Solicitar Demo</button>
+                            <button class="btn button btn-demo" data-id="demo-form">Solicitar Demo</button>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- /- -->
+
             <!-- Block Hiperautomatización -->
             <?php $hiper_page = find_page_by_guid($hiper_guid, $rpa_pages); ?>
             <section class="block rpa-hiper" id="<?= $hiper_page->key ?>">
@@ -181,6 +186,7 @@ $hiper_guid = 'YVEr65sESM';
                 </div>
             </section>
             <!-- / -->
+
             <!-- Block Hiperautomatización -->
             <section class="block rpa-gartner" id="rpa-gartner">
                 <div class="holder w-1060">
@@ -228,7 +234,7 @@ $hiper_guid = 'YVEr65sESM';
                             <h2 class="text-center title text-uppercase mb-3">¿EN QUÉ NOS APOYAMOS?</h2>
                             <div class="text-center sub-title-size text-uppercase color-highlight-color mb-5">Plataforma para la hiperautomatización punta a punta.</div>
                             <div class="image-wrapper position-relative">
-                            <div class="small-image">
+                                <div class="small-image">
                                     <img src="<?= IMGS_PATH ?>uipath.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="main-image text-center">
@@ -240,6 +246,21 @@ $hiper_guid = 'YVEr65sESM';
                 </div>
             </section>
             <!-- / -->
+            
+            <!-- Contact -->
+            <section class="block contact demo-form" id="demo-form">
+                <div class="holder">
+                    <div class="container-fluid">
+                        <div class="header">
+                            <h2 class="title">¡Solicita tu demostración hoy mismo!</h2>
+                        </div>
+                        <div class="content">
+                            <?php include_once 'partials/demo-form.php'; ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.Contact -->
         </div>
 
         <?php include_once "partials/contact-buttons.php" ?>

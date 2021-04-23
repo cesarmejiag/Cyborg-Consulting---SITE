@@ -49,7 +49,7 @@
             <div class="col-xs-12">
                 <label class="cv-label">¡Sube tu CV!</label>
                 <button class="cv-button">Upload</button>
-                <input class="d-none" name="cv" type="file">
+                <input accept=".pdf" class="d-none" name="cv" type="file">
             </div>
         </div>
         <div class="row">

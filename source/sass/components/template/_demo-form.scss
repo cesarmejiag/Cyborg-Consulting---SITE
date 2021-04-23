@@ -1,6 +1,6 @@
 .demo-form.contact {
   background-color: #f7f7f7;
-  padding: 90px 0;
+  padding: 40px 0;
 
   .content {
     background-color: transparent;
@@ -8,4 +8,8 @@
   }
 }
 
-// @media screen and (min-width: )
+@media screen and (min-width: 767px) {
+  .demo-form.contact {
+    padding: 90px 0;
+  }
+}

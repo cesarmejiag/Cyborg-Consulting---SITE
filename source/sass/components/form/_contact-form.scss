@@ -60,6 +60,16 @@
     textarea {
       border-bottom: 1px solid #ea6234;
     }
+
+    select {
+      border: 1px solid #ea6234;
+    }
+  }
+
+  .input-group.invalid {
+    label {
+      color: #ea6234;
+    }
   }
 
   .message {
@@ -144,6 +154,9 @@
       letter-spacing: 0;
       margin: 15px 0;
       text-transform: uppercase;
+      &.label-error {
+        color: #ea6234;
+      }
     }
     &.cv-label {
       text-align: center;

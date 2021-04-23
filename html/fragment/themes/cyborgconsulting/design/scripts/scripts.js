@@ -256,11 +256,9 @@ define("ContactForm", ["require", "exports", "util/Classie", "util/Util", "core/
             var async = true;
             var method = 'POST';
             var settings = this._settings;
-            var dataString = "data=" + JSON.stringify(data);
             this.onSending();
             this._req.open(method, settings['url'], async);
-            this._req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            this._req.send(dataString);
+            this._req.send(data);
         };
         ContactForm.prototype.beforeUnload = function () {
             if (!this._letCloseWindow) {
@@ -450,23 +448,25 @@ define("ContactForm", ["require", "exports", "util/Classie", "util/Util", "core/
             return valid;
         };
         ContactForm.prototype.getFormValues = function () {
-            var data = {}, name, type;
+            var data = new FormData();
             [].forEach.call(this.inputs, function (input) {
-                name = input.name;
-                type = input.type;
+                var files = input.files, name = input.name, type = input.type, value = input.value;
                 if ("checkbox" === type && input.checked) {
-                    if ("string" === typeof data[name]) {
-                        data[name] += ", " + input.value;
+                    if ("string" === typeof data.get(name)) {
+                        data.set(name, data.get(name) + (", " + input.value));
                     }
                     else {
-                        data[name] = input.value;
+                        data.append(name, value);
                     }
                 }
                 if ("radio" === type && input.checked) {
-                    data[name] = input.value;
+                    data.append(name, value);
                 }
                 if ("text" === type || "email" === type || "hidden" === type || "select" === input.tagName.toLowerCase() || "textarea" === input.tagName.toLowerCase()) {
-                    data[name] = input.value;
+                    data.append(name, value);
+                }
+                if ("file" === type && files.length > 0) {
+                    data.append(name, files[0]);
                 }
             });
             return data;
@@ -501,10 +501,8 @@ define("ContactForm", ["require", "exports", "util/Classie", "util/Util", "core/
                     if (this._disabled)
                         return;
                     ev && ev.preventDefault();
-                    var data = {
-                        host: location.hostname,
-                        data: this.getFormValues()
-                    };
+                    var data = this.getFormValues();
+                    data.append('host', location.hostname);
                     this.ajaxRequest(data);
                 }
             }
@@ -2127,7 +2125,34 @@ define("pl", ["require", "exports"], function (require, exports) {
     })(pl || (pl = {}));
     exports.default = pl;
 });
-define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCustom.carrousel", "pl"], function (require, exports, ContactForm_1, Classie_2, utilCustom_carrousel_1, pl_1) {
+define("el-slider", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var ElSlider = (function () {
+        function ElSlider(el) {
+            if (!el) {
+                throw new Error("Can't initialize ElSlider");
+            }
+            this.slides = el.querySelectorAll('.slides .slide');
+            this.buttons = el.querySelectorAll('.buttons button');
+            this.initEvents();
+        }
+        ElSlider.prototype.initEvents = function () {
+            for (var i = 0; i < this.buttons.length; i++) {
+                var button = this.buttons[i];
+                button.addEventListener('click', this.handleClick);
+            }
+        };
+        ElSlider.prototype.handleClick = function (_a) {
+            var currentTarget = _a.currentTarget;
+            var key = currentTarget.dataset['key'];
+            console.log(key);
+        };
+        return ElSlider;
+    }());
+    exports.default = ElSlider;
+});
+define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCustom.carrousel", "pl", "el-slider"], function (require, exports, ContactForm_1, Classie_2, utilCustom_carrousel_1, pl_1, el_slider_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     (function () {
@@ -2167,18 +2192,29 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 Page.Blog.init();
                 Page.modal();
                 Page.scrollTo();
+                Page.hasHash();
+            },
+            hasHash: function () {
+                window.addEventListener('load', function () {
+                    if (location.hash.length > 0) {
+                        var headHeight = $('.navigation').outerHeight();
+                        $('html, body').animate({
+                            scrollTop: $(location.hash).offset().top - headHeight
+                        }, 1000);
+                    }
+                });
             },
             scrollTo: function () {
                 $('.sub-menu')
                     .on('click', function (event) {
-                    var headHeight = $('header').outerHeight();
+                    var headHeight = $('.navigation').outerHeight();
                     if (location.pathname.replace(/^\//, '') == this['pathname'].replace(/^\//, '') && location.hostname == this['hostname']) {
                         var target = $(this['hash']);
                         target = target.length ? target : $('[name=' + this['hash'].slice(1) + ']');
                         if (target.length) {
                             event.preventDefault();
                             $('html, body').animate({
-                                scrollTop: target.offset().top - headHeight - 50
+                                scrollTop: target.offset().top - headHeight
                             }, 1000, function () {
                                 $.fn['focusNoScroll'] = function () {
                                     var x = window.scrollX, y = window.scrollY;
@@ -2482,7 +2518,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 showElement(message, true);
                 message.innerHTML = "<div class=\"text sending\">Enviando mensaje...</div>";
             }
-            function handleSuccess(response, status, statusText) {
+            function handleSuccess(form, response, status, statusText) {
                 console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
                 console.log(response);
                 if (parseInt(response) === 1) {
@@ -2491,6 +2527,12 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                         showElement(wrapper, true);
                         showElement(message, false);
                         message.innerHTML = "";
+                        if (Classie_2.default.hasClass(form.element, 'ebook-form')) {
+                            var download = document.createElement('a');
+                            download.setAttribute('href', '/fragment/themes/cyborgconsulting/ebook.pdf');
+                            download.setAttribute('download', 'download');
+                            download.click();
+                        }
                     }, 3000);
                 }
                 else {
@@ -2506,15 +2548,16 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     "input[type=text]",
                     "input[type=email]",
                     "input[type=file]",
+                    "input[type=checkbox]",
                     "select",
                     "textarea"
                 ]
             });
             form.error.add(handleError);
             form.sending.add(handleSending);
-            form.success.add(handleSuccess);
+            form.success.add(function (response, status, statusText) { return handleSuccess(form, response, status, statusText); });
         }
-        var formElement = q('.contact-form');
+        var formElement = q('.home-form, .ebook-form, .industries-form');
         if (formElement) {
             initForm(formElement);
         }
@@ -2544,7 +2587,21 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 file.addEventListener('change', function (e) {
                     var files = e.target.files;
                     if (files && files.length > 0) {
-                        label.innerText = e.target.files[0].name;
+                        var _a = files[0], name_2 = _a.name, size = _a.size;
+                        if (name_2.toLowerCase().lastIndexOf('.pdf') === -1) {
+                            Classie_2.default.addClass(label, 'label-error');
+                            label.innerText = "S\u00F3lo se permiten archivos PDF";
+                            file.value = null;
+                        }
+                        else if (size > 20971520) {
+                            Classie_2.default.addClass(label, 'label-error');
+                            label.innerText = "El archivo no debe pesar m\u00E1s de 20 mb";
+                            file.value = null;
+                        }
+                        else {
+                            Classie_2.default.removeClass(label, 'label-error');
+                            label.innerText = name_2;
+                        }
                     }
                 });
             };
@@ -2568,6 +2625,21 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         if (blogPost) {
             var date = q('.post-date span', blogPost);
             date.innerText = formatDate(date.innerText);
+        }
+        var rpaRobots = q('.rpa-robots');
+        if (rpaRobots) {
+            var demoBtn = q('.btn-demo', rpaRobots);
+            demoBtn.addEventListener('click', function (e) {
+                var id = e.target.dataset['id'];
+                var headHeight = $('.navigation').outerHeight();
+                $('html, body').animate({
+                    scrollTop: $("#" + id).offset().top - headHeight
+                }, 1000);
+            });
+        }
+        var elSlider = q('.el-slider');
+        if (elSlider) {
+            new el_slider_1.default(elSlider);
         }
     })();
 });

@@ -1,0 +1,41 @@
+.industries-form.contact {
+  padding: 0;
+
+  .content {
+    padding: 10px 0 40px;
+  }
+
+  legend {
+    font-family: $font-heavy;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .input-group {
+    .input-container {
+      align-items: flex-start;
+      display: flex;
+
+      input[type="checkbox"] {
+        margin-top: 3px;
+      }
+
+      label {
+        margin-left: 5px;
+        min-height: 40px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .industries-form.contact {
+    .content {
+      padding: 70px 0 40px;
+    }
+  }
+}

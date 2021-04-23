@@ -5,7 +5,8 @@
 import ContactForm from './ContactForm';
 import Classie from './util/Classie';
 import { Carrousel } from './utilCustom.carrousel';
-import pl from './pl'
+import pl from './pl';
+import ElSlider from './el-slider';
 
 
 (() => {
@@ -49,18 +50,29 @@ import pl from './pl'
             Page.Blog.init();
             Page.modal();
             Page.scrollTo();
+            Page.hasHash();
+        },
+        hasHash: function() {
+            window.addEventListener('load', () => {
+                if (location.hash.length > 0) {
+                    const headHeight = $('.navigation').outerHeight();
+                    $('html, body').animate({
+                        scrollTop: $(location.hash).offset().top - headHeight
+                    }, 1000);
+                }
+            });
         },
         scrollTo: function () {
             $('.sub-menu')
                 .on('click', function (event) {
-                    let headHeight = $('header').outerHeight();
+                    let headHeight = $('.navigation').outerHeight();
                     if (location.pathname.replace(/^\//, '') == this['pathname'].replace(/^\//, '') && location.hostname == this['hostname']) {
                         var target = $(this['hash']);
                         target = target.length ? target : $('[name=' + this['hash'].slice(1) + ']');
                         if (target.length) {
                             event.preventDefault();
                             $('html, body').animate({
-                                scrollTop: target.offset().top - headHeight - 50
+                                scrollTop: target.offset().top - headHeight
                             }, 1000, function () {
                                 $.fn['focusNoScroll'] = function () {
                                     let x = window.scrollX, y = window.scrollY;
@@ -490,7 +502,7 @@ import pl from './pl'
          * @param {string} status
          * @param {string} statusText
          */
-        function handleSuccess(response, status, statusText) {
+        function handleSuccess(form, response, status, statusText) {
             // Show message in console.
             console.log('The message has been sent successfuly. \nStatus: %s\nStatusText: %s', status, statusText);
             console.log(response);
@@ -503,6 +515,13 @@ import pl from './pl'
                     showElement(message, false);
 
                     message.innerHTML = "";
+
+                    if (Classie.hasClass(form.element, 'ebook-form')) {
+                        const download: HTMLElement = document.createElement('a');
+                        download.setAttribute('href', '/fragment/themes/cyborgconsulting/ebook.pdf');
+                        download.setAttribute('download', 'download');
+                        download.click();
+                    }
                 }, 3000);
             } else {
                 handleError(status, statusText);
@@ -518,6 +537,7 @@ import pl from './pl'
                 "input[type=text]",
                 "input[type=email]",
                 "input[type=file]",
+                "input[type=checkbox]",
                 "select",
                 "textarea"
             ]
@@ -525,11 +545,11 @@ import pl from './pl'
 
         form.error.add(handleError);
         form.sending.add(handleSending);
-        form.success.add(handleSuccess);
+        form.success.add((response, status, statusText) => handleSuccess(form, response, status, statusText));
     }
 
 
-    var formElement = q('.contact-form');
+    var formElement = q('.home-form, .ebook-form, .industries-form');
     if (formElement) {
         initForm(formElement);
     }
@@ -568,8 +588,22 @@ import pl from './pl'
 
             file.addEventListener('change', e => {
                 const files = e.target.files;
+                
                 if (files && files.length > 0) {
-                    label.innerText = e.target.files[0].name;
+                    const { name, size } = files[0];
+
+                    if (name.toLowerCase().lastIndexOf('.pdf') === -1) {
+                        Classie.addClass(label, 'label-error');
+                        label.innerText = `Sólo se permiten archivos PDF`;
+                        file.value = null;
+                    } else if (size > 20971520) {
+                        Classie.addClass(label, 'label-error');
+                        label.innerText = `El archivo no debe pesar más de 20 mb`;
+                        file.value = null;
+                    } else {
+                        Classie.removeClass(label, 'label-error');
+                        label.innerText = name;
+                    }
                 }
             });
         }
@@ -578,7 +612,7 @@ import pl from './pl'
             e.preventDefault();
 
             const formWrapper = q('.cv-form-wrapper', usJoin);
-            const clone = formWrapper.cloneNode(true)
+            const clone = formWrapper.cloneNode(true);
             const modal = new pl.Modal({ effectName: 'pl-effect-2' });
             const elems = qa('*', clone);
 
@@ -600,6 +634,26 @@ import pl from './pl'
     if (blogPost) {
         const date = q('.post-date span', blogPost);
         date.innerText = formatDate(date.innerText);
+    }
+
+    // Rpa robots
+    const rpaRobots = q('.rpa-robots');
+    if (rpaRobots) {
+        const demoBtn = q('.btn-demo', rpaRobots);
+
+        demoBtn.addEventListener('click', e => {
+            const id = e.target.dataset['id'];
+            const headHeight = $('.navigation').outerHeight();
+
+            $('html, body').animate({
+                scrollTop: $(`#${id}`).offset().top - headHeight
+            }, 1000);
+        });
+    }
+
+    const elSlider = q('.el-slider');
+    if (elSlider) {
+        new ElSlider(elSlider);
     }
 
     // Override styles of hubspot chat
