@@ -54,7 +54,7 @@ class ElSlider {
 
         this.current = j;
         this.setInterval();
-        this.setHeight();
+        setTimeout(() => this.setHeight(), 375);
     }
 
     private setHeight() {

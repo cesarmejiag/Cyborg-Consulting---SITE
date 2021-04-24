@@ -78,18 +78,6 @@ if ($page->guid === $industries_guid) {
                     <div class="holder">
                         <div class="container-fluid">
                             <div class="content">
-                                <div class="util-carrousel gallery-thumb">
-                                    <div class="thumb align-top">
-                                        <div class="image">
-                                            <div class="content">
-                                                <div class="img-content">
-                                                    <?php $image_attrs = Fragment::elementAttributes($img_gallery); ?>
-                                                    <img src="<?= $image_attrs['data-image-url'] ?>" alt="<?= $image_attrs['alt'] ?>" class="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="el-slider">
                                     <div class="slides">
                                         <div class="slide active" data-key="rrhh-y-nomina">

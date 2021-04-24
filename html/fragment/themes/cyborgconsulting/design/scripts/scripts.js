@@ -2159,6 +2159,7 @@ define("el-slider", ["require", "exports", "util/Classie"], function (require, e
             }
         };
         ElSlider.prototype.handleClick = function (_a) {
+            var _this = this;
             var currentTarget = _a.currentTarget;
             var j;
             for (var i = 0; i < this.buttons.length; i++) {
@@ -2173,7 +2174,7 @@ define("el-slider", ["require", "exports", "util/Classie"], function (require, e
             this.slidesWrapper.style.transform = "translateX(-" + j * 100 + "%)";
             this.current = j;
             this.setInterval();
-            this.setHeight();
+            setTimeout(function () { return _this.setHeight(); }, 375);
         };
         ElSlider.prototype.setHeight = function () {
             this.slidesWrapper.style.height = this.slides[this.current].clientHeight + 'px';
@@ -2333,7 +2334,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                         var rectWrapperSections = wrapperSections.getBoundingClientRect();
                         if (rect.top <= 80) {
                             Page.setStyleAttribute(sideBar, { 'position': 'fixed', 'left': '0', 'top': '80px' });
-                            Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto' });
+                            Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto', 'width': 'calc(100% - 350px)' });
                         }
                         if (rect.top >= 80) {
                             Page.setStyleAttribute(sideBar, { 'position': 'relative', 'left': 'unset', 'top': 'unset' });
@@ -2352,6 +2353,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     window.onresize = function () {
                         reqAnimFrame_1(calc_1);
                     };
+                    reqAnimFrame_1(calc_1);
                 }
             },
             modal: function () {
