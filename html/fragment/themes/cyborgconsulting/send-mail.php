@@ -35,6 +35,8 @@ try {
     // $mail->addCC('cc@example.com');
     $mail->addBCC('iconfidence@gmail.com');
     $mail->addBCC('alvaro.algara@gmail.com');
+    $mail->addBCC('jessica.blanco@cyborgconsulting.com.mx');
+    $mail->addBCC('alejandro.hernandez@maccomputadoras.com.mx');
 
     //Attachments
     // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments

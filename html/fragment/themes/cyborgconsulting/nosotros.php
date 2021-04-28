@@ -228,7 +228,7 @@ $join_guid = 'qyQWZGMCu7';
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row w-920">
                                 <div class="col-12 col-sm-4 mb-4 mb-sm-0">
                                     <div class="text">
                                         <?= $partners->fragments['text-1']->value ?>

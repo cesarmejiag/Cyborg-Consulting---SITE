@@ -1,9 +1,6 @@
 .block.us-parners {
   font-family: $font2-regular;
   position: relative;
-  .partner-content {
-    margin-bottom: 20px;
-  }
   img {
     max-width: 100%;
     height: auto;
@@ -11,6 +8,9 @@
   .w-920 {
     max-width: 920px;
     margin: 0 auto;
+  }
+  .partner-content {
+    margin-bottom: 20px;
   }
 }
 

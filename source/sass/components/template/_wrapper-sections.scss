@@ -1,6 +1,5 @@
 .wrapper-sections {
   font-family: $font2-regular;
-  max-width: 60%;
   width: 100%;
   .image {
     margin-bottom: -80px;
@@ -40,7 +39,7 @@
   .wrapper-template {
     min-height: auto;
     .wrapper-sections {
-      max-width: 100%;
+      width: 100% !important;
     }
     .image {
       margin-bottom: 0;

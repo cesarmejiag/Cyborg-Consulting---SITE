@@ -2125,28 +2125,59 @@ define("pl", ["require", "exports"], function (require, exports) {
     })(pl || (pl = {}));
     exports.default = pl;
 });
-define("el-slider", ["require", "exports"], function (require, exports) {
+define("el-slider", ["require", "exports", "util/Classie"], function (require, exports, classie_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var ElSlider = (function () {
         function ElSlider(el) {
+            var _this = this;
+            this.current = 0;
             if (!el) {
                 throw new Error("Can't initialize ElSlider");
             }
+            this.slidesWrapper = el.querySelector('.slides');
             this.slides = el.querySelectorAll('.slides .slide');
             this.buttons = el.querySelectorAll('.buttons button');
-            this.initEvents();
+            window.addEventListener('load', function () {
+                _this.setHeight();
+                _this.initEvents();
+                _this.setInterval();
+            });
         }
+        ElSlider.prototype.setInterval = function () {
+            var _this = this;
+            clearInterval(this.interval);
+            this.interval = setInterval(function () {
+                _this.current = (_this.current < _this.slides.length - 1) ? _this.current + 1 : 0;
+                _this.buttons[_this.current].click();
+            }, 5000);
+        };
         ElSlider.prototype.initEvents = function () {
             for (var i = 0; i < this.buttons.length; i++) {
                 var button = this.buttons[i];
-                button.addEventListener('click', this.handleClick);
+                button.addEventListener('click', this.handleClick.bind(this));
             }
         };
         ElSlider.prototype.handleClick = function (_a) {
+            var _this = this;
             var currentTarget = _a.currentTarget;
-            var key = currentTarget.dataset['key'];
-            console.log(key);
+            var j;
+            for (var i = 0; i < this.buttons.length; i++) {
+                if (this.buttons[i] === currentTarget) {
+                    classie_1.default.addClass(this.buttons[i], 'active');
+                    j = i;
+                }
+                else {
+                    classie_1.default.removeClass(this.buttons[i], 'active');
+                }
+            }
+            this.slidesWrapper.style.transform = "translateX(-" + j * 100 + "%)";
+            this.current = j;
+            this.setInterval();
+            setTimeout(function () { return _this.setHeight(); }, 375);
+        };
+        ElSlider.prototype.setHeight = function () {
+            this.slidesWrapper.style.height = this.slides[this.current].clientHeight + 'px';
         };
         return ElSlider;
     }());
@@ -2274,7 +2305,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 5,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, '');
@@ -2303,7 +2334,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                         var rectWrapperSections = wrapperSections.getBoundingClientRect();
                         if (rect.top <= 80) {
                             Page.setStyleAttribute(sideBar, { 'position': 'fixed', 'left': '0', 'top': '80px' });
-                            Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto' });
+                            Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto', 'width': 'calc(100% - 350px)' });
                         }
                         if (rect.top >= 80) {
                             Page.setStyleAttribute(sideBar, { 'position': 'relative', 'left': 'unset', 'top': 'unset' });
@@ -2322,6 +2353,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                     window.onresize = function () {
                         reqAnimFrame_1(calc_1);
                     };
+                    reqAnimFrame_1(calc_1);
                 }
             },
             modal: function () {

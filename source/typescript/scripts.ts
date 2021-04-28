@@ -133,7 +133,7 @@ import ElSlider from './el-slider';
                     easing: 'linear', 
                     delay: 4990,
                     infiniteScroll: true,
-                    thumbsToDisplay: 5,
+                    thumbsToDisplay: 3,
                     scaleImages: true,
                     scrollSpeed: 5000,
                 }, ''
@@ -166,7 +166,7 @@ import ElSlider from './el-slider';
                     let rectWrapperSections = wrapperSections.getBoundingClientRect();
                     if (rect.top <= 80) {
                         Page.setStyleAttribute(sideBar, { 'position': 'fixed', 'left': '0', 'top': '80px' });
-                        Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto' });
+                        Page.setStyleAttribute(wrapperSections, { 'margin-left': 'auto', 'width': 'calc(100% - 350px)' });
                     }
 
                     if (rect.top >= 80) {
@@ -189,6 +189,8 @@ import ElSlider from './el-slider';
                 window.onresize = function () {
                     reqAnimFrame(calc);
                 };
+
+                reqAnimFrame(calc);
             }
         },
         modal() {

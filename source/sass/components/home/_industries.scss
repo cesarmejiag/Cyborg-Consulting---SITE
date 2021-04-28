@@ -1,4 +1,4 @@
-.block.industries {  
+.block.industries {
   .header {
     background-position: center;
     background-repeat: no-repeat;
@@ -13,19 +13,24 @@
     padding: 0 15px;
     margin: -9% auto 0;
   }
-  .item {
+  .image-content {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    //padding-bottom: 100%;
+  }
+  .item {
     overflow: hidden;
     outline: none;
     text-decoration: none;
-    height: 180px;
     margin: 20px auto 0;
     max-width: 480px;
     width: 100%;
+    perspective: 1000px;
+    position: relative;
+    background-color: transparent;
     &::after {
-      content: "";
+      //content: "";
       display: block;
       left: 0;
       position: absolute;
@@ -40,6 +45,7 @@
   .item-title,
   .item-info,
   .item-more {
+    color: #000;
     font-family: "Avenir-Heavy", sans-serif;
     position: relative;
   }
@@ -70,16 +76,37 @@
       margin: 0 auto;
     }
     .item::after {
+      content: "";
+      display: block;
+      left: 0;
+      position: absolute;
+      transition: all 350ms ease-in-out;
+      background: #000;
+      height: 100%;
       top: 0;
+      width: 100%;
+      opacity: 0.35;
+      z-index: 1;
+    }
+    .image-content {
+      height: 180px;
+    }
+    .item-title,
+    .item-info,
+    .item-more {
+      color: #fff;
     }
     .item-content {
-      position: relative;
+      position: absolute;
       z-index: 2;
-      top: 50%;
-      transform: translateY(-50%);
       max-width: 320px;
+      height: auto;
       margin: 0 auto;
       padding: 0 15px;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
     }
     .item-more {
       margin-top: 10px;
@@ -95,10 +122,10 @@
     .item {
       color: inherit;
       margin-top: 20px;
-      max-width: 31.7%;
-      padding-bottom: 36.7%;
+      width: 335px;
+      height: 385px;
       text-decoration: none;
-      &:hover::after {
+      /* &:hover::after {
         background: $highlight-color;
       }
       &:hover {
@@ -111,21 +138,65 @@
         .item-info {
           opacity: 1;
         }
+      } */
+    }
+    .flip-inner {
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      width: 100%;
+      height: 100%;
+    }
+    .item:hover {
+      .flip-inner {
+        transform: rotateX(180deg);
       }
+      .flip-back {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+    .flip-back {
+      background-color: #2980b9;
+      color: white;
+      transform: rotateX(180deg);
+      padding-bottom: 110%;
+      position: relative;
+      &::after {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        top:0;
+        transition: opacity 355ms linear;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+      }
+    }
+    .flip-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
     }
     .item-title,
     .item-info,
     .item-more {
       position: absolute;
     }
+    .item-title {
+      top: 30px;
+    }
     .item-content {
+      background-color: #fff;
       height: 100%;
       width: 100%;
       left: 0;
       padding: 0 10px;
       position: absolute;
-      top: 50%;
-      transform: translateY(-25px);
+      top: 0;
       transition: all 750ms ease-in-out;
       z-index: 2;
     }
@@ -135,7 +206,7 @@
       transform: translateX(-50%);
     }
     .item-info {
-      opacity: 0;
+      opacity: 1;
       transition: all 850ms ease-in-out;
       top: 50%;
       left: 50%;
@@ -158,15 +229,18 @@
     .item {
       color: inherit;
       margin-top: 20px;
-      max-width: 17.92%;
-      padding-bottom: 19.8%;
+      width: 216px;
+      height: 240px;
       position: relative;
       text-decoration: none;
-      &:hover {
+      .item-title  {
+        top: 10px;
+      }
+      /* &:hover {
         .item-title {
           top: 10px;
         }
-      }
+      } */
       .item-info {
         width: 90%;
         top: 55%;
