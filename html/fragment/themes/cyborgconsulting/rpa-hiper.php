@@ -63,7 +63,7 @@ $hiper_guid = 'YVEr65sESM';
             ));
             $cards = $cards_result['records'];
             ?>
-            <section class="block rpa-cards">
+            <section class="block rpa-cards pb-0">
                 <div class="bg"></div>
                 <div class="holder w-860">
                     <div class="container-fluid">
@@ -92,7 +92,7 @@ $hiper_guid = 'YVEr65sESM';
             <!-- /.RPA Cards -->
 
             <!-- Block ¿Qué Procesos? -->
-            <section class="block rpa-process">
+            <section class="block rpa-process pt-md-0">
                 <div class="holder w-860">
                     <div class="container-fluid">
                         <div class="header">
