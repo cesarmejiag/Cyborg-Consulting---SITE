@@ -14,7 +14,7 @@
 /*
  * Site Name
  */
-define("SITE_NAME", "CYBORG Consulting | Especialistas en RPA e Hiperautomatización");
+define("SITE_NAME", "CYBORG Consulting | RPA e Hiperautomatización");
 
 
 /*
@@ -32,7 +32,7 @@ define("SITE_URL", sprintf("https://%s", SITE_DOMAIN));
 /*
  * Site Description
  */
-define("SITE_DESCRIPTION", "Somos una consultoría boutique líder de TI, con amplia experiencia en hiperautomatización, RPA e Inteligencia artificial, con enfoque global.");
+define("SITE_DESCRIPTION", "Somos una consultora tecnológica boutique líder, especializada en RPA e hiperautomatización con enfoque global.");
 
 
 /*
@@ -89,7 +89,7 @@ define("FILES_PATH", sprintf("%sfiles/", TEMPLATE_PATH));
 // | Theme Variables                                                    |
 // ---------------------------------------------------------------------
 
-define("THEME_COLOR", "#151515");
+define("THEME_COLOR", "#e8511d");
 
 
 // ---------------------------------------------------------------------

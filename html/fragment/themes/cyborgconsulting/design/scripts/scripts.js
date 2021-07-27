@@ -2189,7 +2189,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
     (function () {
         'use strict';
         if ("serviceWorker" in navigator) {
-            var swPath = 'sw.js';
+            var swPath = 'fragment/themes/cyborgconsulting/sw.js';
             navigator.serviceWorker.register(swPath)
                 .then(function (res) { console.log('Service worker registered.'); })
                 .catch(function (res) { console.log('Can not find service worker.'); });

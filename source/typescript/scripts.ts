@@ -13,7 +13,7 @@ import ElSlider from './el-slider';
     'use strict'
     // Register service worker.
     if ("serviceWorker" in navigator) {
-        const swPath = 'sw.js';
+        const swPath = 'fragment/themes/cyborgconsulting/sw.js';
 
         navigator.serviceWorker.register(swPath)
             .then(res => { console.log('Service worker registered.') })
