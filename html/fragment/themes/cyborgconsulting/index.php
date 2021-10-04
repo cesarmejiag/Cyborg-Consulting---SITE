@@ -56,7 +56,7 @@ include_once "utils/fragment_helpers.php";
                             <div class="col-12 col-md-7">
                                 <div class="inner">
                                     <div class="pb-3 pt-0 py-sm-4">
-                                        <h2 class="text-start title mt-sm-4"><?= $nosotros_page->title ?></h2>
+                                        <h2 class="title mt-sm-4"><?= $nosotros_page->title ?></h2>
                                     </div>
                                     <div>
                                         <p><?= $nosotros_page->fragments['intro']->value ?></p>
@@ -299,6 +299,42 @@ include_once "utils/fragment_helpers.php";
             </div>
         </section>
         <!-- /.Clients -->
+
+        <?php 
+            $testimonials = find_page_by_guid($testimonials_guid, $root_pages);
+            $testimonials_children = Page::search(array(
+                'idparent' => $testimonials->idpage,
+                'fragments' => array('body', 'author')
+            ));
+        ?>
+        <?php if ($testimonials): ?>
+        <!-- Block Testimonials -->
+        <section class="block testimonials" id="<?= $testimonials->key ?>">
+            <div class="holder">
+                <div class="container-fluid">
+                    <div class="content">
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <?php foreach ($testimonials_children['records'] as $testimonial): ?>
+                                    <div class="swiper-slide">
+                                        <blockquote class="testimonial">
+                                            <div class="tes-body"><?= $testimonial->fragments['body']->value ?></div>
+                                            <div class="tes-title"><?= $testimonial->title ?></div>
+                                            <div class="tes-author"><?= $testimonial->fragments['author']->value ?></div>
+                                        </blockquote>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.Testimonials -->
+        <?php endif; ?>
 
         <!-- Block Contact -->
         <?php $contact_section = find_page_by_guid($contact_guid, $root_pages); ?>

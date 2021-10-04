@@ -2673,5 +2673,26 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         if (elSlider) {
             new el_slider_1.default(elSlider);
         }
+        (function (testimonials) {
+            if (testimonials) {
+                var swiper = new Swiper('.swiper', {
+                    direction: 'horizontal',
+                    loop: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                    },
+                    autoplay: {
+                        delay: 5000,
+                    },
+                });
+            }
+        })(q('.block.testimonials'));
     })();
 });

@@ -1,0 +1,39 @@
+.testimonials {
+  padding: 0;
+
+  .content {
+    margin: 0 auto;
+    max-width: 890px;
+  }
+
+  .testimonial {
+    // background: no-repeat center top url('../images/icon-left-quote.svg');
+    background-size: 70px;
+    margin: 0;
+    // padding-top: 100px;
+    text-align: center;
+  }
+
+  .tes-body {
+    margin-bottom: 30px;
+  }
+
+  .tes-title {
+    font-family: $font-black;
+    font-size: 22px;
+  }
+
+  .tes-author {
+    color: #e8511d;
+    font-family: $font-heavy;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .testimonials {
+    .testimonial {
+      background-size: 50px;
+      padding-top: 80px;
+    }
+  }
+}

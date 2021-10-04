@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="input-container">
-                    <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Teléfono" type="text" />
+                    <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Tel&eacute;fono" type="text" />
                     <label for="contact-form-phone">Teléfono*</label>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="col-xs-12">
                 <div class="input-container">
                     <label class="select-label" for="contact-from-cv">¿Cuál es el área de interes?*</label>
-                    <select data-clue="Selecciona una opción" data-validate="notEmpty" name="Área de interés" id="contact-from-cv">
+                    <select data-clue="Selecciona una opción" data-validate="notEmpty" name="&Aacute;rea de inter&eacute;s" id="contact-from-cv">
                         <option value="">Seleccionar</option>
                         <option value="Administrador del proyecto de RPA">Administrador del proyecto de RPA</option>
                         <option value="Respaldo de servicio de RPA">Respaldo de servicio de RPA</option>

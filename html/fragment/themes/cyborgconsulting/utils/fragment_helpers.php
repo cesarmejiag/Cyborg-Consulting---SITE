@@ -62,6 +62,11 @@ $blog_guid = 'cH5tfO7Jkb';
 $contact_guid = 'QJ22o0nMwG';
 
 
+/*
+ * Testimonials GUID
+ */
+$testimonials_guid = 'SCC9tvm28t';
+
 // ---------------------------------------------------------------------
 // | Fragment Helpers                                                   |
 // ---------------------------------------------------------------------

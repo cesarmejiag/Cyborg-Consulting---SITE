@@ -26,7 +26,7 @@ $countries = json_decode($json, true);
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <div class="input-container">
-                        <select data-clue="Selecciona una opción" data-validate="notEmpty" name="Área de interés" id="contact-from-cv">
+                        <select data-clue="Selecciona una opción" data-validate="notEmpty" name="&Acute;rea de inter&eacute;s" id="contact-from-cv">
                             <option value="">País</option>
                             <?php foreach ($countries as $country) : ?>
                                 <option value="<?= $country['name'] ?>"><?= $country['name'] ?></option>
@@ -36,7 +36,7 @@ $countries = json_decode($json, true);
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="input-container">
-                        <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Teléfono" type="text" />
+                        <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Tel&eacute;fono" type="text" />
                         <label for="contact-form-phone">Teléfono*</label>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ $countries = json_decode($json, true);
                 <div class="col-xs-12 col-sm-3 offset-sm-7">
                     <fieldset class="input-group">
                         <div class="input-container">
-                            <input class="d-inline" id="terms" name="Términos y condiciones" type="checkbox" value="Sí" />
+                            <input class="d-inline" id="terms" name="T&eacute;rminos y condiciones" type="checkbox" value="Sí" />
                             <label class="d-inline" for="terms">Acepto términos y condiciones</label>
                         </div>
                     </fieldset>

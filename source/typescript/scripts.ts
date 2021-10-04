@@ -7,6 +7,7 @@ import Classie from './util/Classie';
 import { Carrousel } from './utilCustom.carrousel';
 import pl from './pl';
 import ElSlider from './el-slider';
+// import Swiper from './Swiper';
 
 
 (() => {
@@ -52,7 +53,7 @@ import ElSlider from './el-slider';
             Page.scrollTo();
             Page.hasHash();
         },
-        hasHash: function() {
+        hasHash: function () {
             window.addEventListener('load', () => {
                 if (location.hash.length > 0) {
                     const headHeight = $('.navigation').outerHeight();
@@ -83,11 +84,11 @@ import ElSlider from './el-slider';
                                 };
                                 let $target = $(target);
                                 $target['focusNoScroll']();
-                                if ($target.is(":focus")) { 
+                                if ($target.is(":focus")) {
                                     return false;
                                 } else {
-                                    $target.attr('tabindex', '-1'); 
-                                    $target['focusNoScroll'](); 
+                                    $target.attr('tabindex', '-1');
+                                    $target['focusNoScroll']();
                                 };
                             });
                         }
@@ -130,7 +131,7 @@ import ElSlider from './el-slider';
                 utilC,
                 {
                     autoPlay: true,
-                    easing: 'linear', 
+                    easing: 'linear',
                     delay: 4990,
                     infiniteScroll: true,
                     thumbsToDisplay: 3,
@@ -580,7 +581,7 @@ import ElSlider from './el-slider';
             const uploadBtn = q('.cv-button', wrapper);
             const label = q('.cv-label', wrapper);
             const file = q('input[type="file"]', wrapper);
-            
+
             initForm(form);
 
             uploadBtn.addEventListener('click', e => {
@@ -590,7 +591,7 @@ import ElSlider from './el-slider';
 
             file.addEventListener('change', e => {
                 const files = e.target.files;
-                
+
                 if (files && files.length > 0) {
                     const { name, size } = files[0];
 
@@ -668,5 +669,34 @@ import ElSlider from './el-slider';
             clearInterval(timer);
         }
     }, 100); */
+    ((testimonials) => {
+        if (testimonials) {
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // And if we need scrollbar
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+
+                autoplay: {
+                    delay: 5000,
+                },
+            });
+        }
+    })(q('.block.testimonials'));
 
 })()

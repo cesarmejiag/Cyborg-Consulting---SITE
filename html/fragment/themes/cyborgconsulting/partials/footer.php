@@ -9,7 +9,7 @@
         <div class="d-none d-sm-block">
             <div class="row">
                 <?php foreach ($root_pages as $r_page) : ?>
-                    <?php if ($r_page->guid !== 'home') : ?>
+                    <?php if ($r_page->guid !== 'home' && $r_page->guid !== $testimonials_guid) : ?>
                         <?php $col_classes = ($r_page->guid === $us_guid || $r_page->guid === $services_guid || $r_page->guid === $rpa_guid || $r_page->guid === $industries_guid) ? 'col-sm-3 col-md-2' : 'col-sm-3 col-md-1'; ?>
                         <div class="<?= $col_classes ?>">
                             <div class="list">

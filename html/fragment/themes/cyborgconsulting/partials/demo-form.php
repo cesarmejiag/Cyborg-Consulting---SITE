@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="input-container">
-                    <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Teléfono" type="text" />
+                    <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Tel&eacute;fono" type="text" />
                     <label for="contact-form-phone">Teléfono*</label>
                 </div>
             </div>

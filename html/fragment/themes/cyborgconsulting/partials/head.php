@@ -1,10 +1,14 @@
-<?php $site_name = (is_home()) ? SITE_NAME : sprintf("%s - %s", $page->title, SITE_NAME); ?>
+<?php 
+  $site_title = $settings['title'] ? $settings['title'] : SITE_NAME;
+  $site_name = (is_home()) ? $site_title : sprintf("%s - %s", $page->title, $site_title);
+  $page_description = $page->description ? $page->description : SITE_DESCRIPTION;
+?>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title><?= $site_name ?></title>
-<meta name="description" content="<?= SITE_DESCRIPTION ?>">
+<meta name="description" content="<?= $page_description ?>">
 <meta name="keywords" content="<?= SITE_KEYWORDS ?>">
 <meta name="author" content="PageLab">
 <meta name="robots" content="INDEX, FOLLOW, ARCHIVE">
@@ -19,7 +23,7 @@
 
 <!-- Schema properties -->
 <meta itemprop="name" content="<?= $site_name ?>">
-<meta itemprop="description" content="<?= SITE_DESCRIPTION ?>">
+<meta itemprop="description" content="<?= $page_description ?>">
 <meta itemprop="url" content="<?= SITE_URL ?>">
 <meta itemprop="image" content="<?= SITE_SOCIAL_IMAGE ?>">
 
@@ -27,7 +31,7 @@
 <!-- <meta property="fb:app_id" content="app-id"> -->
 <meta property="og:site_name" content="<?= SITE_NAME ?>">
 <meta property="og:title" content="<?= $site_name ?>">
-<meta property="og:description" content="<?= SITE_DESCRIPTION ?>">
+<meta property="og:description" content="<?= $page_description ?>">
 <meta property="og:url" content="<?= SITE_URL ?>">
 <meta property="og:image" content="<?= SITE_SOCIAL_IMAGE ?>">
 <meta property="og:type" content="website">

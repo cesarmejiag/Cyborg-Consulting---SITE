@@ -14,7 +14,7 @@
 /*
  * Site Name
  */
-define("SITE_NAME", "CYBORG Consulting | RPA e Hiperautomatización");
+define("SITE_NAME", "CYBORG Consulting: RPA | Hiperautomatizacion");
 
 
 /*
@@ -32,7 +32,7 @@ define("SITE_URL", sprintf("https://%s", SITE_DOMAIN));
 /*
  * Site Description
  */
-define("SITE_DESCRIPTION", "Somos una consultora tecnológica boutique líder, especializada en RPA e hiperautomatización con enfoque global.");
+define("SITE_DESCRIPTION", "CYBORG Consulting especialistas en soluciones de Robotic Process Automation (RPA) e Hiperautomatización.");
 
 
 /*

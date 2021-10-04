@@ -6,7 +6,7 @@ $navClasses = array();
 foreach ($root_pages as $option) {
 
     // Remove Home option from menu
-    if ($option->guid === 'home') {
+    if ($option->guid === 'home' || $option->guid === $testimonials_guid) {
         continue;
     }
 
