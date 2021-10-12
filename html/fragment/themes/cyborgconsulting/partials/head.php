@@ -1,6 +1,7 @@
 <?php 
   $site_title = $settings['title'] ? $settings['title'] : SITE_NAME;
   $site_name = (is_home()) ? $site_title : sprintf("%s - %s", $page->title, $site_title);
+  $site_url = (is_home()) ? SITE_CANONICAL_URL : sprintf("%s/%s", SITE_CANONICAL_URL, $page->key);
   $page_description = $page->description ? $page->description : SITE_DESCRIPTION;
 ?>
 <meta charset="UTF-8">
@@ -14,7 +15,7 @@
 <meta name="robots" content="INDEX, FOLLOW, ARCHIVE">
 
 <!-- Href lang -->
-<link rel="alternate" hreflang="es" href="<?= SITE_URL ?>" />
+<link rel="alternate" hreflang="es" href="<?= $site_url ?>" />
 
 <!-- Favicons -->
 <link rel="icon" href="<?= FAVICONS_PATH ?>favicon.ico" type="image/x-icon">
@@ -24,7 +25,7 @@
 <!-- Schema properties -->
 <meta itemprop="name" content="<?= $site_name ?>">
 <meta itemprop="description" content="<?= $page_description ?>">
-<meta itemprop="url" content="<?= SITE_URL ?>">
+<meta itemprop="url" content="<?= $site_url ?>">
 <meta itemprop="image" content="<?= SITE_SOCIAL_IMAGE ?>">
 
 <!-- Open Graph properties -->
@@ -32,13 +33,13 @@
 <meta property="og:site_name" content="<?= SITE_NAME ?>">
 <meta property="og:title" content="<?= $site_name ?>">
 <meta property="og:description" content="<?= $page_description ?>">
-<meta property="og:url" content="<?= SITE_URL ?>">
+<meta property="og:url" content="<?= $site_url ?>">
 <meta property="og:image" content="<?= SITE_SOCIAL_IMAGE ?>">
 <meta property="og:type" content="website">
 
 <!-- Twitter integration -->
 <meta name="twitter:title" content="<?= $site_name ?>">
-<meta name="twitter:url" content="<?= SITE_URL ?>">
+<meta name="twitter:url" content="<?= $site_url ?>">
 <meta name="twitter:image" content="<?= SITE_SOCIAL_IMAGE ?>">
 <meta name="twitter:card" content="summary">
 

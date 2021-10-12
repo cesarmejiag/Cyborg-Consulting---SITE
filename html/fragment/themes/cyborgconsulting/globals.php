@@ -30,6 +30,12 @@ define("SITE_URL", sprintf("https://%s", SITE_DOMAIN));
 
 
 /*
+ * Site canonical URL
+ */
+define("SITE_CANONICAL_URL", sprintf("https://www.%s", SITE_DOMAIN));
+
+
+/*
  * Site Description
  */
 define("SITE_DESCRIPTION", "CYBORG Consulting especialistas en soluciones de Robotic Process Automation (RPA) e Hiperautomatización.");
