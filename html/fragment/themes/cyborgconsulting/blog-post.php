@@ -2,15 +2,6 @@
 include_once "globals.php";
 include_once "utils/fragment_helpers.php";
 
-// Retrieve fragments.
-$page_fragments = $page->getFragments();
-
-// Find body fragment
-$post_intro = find_fragment_by_name('intro', $page_fragments);
-$post_body = find_fragment_by_name('body', $page_fragments);
-$main_image = find_fragment_by_name('main-image', $page_fragments);
-$post_modal = find_setting_by_name('modal', $page_fragments);
-
 ?>
 <!doctype html>
 <html amp lang="es-MX">
@@ -30,7 +21,6 @@ $post_modal = find_setting_by_name('modal', $page_fragments);
                         <div class="wrapper-holder">
                             <div class="holder">
                                 <?php
-                                $img = Fragment::elementAttributes($main_image->value);
                                 $img_src = sprintf('background-image:url(%s)', $img['src'])
                                 ?>
                                 <div class="cover-bg d-flex align-items-center justify-content-center" style="<?= $img_src ?>">

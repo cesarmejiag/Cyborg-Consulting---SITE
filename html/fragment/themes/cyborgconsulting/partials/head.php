@@ -3,6 +3,22 @@
   $site_name = (is_home()) ? $site_title : sprintf("%s - %s", $page->title, $site_title);
   $site_url = (is_home()) ? SITE_CANONICAL_URL : sprintf("%s/%s", SITE_CANONICAL_URL, $page->key);
   $page_description = $page->description ? $page->description : SITE_DESCRIPTION;
+  $page_image = SITE_SOCIAL_IMAGE;
+
+  if ($page->template === 'blog-post') {
+    // Retrieve fragments.
+    $page_fragments = $page->getFragments();
+
+    // Find body fragment
+    $post_intro = find_fragment_by_name('intro', $page_fragments);
+    $post_body = find_fragment_by_name('body', $page_fragments);
+    $main_image = find_fragment_by_name('main-image', $page_fragments);
+    $post_modal = find_setting_by_name('modal', $page_fragments);
+
+    $img = Fragment::elementAttributes($main_image->value);
+
+    $page_image = SITE_CANONICAL_URL . $img['src'];
+  }
 ?>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +42,7 @@
 <meta itemprop="name" content="<?= $site_name ?>">
 <meta itemprop="description" content="<?= $page_description ?>">
 <meta itemprop="url" content="<?= $site_url ?>">
-<meta itemprop="image" content="<?= SITE_SOCIAL_IMAGE ?>">
+<meta itemprop="image" content="<?= $page_image ?>">
 
 <!-- Open Graph properties -->
 <!-- <meta property="fb:app_id" content="app-id"> -->
@@ -34,13 +50,13 @@
 <meta property="og:title" content="<?= $site_name ?>">
 <meta property="og:description" content="<?= $page_description ?>">
 <meta property="og:url" content="<?= $site_url ?>">
-<meta property="og:image" content="<?= SITE_SOCIAL_IMAGE ?>">
+<meta property="og:image" content="<?= $page_image ?>">
 <meta property="og:type" content="website">
 
 <!-- Twitter integration -->
 <meta name="twitter:title" content="<?= $site_name ?>">
 <meta name="twitter:url" content="<?= $site_url ?>">
-<meta name="twitter:image" content="<?= SITE_SOCIAL_IMAGE ?>">
+<meta name="twitter:image" content="<?= $page_image ?>">
 <meta name="twitter:card" content="summary">
 
 <!-- Web Application Manifest -->
