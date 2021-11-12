@@ -158,7 +158,7 @@ import ElSlider from './el-slider';
             let wrapperSections = q('.wrapper-sections', generalWrapper);
             if (generalWrapper) {
                 let reqAnimFrame = window.requestAnimationFrame ||
-                    window.webkitRequestAnimationFrame ||
+                    window['webkitRequestAnimationFrame'] ||
                     function (callback) {
                         window.setTimeout(callback, 1000 / 60);
                     };
@@ -268,13 +268,12 @@ import ElSlider from './el-slider';
              */
             createPost: function (post, index) {
                 let gridItem = document.createElement('a');
-                let image = "";
-                let abstract = "intro" in post.fragments ? post.fragments['intro'].value : '';
+                const { intro, image } = post.fragments;
+                let abstract = intro ? intro.value : '';
+                let imagestr = image ? image.value : '';
                 let title = post.title || '';
                 let name = post.key;
                 let created = formatDate(post.created);
-
-                image = post.fragments['image'].value;
 
                 pl.Classie.addClass(gridItem, 'grid-item');
                 gridItem.href = post.key;
@@ -283,7 +282,7 @@ import ElSlider from './el-slider';
                     <div class="number" hidden>${index}</div>
                     <div class="name" hidden>${name}</div>
                     <div class="inner" data-name="${name}">
-                        <div class="inner-image">${image}</div>
+                        <div class="inner-image">${imagestr}</div>
                         <div class="title-blog color-highlight-color">${title}</div>
                         <div class="date-blog">${created}</div>
                         <div class="intro">${abstract}</div>
@@ -317,7 +316,7 @@ import ElSlider from './el-slider';
                         elems.push(elem);
                     }
 
-                    let images = elems.map((el) => q('img', el));
+                    let images = elems.filter(el => q('img', el));
 
                     Page.waitForImages($(images), () => {
                         let gridItems = qa('.grid-item .inner', document);
@@ -671,7 +670,7 @@ import ElSlider from './el-slider';
     }, 100); */
     ((testimonials) => {
         if (testimonials) {
-            const swiper = new Swiper('.swiper', {
+            const swiper = new window['Swiper']('.swiper', {
                 // Optional parameters
                 direction: 'horizontal',
                 loop: true,

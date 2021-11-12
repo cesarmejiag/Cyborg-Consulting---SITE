@@ -2325,7 +2325,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 var wrapperSections = q('.wrapper-sections', generalWrapper);
                 if (generalWrapper) {
                     var reqAnimFrame_1 = window.requestAnimationFrame ||
-                        window.webkitRequestAnimationFrame ||
+                        window['webkitRequestAnimationFrame'] ||
                         function (callback) {
                             window.setTimeout(callback, 1000 / 60);
                         };
@@ -2400,15 +2400,15 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 },
                 createPost: function (post, index) {
                     var gridItem = document.createElement('a');
-                    var image = "";
-                    var abstract = "intro" in post.fragments ? post.fragments['intro'].value : '';
+                    var _a = post.fragments, intro = _a.intro, image = _a.image;
+                    var abstract = intro ? intro.value : '';
+                    var imagestr = image ? image.value : '';
                     var title = post.title || '';
                     var name = post.key;
                     var created = formatDate(post.created);
-                    image = post.fragments['image'].value;
                     pl_1.default.Classie.addClass(gridItem, 'grid-item');
                     gridItem.href = post.key;
-                    gridItem.innerHTML = "\n                    <div class=\"number\" hidden>" + index + "</div>\n                    <div class=\"name\" hidden>" + name + "</div>\n                    <div class=\"inner\" data-name=\"" + name + "\">\n                        <div class=\"inner-image\">" + image + "</div>\n                        <div class=\"title-blog color-highlight-color\">" + title + "</div>\n                        <div class=\"date-blog\">" + created + "</div>\n                        <div class=\"intro\">" + abstract + "</div>\n                        <!--<div class=\"complete-article\">Leer</div>-->\n                    </div>\n                ";
+                    gridItem.innerHTML = "\n                    <div class=\"number\" hidden>" + index + "</div>\n                    <div class=\"name\" hidden>" + name + "</div>\n                    <div class=\"inner\" data-name=\"" + name + "\">\n                        <div class=\"inner-image\">" + imagestr + "</div>\n                        <div class=\"title-blog color-highlight-color\">" + title + "</div>\n                        <div class=\"date-blog\">" + created + "</div>\n                        <div class=\"intro\">" + abstract + "</div>\n                        <!--<div class=\"complete-article\">Leer</div>-->\n                    </div>\n                ";
                     return gridItem;
                 },
                 handleDataArrived: function (data) {
@@ -2425,7 +2425,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                             this.grid.appendChild(elem);
                             elems.push(elem);
                         }
-                        var images = elems.map(function (el) { return q('img', el); });
+                        var images = elems.filter(function (el) { return q('img', el); });
                         Page.waitForImages($(images), function () {
                             var gridItems = qa('.grid-item .inner', document);
                             [].forEach.call(gridItems, function (gridItem) {
@@ -2675,7 +2675,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
         }
         (function (testimonials) {
             if (testimonials) {
-                var swiper = new Swiper('.swiper', {
+                var swiper = new window['Swiper']('.swiper', {
                     direction: 'horizontal',
                     loop: true,
                     pagination: {
