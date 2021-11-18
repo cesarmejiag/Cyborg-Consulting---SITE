@@ -37,7 +37,8 @@ import ElSlider from './el-slider';
             const parts = datetime.split(' ');
             const date = parts[0].split('-');
 
-            formated = `${date[2]} ${months[Number(date[1]) - 1]} ${date[0]} - ${parts[1]}`
+            // formated = `${date[2]} ${months[Number(date[1]) - 1]} ${date[0]} - ${parts[1]}`
+            formated = `${date[2]} ${months[Number(date[1]) - 1]} ${date[0]}`
         } catch (e) { formated = datetime; }
 
         return formated;
@@ -367,13 +368,10 @@ import ElSlider from './el-slider';
                  this.pagination.next();
                  }*/
                 if (!Page.isMobileSize()) {
-
                     if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
                         this.pagination.next();
                     }
-
                 } else {
-
                     let _this = this;
                     let $btn_load = $('.load-more');
                     $btn_load.on('click', function () {

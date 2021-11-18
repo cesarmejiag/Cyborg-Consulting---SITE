@@ -2208,7 +2208,7 @@ define("scripts", ["require", "exports", "ContactForm", "util/Classie", "utilCus
                 var months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sept', 'oct', 'nov', 'dic'];
                 var parts = datetime.split(' ');
                 var date = parts[0].split('-');
-                formated = date[2] + " " + months[Number(date[1]) - 1] + " " + date[0] + " - " + parts[1];
+                formated = date[2] + " " + months[Number(date[1]) - 1] + " " + date[0];
             }
             catch (e) {
                 formated = datetime;

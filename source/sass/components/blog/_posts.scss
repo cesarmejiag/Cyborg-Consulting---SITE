@@ -50,7 +50,8 @@
   }
 
   &.loading {
-    background: url("../imgs/loader.svg") no-repeat center 99%;
+    background: url("../images/loader.svg") no-repeat center 100%;
+    background-size: 80px auto;
 
     & ~ .load-more {
       visibility: hidden !important;
@@ -190,7 +191,8 @@
 
 .ajax-content {
   &.loading {
-    background: #fff url(../imgs/loader.svg) no-repeat center center;
+    background: #fff url(../images/loader.svg) no-repeat center center;
+    background-size: 80px auto;
   }
 }
 
