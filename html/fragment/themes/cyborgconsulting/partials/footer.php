@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="rights">
-            <div>© 2021 Todos los derechos reservados</div>
+            <div><?= "© " . date("Y") . " Todos los derechos reservados" ?></div>
             <div>Aviso de privacidad</div>
         </div>
     </div>
