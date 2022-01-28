@@ -160,7 +160,7 @@ function typescript(callback) {
 
     return src(files)
         .pipe(ts(settings))
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(dest(`${destPath.scripts}`))
 }
 
