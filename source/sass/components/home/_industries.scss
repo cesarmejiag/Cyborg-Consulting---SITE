@@ -20,19 +20,19 @@
     //padding-bottom: 100%;
   }
   .item {
-    overflow: hidden;
+    position: relative;
     outline: none;
     text-decoration: none;
     margin: 20px auto 0;
     max-width: 480px;
     width: 100%;
     perspective: 1000px;
-    position: relative;
     background-color: transparent;
     &::after {
-      //content: "";
+      // content: "";
       display: block;
       left: 0;
+      top: 0;
       position: absolute;
       transition: all 350ms ease-in-out;
       background: #000;
@@ -157,29 +157,41 @@
         }
       }
     }
+    .flip-back,
+    .flip-front {
+      backface-visibility: hidden;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
     .flip-back {
       background-color: #2980b9;
       color: white;
       transform: rotateX(180deg);
-      padding-bottom: 110%;
-      position: relative;
       &::after {
         content: "";
         background-color: #fff;
         position: absolute;
         left: 0;
-        top:0;
+        top: 0;
         transition: opacity 355ms linear;
         height: 100%;
         width: 100%;
         opacity: 1;
       }
     }
-    .flip-front {
+    .flip-front::after {
+      content: "";
+      display: block;
+      left: 0;
+      top: 0;
       position: absolute;
-      width: 100%;
+      transition: all 350ms ease-in-out;
+      background: #000;
       height: 100%;
-      backface-visibility: hidden;
+      width: 100%;
+      opacity: 0.35;
+      z-index: 1;
     }
     .item-title,
     .item-info,
@@ -233,7 +245,7 @@
       height: 240px;
       position: relative;
       text-decoration: none;
-      .item-title  {
+      .item-title {
         top: 10px;
       }
       /* &:hover {

@@ -211,12 +211,12 @@ include_once "utils/fragment_helpers.php";
                     <div class="header d-flex justify-content-center align-items-center" style="<?= $imgIndutries_src ?>">
                         <h2 class="title mx-0 text-white text-center"><?= $industries->fragments['intro']->value ?></h2>
                     </div>
-                    <div class="content position-relative d-flex justify-content-between flex-wrap">
+                    <div class="content d-flex justify-content-between flex-wrap">
                         <?php foreach ($industries_r as $page) :
                             $imgPageAtts = Fragment::elementAttributes($page->fragments['img']->value);
                             $imgPage_src = sprintf('background-image:url(%s)', $imgPageAtts['src'])
                         ?>
-                            <a class="item position-relative" href="/<?= $industries->key . '#' . $page->key ?> ">
+                            <a class="item" href="/<?= $industries->key . '#' . $page->key ?> ">
                                 <div class="flip-inner">
                                     <div class="flip-front image-content" style="<?= $imgPage_src ?>"></div>
                                     <div class="flip-back item-content">
