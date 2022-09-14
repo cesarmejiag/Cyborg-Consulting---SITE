@@ -548,7 +548,6 @@ import ElSlider from './el-slider';
         form.success.add((response, status, statusText) => handleSuccess(form, response, status, statusText));
     }
 
-
     var formElement = q('.home-form, .ebook-form, .industries-form');
     if (formElement) {
         initForm(formElement);
@@ -557,7 +556,6 @@ import ElSlider from './el-slider';
     // Book Ad
     const bookAd = q('.book-ad');
     const closeBtn = q('.book-ad .close-button');
-
     if (bookAd && closeBtn) {
         closeBtn.addEventListener('click', () => {
             Classie.removeClass(bookAd, 'displayed');
@@ -570,7 +568,6 @@ import ElSlider from './el-slider';
 
     // Nosotros envía tu CV
     const usJoin = q('.us-join');
-
     if (usJoin) {
         const cvBtn = q('.button', usJoin);
         const initializeForm = wrapper => {
@@ -650,6 +647,10 @@ import ElSlider from './el-slider';
             }, 1000);
         });
     }
+
+    // Initialize demo form
+    const demoForm = q(".demo-form .contact-form");
+    demoForm && initForm(demoForm);
 
     const elSlider = q('.el-slider');
     if (elSlider) {
