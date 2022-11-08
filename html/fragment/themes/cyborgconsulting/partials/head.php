@@ -35,8 +35,8 @@
 
 <!-- Favicons -->
 <link rel="icon" href="<?= FAVICONS_PATH ?>favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" sizes="72x72" href="<?= FAVICONS_PATH ?>apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="<?= FAVICONS_PATH ?>apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="<?= FAVICONS_PATH ?>apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="<?= FAVICONS_PATH ?>apple-icon-114x114.png">
 
 <!-- Schema properties -->
 <meta itemprop="name" content="<?= $site_name ?>">
@@ -65,13 +65,13 @@
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="application-name" content="<?= $site_name ?>">
-<link rel="icon" sizes="192x192" href="<?= FAVICONS_PATH ?>chrome-touch-icon-192x192.png">
+<link rel="icon" sizes="192x192" href="<?= FAVICONS_PATH ?>android-icon-192x192.png">
 
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="<?= $site_name ?>">
-<link rel="apple-touch-icon" href="<?= FAVICONS_PATH ?>apple-touch-icon.png">
+<link rel="apple-touch-icon" href="<?= FAVICONS_PATH ?>apple-icon-180x180.png">
 
 <!-- Windows Phone -->
 <meta name="msapplication-navbutton-color" content="<?= THEME_COLOR ?>">

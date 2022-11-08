@@ -41,7 +41,8 @@ include_once "utils/fragment_helpers.php";
                     <div class="container-fluid">
                         <div class="content">
                             <div class="grid"></div>
-                            <button class="load-more d-block d-md-none">Cargar más</button>
+                            <!-- <button class="load-more d-block d-md-none">Cargar más</button> -->
+                            <button class="load-more">Cargar más</button>
                         </div>
                     </div>
                 </div>

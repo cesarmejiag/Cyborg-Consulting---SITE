@@ -44,7 +44,7 @@ define("SITE_DESCRIPTION", "CYBORG Consulting especialistas en soluciones de Rob
 /*
  * Social site image
  */
-define("SITE_SOCIAL_IMAGE", "");
+define("SITE_SOCIAL_IMAGE", "https://www.cyborgconsulting.com.mx/fragment/files/uploads/2022/04/29/626c10c57056f-e03e8d58-37db-486c-a7d9-f5f4ecd6b8b3.jpg");
 
 
 /*
