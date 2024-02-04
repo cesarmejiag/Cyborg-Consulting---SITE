@@ -620,7 +620,8 @@ import ElSlider from "./el-slider";
     var message = q(".message", formEl);
     var wrapper = q(".wrapper", formEl);
     var form = new ContactForm(formEl, {
-      url: "/fragment/themes/cyborgconsulting/send-mail.php",
+      //url: "/fragment/themes/cyborgconsulting/send-mail.php",
+      url: "/fragment/leads/process.php",
       useAjax: true,
       inputSelectors: [
         "input[type=text]",

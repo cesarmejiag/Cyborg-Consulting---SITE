@@ -505,6 +505,7 @@ export default class ContactForm {
                 }; */
                 const data = this.getFormValues();
                 data.append('host', location.hostname);
+                data.append('url', location.href);
 
                 this.ajaxRequest(data);
 

@@ -71,6 +71,16 @@ class settingBase extends DataRecord{
     public function getFields(){ return array( "idowner" => $this->idowner, "owner" => $this->owner, "name" => $this->name, "value" => $this->value ); }
     public function getModule(){ return 'fragment'; }
     public function isInserted(){ return isset($this->idsetting); }
+}
+class leadBase extends DataRecord{
+    public $idlead, $name, $email, $phone, $message, $company, $interest, $cv, $country, $url;
+    public static function all($t = "lead"){ return array("$t.idlead AS '$t.idlead'", "$t.name AS '$t.name'", "$t.email AS '$t.email'", "$t.phone AS '$t.phone'", "$t.message AS '$t.message'", "$t.company AS '$t.company'", "$t.interest AS '$t.interest'", "$t.cv AS '$t.cv'", "$t.country AS '$t.country'", "$t.url AS '$t.url'"); }
+    public static function gettable(){ return "lead"; }
+    public function getAutoKey(){ return array( "idlead" => $this->idlead ); }
+    public function getKeys(){ return array(  ); }
+    public function getFields(){ return array( "name" => $this->name, "email" => $this->email, "phone" => $this->phone, "message" => $this->message, "company" => $this->company, "interest" => $this->interest, "cv" => $this->interest, "country" => $this->country, "url" => $this->url ); }
+    public function getModule(){ return 'fragment'; }
+    public function isInserted(){ return isset($this->idlead); }
 }/**
  * Created by PhpStorm.
  * User: josemanuel
@@ -5420,4 +5430,8 @@ class User extends userBase{
         return md5($password) == $this->password;
     }
 
+}
+
+class Lead extends leadBase {
+    
 }

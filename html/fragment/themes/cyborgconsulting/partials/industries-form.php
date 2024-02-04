@@ -6,25 +6,25 @@
                 <input name="Pagina" type="hidden" value="<?= SITE_URL . '/' . $page->key ?>">
                 <div class="col-xs-12 col-sm-3">
                     <div class="input-container">
-                        <input data-clue="Introduce un nombre válido." data-validate="range:3" id="contact-form-name" name="Nombre" type="text" />
+                        <input data-clue="Introduce un nombre válido." data-validate="range:3" id="contact-form-name" name="nombre" type="text" />
                         <label for="contact-form-name">Nombre*</label>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-3">
                     <div class="input-container">
-                        <input data-clue="Introduce un E-mail válido." data-validate="email" id="contact-form-email" name="E-mail" type="email" />
+                        <input data-clue="Introduce un E-mail válido." data-validate="email" id="contact-form-email" name="email" type="email" />
                         <label for="contact-form-email">E-mail*</label>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-3">
                     <div class="input-container">
-                        <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="Tel&eacute;fono" type="text" />
+                        <input data-clue="Introduce un teléfono válido." data-validate="phone" id="contact-form-phone" name="telefono" type="text" />
                         <label for="contact-form-phone">Teléfono*</label>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-3">
                     <div class="input-container">
-                        <input id="contact-form-company" name="Empresa" type="text" />
+                        <input id="contact-form-company" name="empresa" type="text" />
                         <label for="contact-form-company">Empresa</label>
                     </div>
                 </div>
@@ -36,61 +36,61 @@
                 <div class="row d-flex">
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-retail" name="Industria de interes" type="checkbox" value="Retail y distribucion" />
+                            <input id="interests-retail" name="intereses" type="checkbox" value="Retail y distribucion" />
                             <label for="interests-retail">Retail y distribucion</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-industrial" name="Industria de interes" type="checkbox" value="Música" />
+                            <input id="interests-industrial" name="intereses" type="checkbox" value="Música" />
                             <label for="interests-industrial">Industrial</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-tecnologia" name="Industria de interes" type="checkbox" value="Tecnología, medios y comunicación" />
+                            <input id="interests-tecnologia" name="intereses" type="checkbox" value="Tecnología, medios y comunicación" />
                             <label for="interests-tecnologia">Tecnología, medios y comunicación</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-servicios" name="Industria de interes" type="checkbox" value="Servicios financieros" />
+                            <input id="interests-servicios" name="intereses" type="checkbox" value="Servicios financieros" />
                             <label for="interests-servicios">Servicios financieros</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-turismo" name="Industria de interes" type="checkbox" value="Turismo y ocio" />
+                            <input id="interests-turismo" name="intereses" type="checkbox" value="Turismo y ocio" />
                             <label for="interests-turismo">Turismo y ocio</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-transporte" name="Industria de interes" type="checkbox" value="Transporte y logistica" />
+                            <input id="interests-transporte" name="intereses" type="checkbox" value="Transporte y logistica" />
                             <label for="interests-transporte">Transporte y logistica</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-salud" name="Industria de interes" type="checkbox" value="Salud y farma" />
+                            <input id="interests-salud" name="intereses" type="checkbox" value="Salud y farma" />
                             <label for="interests-salud">Salud y farma</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-sector" name="Industria de interes" type="checkbox" value="Sector público y social" />
+                            <input id="interests-sector" name="intereses" type="checkbox" value="Sector público y social" />
                             <label for="interests-sector">Sector público y social</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-energia" name="Industria de interes" type="checkbox" value="Energia y utilities" />
+                            <input id="interests-energia" name="intereses" type="checkbox" value="Energia y utilities" />
                             <label for="interests-energia">Energia y utilities</label>
                         </div>
                     </div>
                     <div class="col-xs-2 col-sm-3">
                         <div class="input-container">
-                            <input id="interests-automotriz" name="Industria de interes" type="checkbox" value="Automotriz" />
+                            <input id="interests-automotriz" name="intereses" type="checkbox" value="Automotriz" />
                             <label for="interests-automotriz">Automotriz</label>
                         </div>
                     </div>
