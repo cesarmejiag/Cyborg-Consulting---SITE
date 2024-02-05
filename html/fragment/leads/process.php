@@ -32,7 +32,7 @@ try {
     $lead = new Lead();
 
     foreach ($post as $key => $value) {
-        if ($key === 'host') {
+        if ($key === 'host' || $key === 'terminos-y-condiciones') {
             continue;
         }
         $lead->{$keys[$key]} = $value;
